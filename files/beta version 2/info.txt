@@ -1,0 +1,4 @@
+[23:54, 11/09/2020] Hanra: Si tu aimes les labyrinthes, je connais exactement le type de jeux que je pourrais coder dans lequel ton magnifique loup pourra être le perso principal
+[23:54, 11/09/2020] Hanra: Je crois que je nomerais le jeux wolf escape
+[23:55, 11/09/2020] Hanra: Un loup prisnnier d'un zoo et qui doit s'échapper
+[23:56, 11/09/2020] Hanra: Ou on peu faire un autre contexte si tu préfère, c'est tout de même toi qui as fait le peronnage principal
