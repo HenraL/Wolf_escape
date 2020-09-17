@@ -129,11 +129,14 @@ def play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels):
         continuer_jeu = 1
         #global choix
         choix=levelfiles[i]
-        print (choix)
-        #choix = 'l{}'.format(i+1)
-        check(image_fond,choix,fenetre)#niveau,
-        boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
-        print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
+        if choix=="014_m1" or choix=="015_m2" or choix=="017_h" or choix=="018_I":
+            continuer_jeu=0
+        else:
+            print (choix)
+            #choix = 'l{}'.format(i+1)
+            check(image_fond,choix,fenetre)#niveau,
+            boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
+            print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
 
 pygame.init()
 

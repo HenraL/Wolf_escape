@@ -40,8 +40,33 @@ class Niveau:
 		depart = pygame.image.load(image_depart).convert()
 		arrivee = pygame.image.load(image_arrivee).convert_alpha()
 		arrivee_fam=pygame.image.load(image_arrivee_fam).convert_alpha()
-		a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z=pygame.image.load(a).convert_alpha(),pygame.image.load(b).convert_alpha(),pygame.image.load(c).convert_alpha(),pygame.image.load(d).convert_alpha(),pygame.image.load(e).convert_alpha(),pygame.image.load(f).convert_alpha(),pygame.image.load(g).convert_alpha(),pygame.image.load(h).convert_alpha(),pygame.image.load(i).convert_alpha(),pygame.image.load(j).convert_alpha(),pygame.image.load(k).convert_alpha(),pygame.image.load(l).convert_alpha(),pygame.image.load(m).convert_alpha(),pygame.image.load(n).convert_alpha(),pygame.image.load(o).convert_alpha(),pygame.image.load(p).convert_alpha(),pygame.image.load(q).convert_alpha(),pygame.image.load(r).convert_alpha(),pygame.image.load(s).convert_alpha(),pygame.image.load(t).convert_alpha(),pygame.image.load(u).convert_alpha(),pygame.image.load(v).convert_alpha(),pygame.image.load(w).convert_alpha(),pygame.image.load(x).convert_alpha(),pygame.image.load(y).convert_alpha(),pygame.image.load(z).convert_alpha()
-                A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z=pygame.image.load(A).convert_alpha(),pygame.image.load(B).convert_alpha(),pygame.image.load(C).convert_alpha(),pygame.image.load(D).convert_alpha(),pygame.image.load(E).convert_alpha(),pygame.image.load(F).convert_alpha(),pygame.image.load(G).convert_alpha(),pygame.image.load(H).convert_alpha(),pygame.image.load(I).convert_alpha(),pygame.image.load(J).convert_alpha(),pygame.image.load(K).convert_alpha(),pygame.image.load(L).convert_alpha(),pygame.image.load(M).convert_alpha(),pygame.image.load(N).convert_alpha(),pygame.image.load(O).convert_alpha(),pygame.image.load(P).convert_alpha(),pygame.image.load(Q).convert_alpha(),pygame.image.load(R).convert_alpha(),pygame.image.load(S).convert_alpha(),pygame.image.load(T).convert_alpha(),pygame.image.load(U).convert_alpha(),pygame.image.load(V).convert_alpha(),pygame.image.load(W).convert_alpha(),pygame.image.load(X).convert_alpha(),pygame.image.load(Y).convert_alpha(),pygame.image.load(Z).convert_alpha()
+		a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z=pygame.image.load(leta).convert_alpha(),pygame.image.load(letb).convert_alpha(),pygame.image.load(letc).convert_alpha(),pygame.image.load(letd).convert_alpha(),pygame.image.load(lete).convert_alpha(),pygame.image.load(letf).convert_alpha(),pygame.image.load(letg).convert_alpha(),pygame.image.load(leth).convert_alpha(),pygame.image.load(leti).convert_alpha(),pygame.image.load(letj).convert_alpha(),pygame.image.load(letk).convert_alpha(),pygame.image.load(letl).convert_alpha(),pygame.image.load(letm).convert_alpha(),pygame.image.load(letn).convert_alpha(),pygame.image.load(leto).convert_alpha(),pygame.image.load(letp).convert_alpha(),pygame.image.load(letq).convert_alpha(),pygame.image.load(letr).convert_alpha(),pygame.image.load(lets).convert_alpha(),pygame.image.load(lett).convert_alpha(),pygame.image.load(letu).convert_alpha(),pygame.image.load(letv).convert_alpha(),pygame.image.load(letw).convert_alpha(),pygame.image.load(letx).convert_alpha(),pygame.image.load(lety).convert_alpha(),pygame.image.load(letz).convert_alpha()
+		A=pygame.image.load(letA).convert_alpha()
+		B=pygame.image.load(letB).convert_alpha()
+		C=pygame.image.load(letC).convert_alpha()
+		D=pygame.image.load(letD).convert_alpha()
+		E=pygame.image.load(letE).convert_alpha()
+		F=pygame.image.load(letF).convert_alpha()
+		G=pygame.image.load(letG).convert_alpha()
+		H=pygame.image.load(letH).convert_alpha()
+		I=pygame.image.load(letI).convert_alpha()
+		J=pygame.image.load(letJ).convert_alpha()
+		K=pygame.image.load(letK).convert_alpha()
+		L=pygame.image.load(letL).convert_alpha()
+		M=pygame.image.load(letM).convert_alpha()
+		N=pygame.image.load(letN).convert_alpha()
+		O=pygame.image.load(letO).convert_alpha()
+		P=pygame.image.load(letP).convert_alpha()
+		Q=pygame.image.load(letQ).convert_alpha()
+		R=pygame.image.load(letR).convert_alpha()
+		S=pygame.image.load(letS).convert_alpha()
+		T=pygame.image.load(letT).convert_alpha()
+		U=pygame.image.load(letU).convert_alpha()
+		V=pygame.image.load(letV).convert_alpha()
+		W=pygame.image.load(letW).convert_alpha()
+		X=pygame.image.load(letX).convert_alpha()
+		Y=pygame.image.load(letY).convert_alpha()
+		Z=pygame.image.load(letZ).convert_alpha()
 
 		#On parcourt la liste du niveau
 		num_ligne = 0
@@ -60,7 +85,7 @@ class Niveau:
 					fenetre.blit(arrivee, (x,y))
 				elif sprite == '4':		   #a = Arrivée
 					fenetre.blit(arrivee_fam, (x,y))
-                                elif sprite == '5':		   
+				elif sprite == '5':		   
 				 	fenetre.blit(aright, (x,y))
 				elif sprite == '6':		  
 				 	fenetre.blit(aleft, (x,y))

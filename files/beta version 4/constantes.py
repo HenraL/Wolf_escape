@@ -58,6 +58,16 @@ adown="img/tut_image/adown.PNG"
 
 #Crédits
 image_credits_fond="img/Credits/end.png"
+#Crédits_image_gané
+image_credits_gangne="img/sprite/famille/famille_loup_You_have_won.png"
+#Crédits_image_w_Irina
+image_credits_gangne="img/sprite/famille/Mere et petits.png"
+#Crédits_image_w_Henry
+image_credits_Henry="img/sprite/famille/w_fam.png"
+#Crédits_image_l_Irina
+image_credits_gangne="img/sprite/famille/Irina30x30.png"
+#Crédits_image_l_Henry
+image_credits_Henry="img/sprite/famille/Henry30x30.png"
 
 #alphabet minuscule
 
