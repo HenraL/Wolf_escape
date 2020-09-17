@@ -40,8 +40,8 @@ class Niveau:
 		depart = pygame.image.load(image_depart).convert()
 		arrivee = pygame.image.load(image_arrivee).convert_alpha()
 		arrivee_fam=pygame.image.load(image_arrivee_fam).convert_alpha()
-		# a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z=pygame.image.load(a).convert_alpha(),pygame.image.load(b).convert_alpha(),pygame.image.load(c).convert_alpha(),pygame.image.load(d).convert_alpha(),pygame.image.load(e).convert_alpha(),pygame.image.load(f).convert_alpha(),pygame.image.load(g).convert_alpha(),pygame.image.load(h).convert_alpha(),pygame.image.load(i).convert_alpha(),pygame.image.load(j).convert_alpha(),pygame.image.load(k).convert_alpha(),pygame.image.load(l).convert_alpha(),pygame.image.load(m).convert_alpha(),pygame.image.load(n).convert_alpha(),pygame.image.load(o).convert_alpha(),pygame.image.load(p).convert_alpha(),pygame.image.load(q).convert_alpha(),pygame.image.load(r).convert_alpha(),pygame.image.load(s).convert_alpha(),pygame.image.load(t).convert_alpha(),pygame.image.load(u).convert_alpha(),pygame.image.load(v).convert_alpha(),pygame.image.load(w).convert_alpha(),pygame.image.load(x).convert_alpha(),pygame.image.load(y).convert_alpha(),pygame.image.load(z).convert_alpha()
-                # A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z=pygame.image.load(A).convert_alpha(),pygame.image.load(B).convert_alpha(),pygame.image.load(C).convert_alpha(),pygame.image.load(D).convert_alpha(),pygame.image.load(E).convert_alpha(),pygame.image.load(F).convert_alpha(),pygame.image.load(G).convert_alpha(),pygame.image.load(H).convert_alpha(),pygame.image.load(I).convert_alpha(),pygame.image.load(J).convert_alpha(),pygame.image.load(K).convert_alpha(),pygame.image.load(L).convert_alpha(),pygame.image.load(M).convert_alpha(),pygame.image.load(N).convert_alpha(),pygame.image.load(O).convert_alpha(),pygame.image.load(P).convert_alpha(),pygame.image.load(Q).convert_alpha(),pygame.image.load(R).convert_alpha(),pygame.image.load(S).convert_alpha(),pygame.image.load(T).convert_alpha(),pygame.image.load(U).convert_alpha(),pygame.image.load(V).convert_alpha(),pygame.image.load(W).convert_alpha(),pygame.image.load(X).convert_alpha(),pygame.image.load(Y).convert_alpha(),pygame.image.load(Z).convert_alpha()
+		a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z=pygame.image.load(a).convert_alpha(),pygame.image.load(b).convert_alpha(),pygame.image.load(c).convert_alpha(),pygame.image.load(d).convert_alpha(),pygame.image.load(e).convert_alpha(),pygame.image.load(f).convert_alpha(),pygame.image.load(g).convert_alpha(),pygame.image.load(h).convert_alpha(),pygame.image.load(i).convert_alpha(),pygame.image.load(j).convert_alpha(),pygame.image.load(k).convert_alpha(),pygame.image.load(l).convert_alpha(),pygame.image.load(m).convert_alpha(),pygame.image.load(n).convert_alpha(),pygame.image.load(o).convert_alpha(),pygame.image.load(p).convert_alpha(),pygame.image.load(q).convert_alpha(),pygame.image.load(r).convert_alpha(),pygame.image.load(s).convert_alpha(),pygame.image.load(t).convert_alpha(),pygame.image.load(u).convert_alpha(),pygame.image.load(v).convert_alpha(),pygame.image.load(w).convert_alpha(),pygame.image.load(x).convert_alpha(),pygame.image.load(y).convert_alpha(),pygame.image.load(z).convert_alpha()
+                A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z=pygame.image.load(A).convert_alpha(),pygame.image.load(B).convert_alpha(),pygame.image.load(C).convert_alpha(),pygame.image.load(D).convert_alpha(),pygame.image.load(E).convert_alpha(),pygame.image.load(F).convert_alpha(),pygame.image.load(G).convert_alpha(),pygame.image.load(H).convert_alpha(),pygame.image.load(I).convert_alpha(),pygame.image.load(J).convert_alpha(),pygame.image.load(K).convert_alpha(),pygame.image.load(L).convert_alpha(),pygame.image.load(M).convert_alpha(),pygame.image.load(N).convert_alpha(),pygame.image.load(O).convert_alpha(),pygame.image.load(P).convert_alpha(),pygame.image.load(Q).convert_alpha(),pygame.image.load(R).convert_alpha(),pygame.image.load(S).convert_alpha(),pygame.image.load(T).convert_alpha(),pygame.image.load(U).convert_alpha(),pygame.image.load(V).convert_alpha(),pygame.image.load(W).convert_alpha(),pygame.image.load(X).convert_alpha(),pygame.image.load(Y).convert_alpha(),pygame.image.load(Z).convert_alpha()
 
 		#On parcourt la liste du niveau
 		num_ligne = 0
@@ -76,201 +76,201 @@ class Niveau:
 				 	fenetre.blit(adown, (x,y))              
 				elif sprite == '12':		   
 				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'α':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'β':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'γ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'δ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ε':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ϵ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ζ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'η':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'θ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ϑ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ι':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'κ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'λ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'μ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ν':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ξ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ο':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ο':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'π':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ϖ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ρ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ϱ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'σ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ς':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'τ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'υ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'φ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ϕ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'χ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ψ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'ω':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Γ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Δ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Θ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Λ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Ξ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Ο':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Π':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Ρ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Σ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Τ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Υ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Φ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Χ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Ψ':		   
-				 	fenetre.blit(adown, (x,y))              
-				elif sprite == 'Ω':		   
-				 	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'α':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'β':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'γ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'δ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ε':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ϵ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ζ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'η':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'θ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ϑ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ι':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'κ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'λ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'μ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ν':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ξ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ο':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ο':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'π':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ϖ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ρ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ϱ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'σ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ς':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'τ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'υ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'φ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ϕ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'χ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ψ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'ω':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Γ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Δ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Θ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Λ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Ξ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Ο':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Π':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Ρ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Σ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Τ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Υ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Φ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Χ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Ψ':		   
+				#  	fenetre.blit(adown, (x,y))              
+				# elif sprite == 'Ω':		   
+				#  	fenetre.blit(adown, (x,y))              
 				
-				# elif sprite == 'a':		   
-				# 	fenetre.blit(a, (x,y))
-				# elif sprite == 'b':		   
-				# 	fenetre.blit(b, (x,y))
-				# elif sprite == 'c':		   
-				# 	fenetre.blit(c, (x,y))
-				# elif sprite == 'd':		   
-				# 	fenetre.blit(d, (x,y))
-				# elif sprite == 'e':		   
-				# 	fenetre.blit(e, (x,y))
-				# elif sprite == 'f':		   
-				# 	fenetre.blit(f, (x,y))
-				# elif sprite == 'g':		   
-				# 	fenetre.blit(g, (x,y))
-				# elif sprite == 'h':		   
-				# 	fenetre.blit(h, (x,y))
-				# elif sprite == 'i':		   
-				# 	fenetre.blit(i, (x,y))
-				# elif sprite == 'j':		   
-				# 	fenetre.blit(j, (x,y))
-				# elif sprite == 'k':		   
-				# 	fenetre.blit(k, (x,y))
-				# elif sprite == 'l':		   
-				# 	fenetre.blit(l, (x,y))
-				# elif sprite == 'n':		   
-				# 	fenetre.blit(n, (x,y))
-				# elif sprite == 'o':		   
-				# 	fenetre.blit(o, (x,y))
-				# elif sprite == 'p':		   
-				# 	fenetre.blit(p, (x,y))
-				# elif sprite == 'q':		   
-				# 	fenetre.blit(q, (x,y))
-				# elif sprite == 'r':		   
-				# 	fenetre.blit(r, (x,y))
-				# elif sprite == 's':		   
-				# 	fenetre.blit(s, (x,y))
-				# elif sprite == 't':		   
-				# 	fenetre.blit(t, (x,y))
-				# elif sprite == 'u':		   
-				# 	fenetre.blit(u, (x,y))
-				# elif sprite == 'v':		   
-				# 	fenetre.blit(v, (x,y))
-				# elif sprite == 'w':		   
-				# 	fenetre.blit(w, (x,y))
-				# elif sprite == 'x':		   
-				# 	fenetre.blit(x, (x,y))
-				# elif sprite == 'y':		   
-				# 	fenetre.blit(y, (x,y))
-				# elif sprite == 'z':		   
-				# 	fenetre.blit(z, (x,y))
-				# elif sprite == 'A':	
-				# 	fenetre.blit(A, (x,y))
-				# elif sprite == 'B':	
-				# 	fenetre.blit(B, (x,y))
-				# elif sprite == 'C':	
-				# 	fenetre.blit(C, (x,y))
-				# elif sprite == 'D':	
-				# 	fenetre.blit(D, (x,y))
-				# elif sprite == 'E':	
-				# 	fenetre.blit(E, (x,y))
-				# elif sprite == 'F':	
-				# 	fenetre.blit(F, (x,y))
-				# elif sprite == 'G':	
-				# 	fenetre.blit(G, (x,y))
-				# elif sprite == 'H':	
-				# 	fenetre.blit(H, (x,y))
-				# elif sprite == 'I':	
-				# 	fenetre.blit(I, (x,y))
-				# elif sprite == 'J':	
-				# 	fenetre.blit(J, (x,y))
-				# elif sprite == 'K':	
-				# 	fenetre.blit(K, (x,y))
-				# elif sprite == 'L':	
-				# 	fenetre.blit(L, (x,y))
-				# elif sprite == 'M':	
-				# 	fenetre.blit(M, (x,y))
-				# elif sprite == 'N':	
-				# 	fenetre.blit(N, (x,y))
-				# elif sprite == 'O':	
-				# 	fenetre.blit(O, (x,y))
-				# elif sprite == 'P':	
-				# 	fenetre.blit(P, (x,y))
-				# elif sprite == 'Q':	
-				# 	fenetre.blit(Q, (x,y))
-				# elif sprite == 'R':	
-				# 	fenetre.blit(R, (x,y))
-				# elif sprite == 'S':	
-				# 	fenetre.blit(S, (x,y))
-				# elif sprite == 'T':	
-				# 	fenetre.blit(T, (x,y))
-				# elif sprite == 'U':	
-				# 	fenetre.blit(U, (x,y))
-				# elif sprite == 'V':	
-				# 	fenetre.blit(V, (x,y))
-				# elif sprite == 'W':		   
-				# 	fenetre.blit(W, (x,y))
-				# elif sprite == 'X':		  
-				# 	fenetre.blit(X, (x,y))
-				# elif sprite == 'Y':		   
-				# 	fenetre.blit(Y, (x,y))
-				# elif sprite == 'Z':		   
-				# 	fenetre.blit(Z, (x,y))
+				elif sprite == 'a':		   
+					fenetre.blit(a, (x,y))
+				elif sprite == 'b':		   
+					fenetre.blit(b, (x,y))
+				elif sprite == 'c':		   
+					fenetre.blit(c, (x,y))
+				elif sprite == 'd':		   
+					fenetre.blit(d, (x,y))
+				elif sprite == 'e':		   
+					fenetre.blit(e, (x,y))
+				elif sprite == 'f':		   
+					fenetre.blit(f, (x,y))
+				elif sprite == 'g':		   
+					fenetre.blit(g, (x,y))
+				elif sprite == 'h':		   
+					fenetre.blit(h, (x,y))
+				elif sprite == 'i':		   
+					fenetre.blit(i, (x,y))
+				elif sprite == 'j':		   
+					fenetre.blit(j, (x,y))
+				elif sprite == 'k':		   
+					fenetre.blit(k, (x,y))
+				elif sprite == 'l':		   
+					fenetre.blit(l, (x,y))
+				elif sprite == 'n':		   
+					fenetre.blit(n, (x,y))
+				elif sprite == 'o':		   
+					fenetre.blit(o, (x,y))
+				elif sprite == 'p':		   
+					fenetre.blit(p, (x,y))
+				elif sprite == 'q':		   
+					fenetre.blit(q, (x,y))
+				elif sprite == 'r':		   
+					fenetre.blit(r, (x,y))
+				elif sprite == 's':		   
+					fenetre.blit(s, (x,y))
+				elif sprite == 't':		   
+					fenetre.blit(t, (x,y))
+				elif sprite == 'u':		   
+					fenetre.blit(u, (x,y))
+				elif sprite == 'v':		   
+					fenetre.blit(v, (x,y))
+				elif sprite == 'w':		   
+					fenetre.blit(w, (x,y))
+				elif sprite == 'x':		   
+					fenetre.blit(x, (x,y))
+				elif sprite == 'y':		   
+					fenetre.blit(y, (x,y))
+				elif sprite == 'z':		   
+					fenetre.blit(z, (x,y))
+				elif sprite == 'A':	
+					fenetre.blit(A, (x,y))
+				elif sprite == 'B':	
+					fenetre.blit(B, (x,y))
+				elif sprite == 'C':	
+					fenetre.blit(C, (x,y))
+				elif sprite == 'D':	
+					fenetre.blit(D, (x,y))
+				elif sprite == 'E':	
+					fenetre.blit(E, (x,y))
+				elif sprite == 'F':	
+					fenetre.blit(F, (x,y))
+				elif sprite == 'G':	
+					fenetre.blit(G, (x,y))
+				elif sprite == 'H':	
+					fenetre.blit(H, (x,y))
+				elif sprite == 'I':	
+					fenetre.blit(I, (x,y))
+				elif sprite == 'J':	
+					fenetre.blit(J, (x,y))
+				elif sprite == 'K':	
+					fenetre.blit(K, (x,y))
+				elif sprite == 'L':	
+					fenetre.blit(L, (x,y))
+				elif sprite == 'M':	
+					fenetre.blit(M, (x,y))
+				elif sprite == 'N':	
+					fenetre.blit(N, (x,y))
+				elif sprite == 'O':	
+					fenetre.blit(O, (x,y))
+				elif sprite == 'P':	
+					fenetre.blit(P, (x,y))
+				elif sprite == 'Q':	
+					fenetre.blit(Q, (x,y))
+				elif sprite == 'R':	
+					fenetre.blit(R, (x,y))
+				elif sprite == 'S':	
+					fenetre.blit(S, (x,y))
+				elif sprite == 'T':	
+					fenetre.blit(T, (x,y))
+				elif sprite == 'U':	
+					fenetre.blit(U, (x,y))
+				elif sprite == 'V':	
+					fenetre.blit(V, (x,y))
+				elif sprite == 'W':		   
+					fenetre.blit(W, (x,y))
+				elif sprite == 'X':		  
+					fenetre.blit(X, (x,y))
+				elif sprite == 'Y':		   
+					fenetre.blit(Y, (x,y))
+				elif sprite == 'Z':		   
+					fenetre.blit(Z, (x,y))
 				
 				
 				
