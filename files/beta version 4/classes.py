@@ -60,6 +60,115 @@ class Niveau:
 					fenetre.blit(arrivee, (x,y))
 				elif sprite == '4':		   #a = Arrivée
 					fenetre.blit(arrivee_fam, (x,y))
+                                elif sprite == '5':		   
+				 	fenetre.blit(aright, (x,y))
+				elif sprite == '6':		  
+				 	fenetre.blit(aleft, (x,y))
+				elif sprite == '7':		   
+				 	fenetre.blit(aup, (x,y))
+				elif sprite == '8':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == '9':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == '10':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == '11':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == '12':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'α':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'β':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'γ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'δ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ε':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ϵ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ζ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'η':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'θ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ϑ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ι':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'κ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'λ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'μ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ν':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ξ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ο':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ο':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'π':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ϖ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ρ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ϱ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'σ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ς':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'τ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'υ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'φ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ϕ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'χ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ψ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'ω':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Γ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Δ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Θ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Λ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Ξ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Ο':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Π':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Ρ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Σ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Τ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Υ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Φ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Χ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Ψ':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == 'Ω':		   
+				 	fenetre.blit(adown, (x,y))              
+				
 				# elif sprite == 'a':		   
 				# 	fenetre.blit(a, (x,y))
 				# elif sprite == 'b':		   
@@ -162,14 +271,7 @@ class Niveau:
 				# 	fenetre.blit(Y, (x,y))
 				# elif sprite == 'Z':		   
 				# 	fenetre.blit(Z, (x,y))
-				# elif sprite == '5':		   
-				# 	fenetre.blit(aright, (x,y))
-				# elif sprite == '6':		  
-				# 	fenetre.blit(aleft, (x,y))
-				# elif sprite == '7':		   
-				# 	fenetre.blit(aup, (x,y))
-				# elif sprite == '8':		   
-				# 	fenetre.blit(adown, (x,y))
+				
 				
 				
 				num_case += 1
