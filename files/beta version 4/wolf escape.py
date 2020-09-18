@@ -42,16 +42,20 @@ def choselevels():
         Levelnumber = int(level.get())
         Cevel.destroy()
         print(Levelnumber)
+        refreshlevels()#levelfiles
+        maxlevel=len(levelfiles)
         global choix
-        choix='l{}'.format(Levelnumber)
+        choix='levels/{}'.format(levelfiles[Levelnumber-1])
         return choix
+    refreshlevels()#levelfiles
+    maxlevel=len(levelfiles)
     Cevel = Tk()
     Frame1 = Frame(Cevel, borderwidth=2, relief=FLAT)
     Frame1.pack(side=LEFT, padx=10, pady=10)
 
     label = Label(Frame1, text="Choose you're level:")
     label.pack()
-    level=Spinbox(Frame1, from_=1, to=10, increment=1)
+    level=Spinbox(Frame1, from_=1, to=maxlevel, increment=1)
     level.pack(side=LEFT, padx=5)
     bouton=Button(Frame1, text="Jouer!", command=LEVEL)
     bouton.pack(side=RIGHT, padx=5)
@@ -121,6 +125,7 @@ def boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien): #
 def play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels):
     #continuer_accueil = 0
     refreshlevels()#levelfiles
+    maxlevel=len(levelfiles)
     print(levelfiles)
     for i in range(len(levelfiles)):
         print(levelfiles)
@@ -131,12 +136,20 @@ def play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels):
         choix=levelfiles[i]
         if choix=="014_m1" or choix=="015_m2" or choix=="017_h" or choix=="018_I":
             continuer_jeu=0
+        elif event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE or event.type == KEYDOWN and event.key == K_q:
+            continuer_jeu = 0
+            i=maxlevel
+            continuer = 0
+            #Variable de choix du niveau
+            choix = 0
+            break
         else:
             print (choix)
+            choix="levels/{}".format(choix)
             #choix = 'l{}'.format(i+1)
             check(image_fond,choix,fenetre)#niveau,
             boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
-            print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
+            #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
 
 pygame.init()
 
