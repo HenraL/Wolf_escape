@@ -176,6 +176,8 @@ while continuer:
     #Chargement et affichage de l'écran d'accueil
 	accueil = pygame.image.load(image_accueil).convert()
 	fenetre.blit(accueil, (0,0))
+	#Titre
+	pygame.display.set_caption(titre_fenetre)
 
 	#Rafraichissement
 	pygame.display.flip()
