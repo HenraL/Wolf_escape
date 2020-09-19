@@ -91,13 +91,13 @@ class Niveau:
 				#On calcule la position réelle en pixels
 				x = num_case * taille_sprite
 				y = num_ligne * taille_sprite
-				if sprite == '1':		   #m = Mur
+				if sprite == '♤':		   #m = Mur
 					fenetre.blit(mur, (x,y))
-				elif sprite == '2':		   #d = Départ
+				elif sprite == '♧':		   #d = Départ
 					fenetre.blit(depart, (x,y))
-				elif sprite == '3':		   #a = Arrivée
+				elif sprite == '☆':		   #a = Arrivée
 					fenetre.blit(arrivee, (x,y))
-				elif sprite == '4':		   #a = Arrivée
+				elif sprite == 'д':		   #a = Arrivée_enfant
 					fenetre.blit(arrivee_fam, (x,y))
 				elif sprite == '5':		   
 				 	fenetre.blit(aright, (x,y))
@@ -124,7 +124,17 @@ class Niveau:
 				elif sprite == 'δ':		   
 				  	fenetre.blit(credits_l_Henry, (x,y))             
 				elif sprite == 'ε':		   
-				  	fenetre.blit(credits_gagne, (x,y))              
+				  	fenetre.blit(credits_gagne, (x,y))
+				elif sprite == '$':		   
+				  	fenetre.blit(credits_w_Irina, (x,y))             
+				elif sprite == '£':		   
+				  	fenetre.blit(credits_w_Henry, (x,y))             
+				elif sprite == '€':		   
+				  	fenetre.blit(credits_l_Irina, (x,y))             
+				elif sprite == '¥':		   
+				  	fenetre.blit(credits_l_Henry, (x,y))             
+				elif sprite == '₩':		   
+				  	fenetre.blit(credits_gagne, (x,y))
 				# elif sprite == 'ϵ':		   
 				#  	fenetre.blit(adown, (x,y))              
 				# elif sprite == 'ζ':		   
@@ -346,7 +356,7 @@ class Perso:
 			#Pour ne pas dépasser l'écran
 			if self.case_x < (nombre_sprite_cote - 1):
 				#On vérifie que la case de destination n'est pas un mur
-				if self.niveau.structure[self.case_y][self.case_x+1] != '1':
+				if self.niveau.structure[self.case_y][self.case_x+1] != '♤':
 					#Déplacement d'une case
 					self.case_x += 1
 					#Calcul de la position "réelle" en pixel
@@ -357,7 +367,7 @@ class Perso:
 		#Déplacement vers la gauche
 		if direction == 'gauche':
 			if self.case_x > 0:
-				if self.niveau.structure[self.case_y][self.case_x-1] != '1':
+				if self.niveau.structure[self.case_y][self.case_x-1] != '♤':
 					self.case_x -= 1
 					self.x = self.case_x * taille_sprite
 			self.direction = self.gauche
@@ -365,7 +375,7 @@ class Perso:
 		#Déplacement vers le haut
 		if direction == 'haut':
 			if self.case_y > 0:
-				if self.niveau.structure[self.case_y-1][self.case_x] != '1':
+				if self.niveau.structure[self.case_y-1][self.case_x] != '♤':
 					self.case_y -= 1
 					self.y = self.case_y * taille_sprite
 			self.direction = self.haut
@@ -373,7 +383,7 @@ class Perso:
 		#Déplacement vers le bas
 		if direction == 'bas':
 			if self.case_y < (nombre_sprite_cote - 1):
-				if self.niveau.structure[self.case_y+1][self.case_x] != '1':
+				if self.niveau.structure[self.case_y+1][self.case_x] != '♤':
 					self.case_y += 1
 					self.y = self.case_y * taille_sprite
 			self.direction = self.bas
