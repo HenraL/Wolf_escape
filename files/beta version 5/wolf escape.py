@@ -15,9 +15,13 @@ from pygame.locals import *
 from pygame.mixer import *
 from pygame.display import *
 from tkinter import *
+from webbrowser import *
 
 from classes import *
 from constantes import *
+
+def web(url):
+    webbrowser.open_new("{}".format(url))
 
 def refreshlevels():#levelfiles
     global levelfiles

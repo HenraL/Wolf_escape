@@ -95,9 +95,9 @@ class Niveau:
 					fenetre.blit(mur, (x,y))
 				elif sprite == '♧':		   #d = Départ
 					fenetre.blit(depart, (x,y))
-				elif sprite == '☆':		   #a = Arrivée
+				elif sprite == '☆':		   #a = Arrivée 3
 					fenetre.blit(arrivee, (x,y))
-				elif sprite == 'д':		   #a = Arrivée_enfant
+				elif sprite == 'д':		   #a = Arrivée_enfant 4
 					fenetre.blit(arrivee_fam, (x,y))
 				elif sprite == '5':		   
 				 	fenetre.blit(aright, (x,y))
