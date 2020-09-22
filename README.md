@@ -2,7 +2,7 @@
  
 Wolf_escape, is a game I'm creating in which you have to guide a wolf througth different mazes and avoid ennemies.
 
-#Playing the game
+# Playing the game
 
 It is easy to play the game.
 
@@ -14,7 +14,7 @@ To see the credits, press C
 
 To exit the game, press "esc" or clic on the cross
 
-#commands to guide the wolf
+# Commands to guide the wolf
 
 (up arrow) make the wolf go up in the maze
 
@@ -25,18 +25,18 @@ To exit the game, press "esc" or clic on the cross
 (down arrow) makes the wolf go down in the maze
 
 
-#ennemies
+# Ennemies
 
 The wolfs current ennemy is the pound-man (gardner with a net).
 Some of the ennemies are static and others move.
 
-#levels
+# Levels
 
 The majority of the levels are played automaticaly (either in the story mode (if you pressed space) or if you have chosen a specific level (by pressing enter or backspace))
 
 However, some levels are hidden, to be played a specific key on your keyboard has to be pressed. Will you succeed in finding them all!
 
-##hint
+# Hint
 There are currently four hidden levels.
 
 If you find the levels, please keep them to yourself (so that other ones can try to find them too).
