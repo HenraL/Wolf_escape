@@ -1,6 +1,14 @@
-#!/usr/bin/python3
-# -*- coding: Utf-8 -*
+import pygame, os, sys
+from pygame.locals import *
+from pygame.mixer import *
+from pygame.display import *
+from tkinter import *
+from webbrowser import *
+
+from classes import *
+from constantes import *
 levels=4
+CREDIT=False
 #levelfiles=[]
 """
 Jeu Wolf escape Labyrinthe
@@ -10,19 +18,9 @@ Script Python
 Fichiers : dklabyrinthe.py, classes.py, constantes.py, n1, n2 + images
 """
 
-import pygame, os
-from pygame.locals import *
-from pygame.mixer import *
-from pygame.display import *
-from tkinter import *
-from webbrowser import *
 
-from classes import *
-from constantes import *
 
-def web(url):
-    open_new("{}".format(url))
-
+def web(url):open_new("{}".format(url))
 def Githubh():web("https://bit.ly/2YcQ4ce")
 def Facebookh():web("http://bit.ly/2EieENH")
 def Instagramh():web("http://bit.ly/2PRGBkG")
@@ -122,9 +120,9 @@ def main_credits():
     
     root.mainloop()
 
-def refreshlevels():#levelfiles
+def refreshlevels(PATH):#levelfiles
     global levelfiles
-    levelfiles=os.listdir("levels")
+    levelfiles=os.listdir("{}".format(PATH))
     return levelfiles
 
 def accueil(continuer_jeu,continuer_accueil):
@@ -144,12 +142,14 @@ def choselevels():
         Levelnumber = int(level.get())
         Cevel.destroy()
         print(Levelnumber)
-        refreshlevels()#levelfiles
+        refreshlevels("levels")#levelfiles
         maxlevel=len(levelfiles)
         global choix
         choix=levelfiles[Levelnumber-1]
+        global CREDIT
+        CREDIT=False
         return choix
-    refreshlevels()#levelfiles
+    refreshlevels("levels")#levelfiles
     maxlevel=len(levelfiles)
     Cevel = Tk()
     Frame1 = Frame(Cevel, borderwidth=2, relief=FLAT)
@@ -163,26 +163,24 @@ def choselevels():
     bouton.pack(side=RIGHT, padx=5)
     Cevel.mainloop()
     # return choix
-def checkcredit():
-    refreshlevels()
-    for i in range(len(levelfiles)):
-        if levelfiles[i]=="credits":
-            creditindex=i
-    return creditindex
+# def checkcredit():
+#     refreshlevels()
+#     for i in range(len(levelfiles)):
+#         if levelfiles[i]=="credits":
+#             creditindex=i
+#     return creditindex
 
-def check(image_fond,image_fond_credits,fenetre,choix,maxlevel,place): #niveau,
-    if choix != 0:
+def check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix): #niveau,
+    if choix != 0 and Choix!=0:
         pygame.display.set_caption("{}{}".format(titre_fenetre,choix))
         CHOIX=choix
-        checkcredit()
+        # checkcredit()
         #Chargement du fond
         global fond
         if CREDIT==True:#creditindex
-            choix=levelfiles[creditindex]
-            choix='{}/{}'.format(place,choix)
             fond = pygame.image.load(image_fond_credits).convert()
         else:
-            choix='{}/{}'.format(place,choix)
+            choix='levels/{}'.format(choix)
             fond = pygame.image.load(image_fond).convert()
         #Génération d'un niveau à partir d'un fichier
         global niveau
@@ -255,38 +253,48 @@ def boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien): #
 		if niveau.structure[dk.case_y][dk.case_x] == '²' or niveau.structure[dk.case_y][dk.case_x] == '_'or niveau.structure[dk.case_y][dk.case_x] == '0':continuer_jeu = 0
         #return continuer_jeu, continuer
 
-def play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels):
+def play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix):
     #continuer_accueil = 0
-    refreshlevels()#levelfiles
+    
+    refreshlevels("levels")#levelfiles
     global maxlevels, LEVEL
     maxlevel=len(levelfiles)
+    LEVEL=0
     print(levelfiles)
-    for LEVEL in range(len(levelfiles)):
+    while LEVEL<len(levelfiles):
+    # for LEVEL in range(len(levelfiles)):
         print(levelfiles)
         print("level={}".format(LEVEL))
         #global continuer_jeu
         continuer_jeu = 1
         #global choix
-        choix=levelfiles[LEVEL]
-        pygame.display.set_caption("{}{}".format(titre_fenetre,choix))
+        if Choix!=0:
+            choix=levelfiles[LEVEL]
+            pygame.display.set_caption("{}{}".format(titre_fenetre,choix))
         if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE or event.type == KEYDOWN and event.key == K_q:
             continuer_jeu = 0
             LEVEL=maxlevel
             continuer = 0
+            continuer_accueil=1
             #Variable de choix du niveau
-            choix = levelfiles[LEVEL]
+            # choix = levelfiles[len(levelfiles-1)]
+            choix=0
+            Choix=0
+            LEVEL=len(levelfiles)
+            sys.exit(0)
             break
         else:
-            if LEVEL==maxlevel:
-                elementary_levels
-                check(image_fond,image_fond_credits,fenetre,choix,maxlevel)#niveau,
-                boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
-            else:
-                print (choix)
-                #choix = 'l{}'.format(i+1)
-                check(image_fond,image_fond_credits,fenetre,choix,maxlevel)#niveau,
-                boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
-                #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
+            print (choix)
+            #choix = 'l{}'.format(i+1)
+            check(image_fond,image_fond_credits,fenetre,choix,maxlevel,Choix)#niveau,CREDIT
+            boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
+            #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
+            LEVEL+=1
+    CREDIT=True
+    choix="elementary_levels/credits"
+    check(image_fond,image_fond_credits,fenetre,choix,maxlevel,CREDIT,Choix)
+    boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
+    return Choix, continuer_accueil
 
 pygame.init()
 
@@ -337,12 +345,18 @@ while continuer:
 			elif event.type == KEYDOWN:				
 				#Lancement du niveau 1
 				if event.key == K_SPACE:
-					continuer_accueil=0
-					play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels)						
+					continuer_accueil,LEVEL,Choix=0,0,1
+                    # refreshlevels("levels")
+                    # while LEVEL!=len(levelfiles):
+					play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix)
+					if Choix==0:print("sys.exit")
+                        # sys.exit(0)	
+                        # continuer_jeu,LEVEL,continuer,continuer_accueil = 0,maxlevel,0,1
+                        				
 				elif event.key == K_BACKSPACE or event.key == K_RETURN:
 					continuer_accueil = 0
 					choselevels()
-					check(image_fond,image_fond_credits,fenetre,choix)#niveau,
+					check(image_fond,image_fond_credits,fenetre,choix,CREDIT)#niveau,
 					
 					boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)#
 					print(choix)

@@ -1,6 +1,6 @@
 """Classes du jeu de Labyrinthe Wolf Escape"""
 
-#Уеишщксдзцбьяаожгтнвмчюйъэфхпрл¿¡°•|¥₩
+#Уеишщксдзцбьяаожгтнвмчюйъэфхпрл¿¡°•|¥₩ ∞±=≠~×÷!<>≤≥≈≡∂√∩%°∆←↑→↓↔+-¬αβγδεϵθϑμπρστφω*∙
 
 import pygame
 from pygame.locals import * 
@@ -98,6 +98,9 @@ class Niveau:
 		euro=pygame.image.load(image_euro).convert_alpha()
 		yen=pygame.image.load(image_yen).convert_alpha()
 		whan=pygame.image.load(image_whan).convert_alpha()
+        #arrows
+        #aright=pygame.image.load(img_aright).convert_alpha()
+
 
 		#On parcourt la liste du niveau
 		num_ligne = 0

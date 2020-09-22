@@ -28,7 +28,7 @@ img_mean_right="img/sprite/gardien/Gardien_Droite.png"
 image_fond = "img/background/fond.jpg"
 image_fond="img/background/fond.png"
 image_fond="img/background/fonds.png"
-image_fond_credits="img/Credits/watermark_background - Copie.png"
+image_fond_credits="img/Credits/end - Copie.PNG"
 
 #départ
 image_depart = "img/ingame/start.png"
@@ -52,10 +52,10 @@ lb="img/sprite/dk/dk_bas.png"
 lb="img/sprite/w/w_down.png"
 
 #création des flèches de direction pour le tuto
-aright="img/tut_image/aright.PNG"
-aleft="img/tut_image/aleft.PNG"
-aup="img/tut_image/aup.PNG"
-adown="img/tut_image/adown.PNG"
+img_aright="img/tut_image/aright.PNG"
+img_aleft="img/tut_image/aleft.PNG"
+img_aup="img/tut_image/aup.PNG"
+img_adown="img/tut_image/adown.PNG"
 
 #Crédits
 image_credits_fond="img/Credits/end.png"
