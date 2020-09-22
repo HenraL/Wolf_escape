@@ -11,12 +11,12 @@ cote_fenetrey=600
 
 #Personnalisation de la fenêtre
 titre_fenetre = "Wolf Escape"
-image_icone = "img/wolf_icon.png"
-imggiff="img/wolf_mainmenu.png"
-imggif="img/wolf_mainmenu2.png"
+image_icone = "img/ingame/wolf_icon.png"
+imggiff="img/ingame/wolf_mainmenu.png"
+imggif="img/ingame/wolf_mainmenu2.png"
 
 #Listes des images du jeu
-image_accueil = "img/accueil.png"
+image_accueil = "img/ingame/accueil.png"
 
 #creation du gardien
 img_mean_up="img/sprite/gardien/Gardien_haut.png"
@@ -31,13 +31,13 @@ image_fond="img/background/fonds.png"
 image_fond_credits="img/Credits/watermark_background - Copie.png"
 
 #départ
-image_depart = "img/start.png"
-image_depart="img/start.png"
+image_depart = "img/ingame/start.png"
+image_depart="img/ingame/start.png"
 # image_arrivee = "img/end/end.png"
 image_arrivee = "img/end/endd.png"
 image_arrivee = "img/end/endb.png"
 image_arrivee="img/end/endv.png"
-image_mur = "img/mur.png"
+image_mur = "img/ingame/mur.png"
 image_arrivee_fam="img/sprite/famille/w_fam.png"
 
 
@@ -69,6 +69,25 @@ image_credits_w_Henry="img/sprite/famille/w_fam.png"
 image_credits_l_Irina="img/sprite/famille/Irina30x30.png"
 #Crédits_image_l_Henry
 image_credits_l_Henry="img/sprite/famille/Henry30x30.png"
+
+#numéros
+image_zero="img/tut_image/numbers/0.png"
+image_one="img/tut_image/numbers/1.png"
+image_two="img/tut_image/numbers/2.png"
+image_three="img/tut_image/numbers/3.png"
+image_four="img/tut_image/numbers/4.png"
+image_five="img/tut_image/numbers/5.png"
+image_six="img/tut_image/numbers/6.png"
+image_seven="img/tut_image/numbers/7.png"
+image_eight="img/tut_image/numbers/8.png"
+image_nine="img/tut_image/numbers/9.png"
+
+#monaie
+image_dollar="img/tut_image/currency/dollard.png"
+image_pound="img/tut_image/currency/pound.png"
+image_euro="img/tut_image/currency/euro.png"
+image_yen="img/tut_image/currency/yen.png"
+image_whan="img/tut_image/currency/wan.png"
 
 #alphabet minuscule
 

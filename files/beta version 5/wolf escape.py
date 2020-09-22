@@ -3,7 +3,7 @@
 levels=4
 #levelfiles=[]
 """
-Jeu Donkey Kong Labyrinthe
+Jeu Wolf escape Labyrinthe
 Jeu dans lequel on doit déplacer DK jusqu'aux bananes à travers un labyrinthe.
 
 Script Python
@@ -27,17 +27,18 @@ def Githubh():web("https://bit.ly/2YcQ4ce")
 def Facebookh():web("http://bit.ly/2EieENH")
 def Instagramh():web("http://bit.ly/2PRGBkG")
 def InstagramI():web("https://bit.ly/2EmmERy")
-def Discord():web("http://bit.ly/wolfesc")
+def discord():web("http://bit.ly/wolfesc")
 def Answerasurveyform():web("http://bit.ly/wolfescf")
-def Tipyee():web("https://bit.ly/3cqnOYV")
-def Utip():web("https://github.com/404")
-def Monosis():web("https://github.com/")
-def Suxene():web("https://github.com/")
-def Totopoo():web("totopo#8202")
-def Gabin():web("https://github.com/")
-def Defucoa():web("https://github.com/")
-def Marina():web("https://github.com/")
-def Caroline():web("https://github.com/")
+def tipyee():web("https://bit.ly/3cqnOYV")
+def utip():web("https://github.com/404")
+def monosis():web("https://github.com/")
+def suxene():web("https://github.com/")
+def totopoo():web("totopo#8202")
+def gabin():web("https://github.com/")
+def defucoa():web("https://github.com/")
+def marina():web("https://github.com/")
+def caroline():web("https://github.com/")
+
 
 
 
@@ -72,9 +73,9 @@ def main_credits():
     Credits.pack(anchor=CENTER)
     Programmed.pack(anchor=CENTER,side=TOP)#,fill=X
     Henry.pack(anchor=CENTER,side=TOP)#,fill=X
-    git=Button(Frame1TOP2, text="Github", relief=FLAT, fg="blue", bg="White", command=affichehl)
-    fac=Button(Frame1TOP2, text="Facebook", relief=FLAT, fg="blue", bg="White", command=affichehl)
-    insth=Button(Frame1TOP2, text="Instagram", relief=FLAT, fg="blue", bg="White", command=affichehl)
+    git=Button(Frame1TOP2, text="Github", relief=FLAT, fg="blue", bg="White", command=Githubh)
+    fac=Button(Frame1TOP2, text="Facebook", relief=FLAT, fg="blue", bg="White", command=Facebookh)
+    insth=Button(Frame1TOP2, text="Instagram", relief=FLAT, fg="blue", bg="White", command=Instagramh)
     git.pack(anchor=CENTER,side=LEFT)#,fill=X, border=FLAT
     fac.pack(anchor=CENTER,side=LEFT) #,fill=X, border=FLAT
     insth.pack(anchor=CENTER,side=LEFT)#,fill=X, border=FLAT
@@ -82,7 +83,7 @@ def main_credits():
     Irina=Label(Frame1TOP3, text="Irina Marchand", bg="White")
     Graphics.pack(anchor=CENTER,side=TOP,fill=X)
     Irina.pack(anchor=CENTER,side=TOP,fill=X)
-    insti=Button(Frame1TOP3, text="Instagram", relief=FLAT, fg="blue",  bg="White", command=affichehl)
+    insti=Button(Frame1TOP3, text="Instagram", relief=FLAT, fg="blue",  bg="White", command=InstagramI)
     insti.pack(anchor=CENTER,side=TOP)#,fill=X, relief=FLAT
     Feedback=Label(Frame1TOP3, text="Feedback:", bg="White")
     Feedback.pack(anchor=CENTER, side=TOP)
@@ -90,39 +91,40 @@ def main_credits():
     TUWYTATG.pack(anchor=CENTER, side=TOP)
     TUO=Label(Frame1TOP4, text="Tell us on:",  bg="White")
     TUO.pack(anchor=CENTER, side=TOP)
-    Discord=Button(Frame1TOP4, text="Discord", relief=FLAT, fg="blue",  bg="White", command=affichehl)
+    Discord=Button(Frame1TOP4, text="Discord", relief=FLAT, fg="blue",  bg="White", command=discord)
     Discord.pack(anchor=CENTER, side=LEFT)#,fill=X
-    Form=Button(Frame1TOP4, text="Answer a survey form", relief=FLAT, fg="blue",  bg="White", command=affichehl)
+    Form=Button(Frame1TOP4, text="Answer a survey form", relief=FLAT, fg="blue",  bg="White", command=Answerasurveyform)
     Form.pack(anchor=CENTER, side=LEFT)#,fill=X
     SU=Label(Frame1TOP5, text="Support us:",  bg="White")
     SU.pack(anchor=CENTER, side=TOP)
-    Tipyee=Button(Frame1TOP5, text="On Tipyee", relief=FLAT, fg="blue",  bg="White", command=affichehl)
+    Tipyee=Button(Frame1TOP5, text="On Tipyee", relief=FLAT, fg="blue",  bg="White", command=tipyee)
     Tipyee.pack(anchor=CENTER, side=LEFT)#,fill=X
-    Utip=Button(Frame1TOP5, text="On Utip", relief=FLAT, fg="blue",  bg="White", command=affichehl)
+    Utip=Button(Frame1TOP5, text="On Utip", relief=FLAT, fg="blue",  bg="White", command=utip)
     Utip.pack(anchor=CENTER, side=LEFT)#,fill=X
     MT=Label(Frame1TOP6, text="Many Thanks To all the beta testers:",  bg="White")
     MT.pack(anchor=CENTER, side=TOP)
-    Monosis=Button(Frame1TOP6, text="Monosis", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=affichehl)
+    Monosis=Button(Frame1TOP6, text="Monosis", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=monosis)
     Monosis.pack(anchor=CENTER, side=TOP)#,fill=X
-    Suxene=Button(Frame1TOP6, text="Suxene", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=affichehl)
+    Suxene=Button(Frame1TOP6, text="Suxene", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=suxene)
     Suxene.pack(anchor=CENTER, side=TOP)#,fill=X
-    Totopoo=Button(Frame1TOP6, text="Totopoo", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=affichehl)
+    Totopoo=Button(Frame1TOP6, text="Totopoo", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=totopoo)
     Totopoo.pack(anchor=CENTER, side=TOP)#,fill=X
-    Gabin=Button(Frame1TOP6, text="Gabin", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=affichehl)
+    Gabin=Button(Frame1TOP6, text="Gabin", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=gabin)
     Gabin.pack(anchor=CENTER, side=TOP)#,fill=X
-    Defucoa=Button(Frame1TOP6, text="Defucoa", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="#AE20FF",  bg="White", command=affichehl)
+    Defucoa=Button(Frame1TOP6, text="Defucoa", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="#AE20FF",  bg="White", command=defucoa)
     Defucoa.pack(anchor=CENTER, side=TOP)#,fill=X
-    Marina=Button(Frame1TOP6, text="Marina", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=affichehl)
+    Marina=Button(Frame1TOP6, text="Marina", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=marina)
     Marina.pack(anchor=CENTER, side=TOP)#,fill=X
-    Caroline=Button(Frame1TOP6, text="Caroline", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=affichehl)
+    Caroline=Button(Frame1TOP6, text="Caroline", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=caroline)
     Caroline.pack(anchor=CENTER, side=TOP)#,fill=X
-    Button(root, text="Exit", command=root.destroy).pack()
+    Quit=Button(root, text="Exit", command=root.destroy)
+    Quit.pack()
+    
     root.mainloop()
 
 def refreshlevels():#levelfiles
     global levelfiles
     levelfiles=os.listdir("levels")
-    
     return levelfiles
 
 def accueil(continuer_jeu,continuer_accueil):
@@ -161,17 +163,26 @@ def choselevels():
     bouton.pack(side=RIGHT, padx=5)
     Cevel.mainloop()
     # return choix
+def checkcredit():
+    refreshlevels()
+    for i in range(len(levelfiles)):
+        if levelfiles[i]=="credits":
+            creditindex=i
+    return creditindex
 
-def check(image_fond,image_fond_credits,fenetre,choix): #niveau,
+def check(image_fond,image_fond_credits,fenetre,choix,maxlevel,place): #niveau,
     if choix != 0:
         pygame.display.set_caption("{}{}".format(titre_fenetre,choix))
         CHOIX=choix
-        choix='levels/{}'.format(choix)
+        checkcredit()
         #Chargement du fond
         global fond
-        if CHOIX=="016_credits":
+        if CREDIT==True:#creditindex
+            choix=levelfiles[creditindex]
+            choix='{}/{}'.format(place,choix)
             fond = pygame.image.load(image_fond_credits).convert()
         else:
+            choix='{}/{}'.format(place,choix)
             fond = pygame.image.load(image_fond).convert()
         #Génération d'un niveau à partir d'un fichier
         global niveau
@@ -216,7 +227,23 @@ def boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien): #
 				elif event.key == K_UP:
 					dk.deplacer('haut')
 				elif event.key == K_DOWN:
-					dk.deplacer('bas')			
+					dk.deplacer('bas')
+					
+                #if level (1 or 2 or ...)
+		#if enemy(x,y)==(x,y):
+		    #enemy up/down
+		#elif enemy(x,y)==(x,y):
+                    #enemy left/right
+                #move=1
+		#if enemy up +move ==m(x,y):
+                    #move=-1
+		#elif enemy down -move==m(x,y):
+		    #move=1
+		#move=1
+		#if enemy left +move ==m(x,y):
+                    #move=-1
+		#elif enemy right -move==m(x,y):
+		    #move=1
 			
 		#Affichages aux nouvelles positions
 		fenetre.blit(fond, (0,0))
@@ -225,37 +252,41 @@ def boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien): #
 		pygame.display.flip()
 
 		#Victoire -> Retour à l'accueil
-		if niveau.structure[dk.case_y][dk.case_x] == '3' or niveau.structure[dk.case_y][dk.case_x] == '4':continuer_jeu = 0
+		if niveau.structure[dk.case_y][dk.case_x] == '²' or niveau.structure[dk.case_y][dk.case_x] == '_'or niveau.structure[dk.case_y][dk.case_x] == '0':continuer_jeu = 0
         #return continuer_jeu, continuer
 
 def play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels):
     #continuer_accueil = 0
     refreshlevels()#levelfiles
+    global maxlevels, LEVEL
     maxlevel=len(levelfiles)
     print(levelfiles)
-    for i in range(len(levelfiles)):
+    for LEVEL in range(len(levelfiles)):
         print(levelfiles)
-        print(i)
+        print("level={}".format(LEVEL))
         #global continuer_jeu
         continuer_jeu = 1
         #global choix
-        choix=levelfiles[i]
+        choix=levelfiles[LEVEL]
         pygame.display.set_caption("{}{}".format(titre_fenetre,choix))
-        if choix=="014_m1" or choix=="015_m2" or choix=="017_h" or choix=="018_I":
-            continuer_jeu=0
-        elif event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE or event.type == KEYDOWN and event.key == K_q:
+        if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE or event.type == KEYDOWN and event.key == K_q:
             continuer_jeu = 0
-            i=maxlevel
+            LEVEL=maxlevel
             continuer = 0
             #Variable de choix du niveau
-            choix = 0
+            choix = levelfiles[LEVEL]
             break
         else:
-            print (choix)
-            #choix = 'l{}'.format(i+1)
-            check(image_fond,image_fond_credits,fenetre,choix)#niveau,
-            boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
-            #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
+            if LEVEL==maxlevel:
+                elementary_levels
+                check(image_fond,image_fond_credits,fenetre,choix,maxlevel)#niveau,
+                boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
+            else:
+                print (choix)
+                #choix = 'l{}'.format(i+1)
+                check(image_fond,image_fond_credits,fenetre,choix,maxlevel)#niveau,
+                boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
+                #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
 
 pygame.init()
 
@@ -321,7 +352,8 @@ while continuer:
 				elif event.key == K_c:
 					continuer_accueil = 0
 					main_credits()
-					continuer_accueil=1
+					#continuer_accueil=1
+					#choix=""
 				elif event.key == K_c:continuer_accueil,choix=0,"credits"
 				if event.key == K_F1:continuer_accueil,choix = 0,'m1'
 				#Lancement du niveau 2

@@ -1,6 +1,6 @@
 """Classes du jeu de Labyrinthe Wolf Escape"""
 
-#Уеишщксдзцбьяаожгтнвмчюйъэфхпрл♤♧¿¡°•|¥☆♡₩
+#Уеишщксдзцбьяаожгтнвмчюйъэфхпрл¿¡°•|¥₩
 
 import pygame
 from pygame.locals import * 
@@ -81,6 +81,23 @@ class Niveau:
 		mean_down=pygame.image.load(img_mean_down).convert()
 		mean_left=pygame.image.load(img_mean_left).convert()
 		mean_right=pygame.image.load(img_mean_right).convert()
+		#number
+		zero=pygame.image.load(image_zero).convert_alpha()
+		one=pygame.image.load(image_one).convert_alpha()
+		two=pygame.image.load(image_two).convert_alpha()
+		three=pygame.image.load(image_three).convert_alpha()
+		four=pygame.image.load(image_four).convert_alpha()
+		five=pygame.image.load(image_five).convert_alpha()
+		six=pygame.image.load(image_six).convert_alpha()
+		seven=pygame.image.load(image_seven).convert_alpha()
+		eight=pygame.image.load(image_eight).convert_alpha()
+		nine=pygame.image.load(image_nine).convert_alpha()
+		#currency
+		dollar=pygame.image.load(image_dollar).convert_alpha()
+		pound=pygame.image.load(image_pound).convert_alpha()
+		euro=pygame.image.load(image_euro).convert_alpha()
+		yen=pygame.image.load(image_yen).convert_alpha()
+		whan=pygame.image.load(image_whan).convert_alpha()
 
 		#On parcourt la liste du niveau
 		num_ligne = 0
@@ -91,55 +108,75 @@ class Niveau:
 				#On calcule la position réelle en pixels
 				x = num_case * taille_sprite
 				y = num_ligne * taille_sprite
-				if sprite == '♤':		   #m = Mur
+				if sprite == '^':		   #m = Mur
 					fenetre.blit(mur, (x,y))
-				elif sprite == '♧':		   #d = Départ
+				elif sprite == '#':		   #d = Départ
 					fenetre.blit(depart, (x,y))
-				elif sprite == '☆':		   #a = Arrivée 3
+				elif sprite == '²':		   #a = Arrivée 3ϵα♦
 					fenetre.blit(arrivee, (x,y))
-				elif sprite == 'д':		   #a = Arrivée_enfant 4
+				elif sprite == '_':		   #a = Arrivée_enfant 4дβ
 					fenetre.blit(arrivee_fam, (x,y))
+				elif sprite == '0':		   
+				  	fenetre.blit(zero, (x,y))
+				elif sprite == '1':		   
+				  	fenetre.blit(one, (x,y))              
+				elif sprite == '2':		   
+				  	fenetre.blit(two, (x,y))              
+				elif sprite == '3':		   
+				  	fenetre.blit(three, (x,y))              
+				elif sprite == '4':		   
+				  	fenetre.blit(four, (x,y))              
 				elif sprite == '5':		   
-				 	fenetre.blit(aright, (x,y))
-				elif sprite == '6':		  
-				 	fenetre.blit(aleft, (x,y))
+				  	fenetre.blit(five, (x,y))              
+				elif sprite == '6':		   
+				  	fenetre.blit(six, (x,y))              
 				elif sprite == '7':		   
-				 	fenetre.blit(aup, (x,y))
+				  	fenetre.blit(seven, (x,y))              
 				elif sprite == '8':		   
-				 	fenetre.blit(adown, (x,y))              
+				  	fenetre.blit(eight, (x,y))              
 				elif sprite == '9':		   
-				 	fenetre.blit(mean_up, (x,y))              
-				elif sprite == '10':		   
-				 	fenetre.blit(mean_down, (x,y))              
-				elif sprite == '11':		   
-				 	fenetre.blit(mean_left, (x,y))              
-				elif sprite == '12':		   
-				 	fenetre.blit(mean_right, (x,y))             
-				elif sprite == 'α':		   
-				  	fenetre.blit(credits_w_Irina, (x,y))             
-				elif sprite == 'β':		   
-				  	fenetre.blit(credits_w_Henry, (x,y))             
+				  	fenetre.blit(nine, (x,y))
 				elif sprite == 'γ':		   
-				  	fenetre.blit(credits_l_Irina, (x,y))             
-				elif sprite == 'δ':		   
-				  	fenetre.blit(credits_l_Henry, (x,y))             
+				 	fenetre.blit(aright, (x,y))
+				elif sprite == 'δ':		  
+				 	fenetre.blit(aleft, (x,y))
 				elif sprite == 'ε':		   
-				  	fenetre.blit(credits_gagne, (x,y))
+				 	fenetre.blit(aup, (x,y))
+				elif sprite == 'Ω':		   
+				 	fenetre.blit(adown, (x,y))              
+				elif sprite == '':		   
+				 	fenetre.blit(mean_up, (x,y))              
+				elif sprite == '':		   
+				 	fenetre.blit(mean_down, (x,y))              
+				elif sprite == '':		   
+				 	fenetre.blit(mean_left, (x,y))              
+				elif sprite == '':		   
+				 	fenetre.blit(mean_right, (x,y))
 				elif sprite == '$':		   
-				  	fenetre.blit(credits_w_Irina, (x,y))             
+				  	fenetre.blit(dollar, (x,y))             
 				elif sprite == '£':		   
-				  	fenetre.blit(credits_w_Henry, (x,y))             
+				  	fenetre.blit(pound, (x,y))             
 				elif sprite == '€':		   
-				  	fenetre.blit(credits_l_Irina, (x,y))             
+				  	fenetre.blit(euro, (x,y))             
 				elif sprite == '¥':		   
-				  	fenetre.blit(credits_l_Henry, (x,y))             
+				  	fenetre.blit(yen, (x,y))             
 				elif sprite == '₩':		   
-				  	fenetre.blit(credits_gagne, (x,y))
-				# elif sprite == 'ϵ':		   
-				#  	fenetre.blit(adown, (x,y))              
-				# elif sprite == 'ζ':		   
-				#  	fenetre.blit(adown, (x,y))              
-				# elif sprite == 'η':		   
+				 	fenetre.blit(whan, (x,y))  
+				#elif sprite == '':		   
+				#  	fenetre.blit(credits_w_Irina, (x,y))             
+				#elif sprite == '':		   
+				#  	fenetre.blit(credits_w_Henry, (x,y))             
+				#elif sprite == '':		   
+				#  	fenetre.blit(credits_l_Irina, (x,y))             
+				#elif sprite == '':		   
+				#  	fenetre.blit(credits_l_Henry, (x,y))             
+				#elif sprite == '':		   
+				#  	fenetre.blit(credits_gagne, (x,y))            
+				#elif sprite == 'Ψ':		   
+				# 	fenetre.blit(adown, (x,y))              
+				#elif sprite == 'Ω':		   
+				# 	fenetre.blit(adown, (x,y)) 
+				# elif sprite == 'η,ζ,':		   
 				#  	fenetre.blit(adown, (x,y))              
 				# elif sprite == 'θ':		   
 				#  	fenetre.blit(adown, (x,y))              
@@ -320,6 +357,70 @@ class Niveau:
 					fenetre.blit(Y, (x,y))
 				elif sprite == 'Z':		   
 					fenetre.blit(Z, (x,y))
+				elif sprite == ':':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '[':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == ']':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == 'µ':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '&':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '@':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == 'border':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == ')':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '(':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '°C':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == ':':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '.':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '¤':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '!':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '°F':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '>':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '<':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '§':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == 'closedparagraph':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == 'openparagraph':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '%':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '?':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '*':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '-':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '+':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '=':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == '/':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == 'à':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == 'ç':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == 'é':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == 'è':		   
+					fenetre.blit(Z, (x,y))
+				elif sprite == 'ù':		   
+					fenetre.blit(Z, (x,y))
 				
 				
 				
@@ -356,7 +457,7 @@ class Perso:
 			#Pour ne pas dépasser l'écran
 			if self.case_x < (nombre_sprite_cote - 1):
 				#On vérifie que la case de destination n'est pas un mur
-				if self.niveau.structure[self.case_y][self.case_x+1] != '♤':
+				if self.niveau.structure[self.case_y][self.case_x+1] != '^':
 					#Déplacement d'une case
 					self.case_x += 1
 					#Calcul de la position "réelle" en pixel
@@ -367,7 +468,7 @@ class Perso:
 		#Déplacement vers la gauche
 		if direction == 'gauche':
 			if self.case_x > 0:
-				if self.niveau.structure[self.case_y][self.case_x-1] != '♤':
+				if self.niveau.structure[self.case_y][self.case_x-1] != '^':
 					self.case_x -= 1
 					self.x = self.case_x * taille_sprite
 			self.direction = self.gauche
@@ -375,7 +476,7 @@ class Perso:
 		#Déplacement vers le haut
 		if direction == 'haut':
 			if self.case_y > 0:
-				if self.niveau.structure[self.case_y-1][self.case_x] != '♤':
+				if self.niveau.structure[self.case_y-1][self.case_x] != '^':
 					self.case_y -= 1
 					self.y = self.case_y * taille_sprite
 			self.direction = self.haut
@@ -383,7 +484,7 @@ class Perso:
 		#Déplacement vers le bas
 		if direction == 'bas':
 			if self.case_y < (nombre_sprite_cote - 1):
-				if self.niveau.structure[self.case_y+1][self.case_x] != '♤':
+				if self.niveau.structure[self.case_y+1][self.case_x] != '^':
 					self.case_y += 1
 					self.y = self.case_y * taille_sprite
 			self.direction = self.bas
