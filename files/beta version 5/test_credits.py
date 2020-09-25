@@ -5,21 +5,23 @@ from webbrowser import *
 def web(url):
     open_new("{}".format(url))
  
+def web(url):open_new("{}".format(url))
 def Githubh():web("https://bit.ly/2YcQ4ce")
 def Facebookh():web("http://bit.ly/2EieENH")
 def Instagramh():web("http://bit.ly/2PRGBkG")
 def InstagramI():web("https://bit.ly/2EmmERy")
 def discord():web("http://bit.ly/wolfesc")
 def Answerasurveyform():web("http://bit.ly/wolfescf")
-def Tipyee():web("https://bit.ly/3cqnOYV")
-def Utip():web("https://github.com/404")
-def Monosis():web("https://github.com/")
-def Suxene():web("https://github.com/")
-def Totopoo():web("totopo#8202")
-def Gabin():web("https://github.com/")
-def Defucoa():web("https://github.com/")
-def Marina():web("https://github.com/")
-def Caroline():web("https://github.com/")
+def tipyee():web("https://bit.ly/3cqnOYV")
+def utip():web("https://github.com/404")
+def monosis():web("https://github.com/")
+def suxene():web("https://github.com/")
+def totopoo():web("https://www.instagram.com/haiko_hana/")
+def gabin():web("https://github.com/")
+def defucoa():web("https://www.instagram.com/quentin.defu/")
+def marina():web("https://www.instagram.com/marinamarraskuu/")
+def caroline():web("https://github.com/")
+
 
 
 
@@ -78,27 +80,29 @@ def main_credits():
     Form.pack(anchor=CENTER, side=LEFT)#,fill=X
     SU=Label(Frame1TOP5, text="Support us:",  bg="White")
     SU.pack(anchor=CENTER, side=TOP)
-    Tipyee=Button(Frame1TOP5, text="On Tipyee", relief=FLAT, fg="blue",  bg="White", command=Tipyee)
+    Tipyee=Button(Frame1TOP5, text="On Tipyee", relief=FLAT, fg="blue",  bg="White", command=tipyee)
     Tipyee.pack(anchor=CENTER, side=LEFT)#,fill=X
-    Utip=Button(Frame1TOP5, text="On Utip", relief=FLAT, fg="blue",  bg="White", command=Utip)
+    Utip=Button(Frame1TOP5, text="On Utip", relief=FLAT, fg="blue",  bg="White", command=utip)
     Utip.pack(anchor=CENTER, side=LEFT)#,fill=X
     MT=Label(Frame1TOP6, text="Many Thanks To all the beta testers:",  bg="White")
     MT.pack(anchor=CENTER, side=TOP)
-    Monosis=Button(Frame1TOP6, text="Monosis", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=Monosis)
+    Monosis=Button(Frame1TOP6, text="Monosis", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=monosis)
     Monosis.pack(anchor=CENTER, side=TOP)#,fill=X
-    Suxene=Button(Frame1TOP6, text="Suxene", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=Suxene)
+    Suxene=Button(Frame1TOP6, text="Suxene", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=suxene)
     Suxene.pack(anchor=CENTER, side=TOP)#,fill=X
-    Totopoo=Button(Frame1TOP6, text="Totopoo", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=Totopoo)
+    Totopoo=Button(Frame1TOP6, text="Totopoo", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=totopoo)
     Totopoo.pack(anchor=CENTER, side=TOP)#,fill=X
-    Gabin=Button(Frame1TOP6, text="Gabin", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=Gabin)
+    Gabin=Button(Frame1TOP6, text="Gabin", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=gabin)
     Gabin.pack(anchor=CENTER, side=TOP)#,fill=X
-    Defucoa=Button(Frame1TOP6, text="Defucoa", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="#AE20FF",  bg="White", command=Defucoa)
+    Defucoa=Button(Frame1TOP6, text="Defucoa", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="#AE20FF",  bg="White", command=defucoa)
     Defucoa.pack(anchor=CENTER, side=TOP)#,fill=X
-    Marina=Button(Frame1TOP6, text="Marina", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=Marina)
+    Marina=Button(Frame1TOP6, text="Marina", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="#2283c9",  bg="White", command=marina)
     Marina.pack(anchor=CENTER, side=TOP)#,fill=X
-    Caroline=Button(Frame1TOP6, text="Caroline", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=Caroline)
+    Caroline=Button(Frame1TOP6, text="Caroline", font=(pfonty, pfonts, pfontw), relief=FLAT, fg="blue",  bg="White", command=caroline)
     Caroline.pack(anchor=CENTER, side=TOP)#,fill=X
-    Button(root, text="Exit", command=root.destroy).pack()
+    Quit=Button(root, text="Exit", command=root.destroy)
+    Quit.pack()
+    
     root.mainloop()
 
 main_credits()

@@ -30,11 +30,11 @@ def Answerasurveyform():web("http://bit.ly/wolfescf")
 def tipyee():web("https://bit.ly/3cqnOYV")
 def utip():web("https://github.com/404")
 def monosis():web("https://github.com/")
-def suxene():web("https://github.com/")
-def totopoo():web("totopo#8202")
+def suxene():web("https://github.com/Suxene?tab=repositories")
+def totopoo():web("https://www.instagram.com/haiko_hana/")
 def gabin():web("https://github.com/")
-def defucoa():web("https://github.com/")
-def marina():web("https://github.com/")
+def defucoa():web("https://www.instagram.com/quentin.defu/")
+def marina():web("https://www.instagram.com/marinamarraskuu/")#https://www.facebook.com/marina.toussaint.5201
 def caroline():web("https://github.com/")
 
 
@@ -211,13 +211,17 @@ def boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien): #
 			if event.type == QUIT:
 				continuer_jeu = 0
 				continuer = 0
+				LEVEL=maxlevels
+				return LEVEL
 		
 			elif event.type == KEYDOWN:
 				#Si l'utilisateur presse Echap ici, on revient seulement au menu
 				if event.key == K_ESCAPE:
 					continuer_jeu = 0
+					LEVEL=maxlevels
+                                        return LEVEL
 					
-				#Touches de déplacement de Donkey Kong
+				#Touches de déplacement de Wolf
 				elif event.key == K_RIGHT:
 					dk.deplacer('droite')
 				elif event.key == K_LEFT:
@@ -253,10 +257,12 @@ def boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien): #
 		if niveau.structure[dk.case_y][dk.case_x] == '²' or niveau.structure[dk.case_y][dk.case_x] == '_'or niveau.structure[dk.case_y][dk.case_x] == '0':continuer_jeu = 0
         #return continuer_jeu, continuer
 
-def play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix):
+def play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden):
     #continuer_accueil = 0
-    
-    refreshlevels("levels")#levelfiles
+    if hidden==0:   
+        refreshlevels("levels")#levelfiles
+    else:
+        refreshlevels("elementary_levels")
     global maxlevels, LEVEL
     maxlevel=len(levelfiles)
     LEVEL=0
@@ -292,7 +298,7 @@ def play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Cho
             LEVEL+=1
     CREDIT=True
     choix="elementary_levels/credits"
-    check(image_fond,image_fond_credits,fenetre,choix,maxlevel,CREDIT,Choix)
+    check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix)
     boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
     return Choix, continuer_accueil
 
@@ -345,10 +351,10 @@ while continuer:
 			elif event.type == KEYDOWN:				
 				#Lancement du niveau 1
 				if event.key == K_SPACE:
-					continuer_accueil,LEVEL,Choix=0,0,1
+					continuer_accueil,LEVEL,Choix,hidden=0,0,1,0
                     # refreshlevels("levels")
                     # while LEVEL!=len(levelfiles):
-					play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix)
+					play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden)
 					if Choix==0:print("sys.exit")
                         # sys.exit(0)	
                         # continuer_jeu,LEVEL,continuer,continuer_accueil = 0,maxlevel,0,1
@@ -356,7 +362,8 @@ while continuer:
 				elif event.key == K_BACKSPACE or event.key == K_RETURN:
 					continuer_accueil = 0
 					choselevels()
-					check(image_fond,image_fond_credits,fenetre,choix,CREDIT)#niveau,
+					hidden=0
+					check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix)#niveau,
 					
 					boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)#
 					print(choix)
@@ -368,8 +375,14 @@ while continuer:
 					main_credits()
 					#continuer_accueil=1
 					#choix=""
-				elif event.key == K_c:continuer_accueil,choix=0,"credits"
-				if event.key == K_F1:continuer_accueil,choix = 0,'m1'
-				#Lancement du niveau 2
-				elif event.key == K_F2:continuer_accueil,choix =0,'m2'
-	
+				elif event.key == K_h:
+					continuer_accueil,LEVEL,Choix,hidden=0,0,1,0
+					play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden)
+					#continuer_accueil=1
+					#choix=""
+				elif event.key == K_F1:
+					continuer_accueil,LEVEL,Choix,hidden=0,0,1,1
+					play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden)
+				elif event.key == K_F2:
+					continuer_accueil,LEVEL,Choix,hidden=0,0,1,1
+					play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden)
