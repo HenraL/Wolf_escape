@@ -162,13 +162,6 @@ def choselevels():
     bouton=Button(Frame1, text="Jouer!", command=LEVEL)
     bouton.pack(side=RIGHT, padx=5)
     Cevel.mainloop()
-    # return choix
-# def checkcredit():
-#     refreshlevels()
-#     for i in range(len(levelfiles)):
-#         if levelfiles[i]=="credits":
-#             creditindex=i
-#     return creditindex
 
 def check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix): #niveau,
     if choix != 0 and Choix!=0:
