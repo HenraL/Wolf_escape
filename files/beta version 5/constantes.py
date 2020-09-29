@@ -15,6 +15,18 @@ image_icone = "img/ingame/wolf_icon.png"
 imggiff="img/ingame/wolf_mainmenu.png"
 imggif="img/ingame/wolf_mainmenu2.png"
 
+#annimation du jeux
+##Annimation du menu démarer
+mainMenuPlayed=False
+frameMainMenuWait=0.5
+image_accueil="img/ingame/accueil.png"
+image_accueil2="img/ingame/accueilm.png"
+image_accueil3="img/ingame/endb.png"
+image_accueil4="img/ingame/endv.png"
+image_accueil5="img/ingame/mur.png"
+image_accueil6="img/ingame/start.png"
+image_accueil7="img/ingame/wolf_icon.png"
+
 #Listes des images du jeu
 image_accueil = "img/ingame/accueil.png"
 
