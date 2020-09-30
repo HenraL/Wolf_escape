@@ -62,13 +62,13 @@ while continuer:
                 #Lancement du niveau 1
                 if event.key == K_SPACE:
                     continuer_accueil,LEVEL,Choix,hidden=0,0,1,0
-                    MainLoopGame.play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden)
+                    MainLoopGame.play(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT)
                 elif event.key == K_BACKSPACE or event.key == K_RETURN:
                     continuer_accueil = 0
-                    choselevels()
+                    tkinterWindows.choselevels()
                     hidden=0
-                    check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix)#niveau,
-                    boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)#
+                    MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix)#niveau,
+                    MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)#
                     print(choix)
                 #elif event.key == K_s:
 		#	continuer_accueil = 0
@@ -78,10 +78,10 @@ while continuer:
                     tkinterWindows.main_credits()
                 elif event.key == K_h:
                     continuer_accueil,LEVEL,Choix,hidden=0,0,1,0
-                    MainLoopGame.play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden)
+                    MainLoopGame.play(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT)
                 elif event.key == K_F1:
                     continuer_accueil,LEVEL,Choix,hidden=0,0,1,1
-                    MainLoopGame.play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden)
+                    MainLoopGame.play(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT)
                 elif event.key == K_F2:
                     continuer_accueil,LEVEL,Choix,hidden=0,0,1,1
-                    MainLoopGame.play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden)
+                    MainLoopGame.play(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT)

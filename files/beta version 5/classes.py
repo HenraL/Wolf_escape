@@ -5,12 +5,20 @@
 # from _typeshed import WriteableBuffer
 from tkinter.constants import GROOVE
 import pygame
+from pygame.locals import *
+from pygame.mixer import *
+from pygame.display import *
 import os
-from pygame.locals import * 
 from constantes import *
 from time import sleep
 from tkinter import *
 from webbrowser import *
+
+#Définition pour le système
+#Pour pygame
+#Définitions pour le système
+#Pour pygame
+# event=pygame.event.get()
 
 class Niveau:
 	"""Classe permettant de créer un niveau"""
@@ -20,24 +28,26 @@ class Niveau:
 	
 	
 	def generer(self):
-		"""Méthode permettant de générer le niveau en fonction du fichier.
-		On crée une liste générale, contenant une liste par ligne à afficher"""	
-		#On ouvre le fichier
-		with open(self.fichier, "r") as fichier:
-			structure_niveau = []
-			#On parcourt les lignes du fichier
-			for ligne in fichier:
-				ligne_niveau = []
-				#On parcourt les sprites (lettres) contenus dans le fichier
-				for sprite in ligne:
-					#On ignore les "\n" de fin de ligne
-					if sprite != '\n':
-						#On ajoute le sprite à la liste de la ligne
-						ligne_niveau.append(sprite)
-				#On ajoute la ligne à la liste du niveau
-				structure_niveau.append(ligne_niveau)
-			#On sauvegarde cette structure
-			self.structure = structure_niveau
+                """Méthode permettant de générer le niveau en fonction du fichier.
+                On crée une liste générale, contenant une liste par ligne à afficher"""
+                print(self.fichier)
+                #On ouvre le fichier
+                with open(self.fichier, "r") as fichier:
+                    print("we are in the with open self loop")
+                    structure_niveau = []
+                    #On parcourt les lignes du fichier
+                    for ligne in fichier:
+                        ligne_niveau = []
+                        #On parcourt les sprites (lettres) contenus dans le fichier
+                        for sprite in ligne:
+                            #On ignore les "\n" de fin de ligne
+                            if sprite != '\n':
+                                #On ajoute le sprite à la liste de la ligne
+                                ligne_niveau.append(sprite)
+                        #On ajoute la ligne à la liste du niveau
+                        structure_niveau.append(ligne_niveau)
+                    #On sauvegarde cette structure
+                    self.structure = structure_niveau
 	
 	
 	def afficher(self, fenetre):
@@ -496,6 +506,10 @@ class Perso:
 			self.direction = self.bas
 
 class trackProgress:
+    def refreshlevels(PATH):#levelfiles
+        global levelfiles
+        levelfiles=os.listdir("{}".format(PATH))
+        return levelfiles
     def WriteProgressToFile(progress):
         f=open("Progress","w")
         f.write(progress)
@@ -527,11 +541,7 @@ class trackProgress:
                         return IngameProgress, FileProgress
         else:
             trackProgress.WriteProgressToFile("0")
-    def refreshlevels(PATH):#levelfiles
-        global levelfiles
-        levelfiles=os.listdir("{}".format(PATH))
-        return levelfiles
-    def AskRestoreProgress(ProgressFile):print("tkwindows, question, if yes, choix=ProgressFile if no, choix=0, ProgressFile=0")
+    def AskRestoreProgress(FileProgress):print("tkwindows, question, if yes, choix=ProgressFile if no, choix=0, ProgressFile=0")
     
 
 class movingEnemies: 
@@ -544,14 +554,14 @@ class tkinterWindows: #currently global windows
             Levelnumber = int(level.get())
             Cevel.destroy()
             print(Levelnumber)
-            refreshlevels("levels")#levelfiles
+            trackProgress.refreshlevels("levels")#levelfiles
             maxlevel=len(levelfiles)
             global choix
             choix=levelfiles[Levelnumber-1]
             global CREDIT
             CREDIT=False
             return choix
-        refreshlevels("levels")#levelfiles
+        trackProgress.refreshlevels("levels")#levelfiles
         maxlevel=len(levelfiles)
         Cevel = Tk()
         Frame1 = Frame(Cevel, borderwidth=2, relief=FLAT)
@@ -654,7 +664,7 @@ class tkinterWindows: #currently global windows
         Graphics.pack(anchor=CENTER,side=TOP,fill=X)
         Irina=Label(Frame1TOP3, text="Irina Marchand", bg=bgColor)
         Irina.pack(anchor=CENTER,side=TOP,fill=X)
-        insti=Button(Frame1TOP3, text="Instagram", relief=F1, fg="blue",  bg=bgColor, command=tkinterWindows.InstagramI)
+        insti=Button(Frame1TOP3, text="Instagram", relief=F1, fg="blue", bg=bgColor, command=tkinterWindows.InstagramI)
         insti.pack(anchor=CENTER,side=TOP)#,fill=X, relief=FLAT
         Marina=Label(Frame1TOP3, text="Marina Toussain", bg=bgColor)
         Marina.pack(anchor=CENTER,side=TOP)#,fill=X
@@ -664,33 +674,33 @@ class tkinterWindows: #currently global windows
         fac.pack(anchor=CENTER,side=LEFT) #,fill=X, border=FLAT
         Feedback=Label(Frame1TOP3, text="Feedback:", bg=bgColor)
         Feedback.pack(anchor=CENTER, side=TOP)
-        TUWYTATG=Label(Frame1TOP4, text="Tell us what you think about the game:",  bg=bgColor)
+        TUWYTATG=Label(Frame1TOP4, text="Tell us what you think about the game:", bg=bgColor)
         TUWYTATG.pack(anchor=CENTER, side=TOP)
-        TUO=Label(Frame1TOP4, text="Tell us on:",  bg=bgColor)
+        TUO=Label(Frame1TOP4, text="Tell us on:", bg=bgColor)
         TUO.pack(anchor=CENTER, side=TOP)
-        Discord=Button(Frame1TOP4, text="Discord", relief=F1, fg="blue",  bg=bgColor, command=tkinterWindows.discord)
+        Discord=Button(Frame1TOP4, text="Discord", relief=F1, fg="blue", bg=bgColor, command=tkinterWindows.discord)
         Discord.pack(anchor=CENTER, side=LEFT)#,fill=X
-        Form=Button(Frame1TOP4, text="Answer a survey form", relief=F1, fg="blue",  bg=bgColor, command=tkinterWindows.Answerasurveyform)
+        Form=Button(Frame1TOP4, text="Answer a survey form", relief=F1, fg="blue", bg=bgColor, command=tkinterWindows.Answerasurveyform)
         Form.pack(anchor=CENTER, side=LEFT)#,fill=X
-        SU=Label(Frame1TOP5, text="Support us:",  bg=bgColor)
+        SU=Label(Frame1TOP5, text="Support us:", bg=bgColor)
         SU.pack(anchor=CENTER, side=TOP)
-        Tipyee=Button(Frame1TOP5, text="On Tipyee", relief=F1, fg="blue",  bg=bgColor, command=tkinterWindows.tipyee)
+        Tipyee=Button(Frame1TOP5, text="On Tipyee", relief=F1, fg="blue", bg=bgColor, command=tkinterWindows.tipyee)
         Tipyee.pack(anchor=CENTER, side=LEFT)#,fill=X
-        Utip=Button(Frame1TOP5, text="On Utip", relief=F1, fg="blue",  bg=bgColor, command=tkinterWindows.utip)
+        Utip=Button(Frame1TOP5, text="On Utip", relief=F1, fg="blue", bg=bgColor, command=tkinterWindows.utip)
         Utip.pack(anchor=CENTER, side=LEFT)#,fill=X
-        MT=Label(Frame1TOP6, text="Many Thanks To all the beta testers:",  bg=bgColor)
+        MT=Label(Frame1TOP6, text="Many Thanks To all the beta testers:", bg=bgColor)
         MT.pack(anchor=CENTER, side=TOP)
-        Monosis=Button(Frame1TOP6, text="Monosis", font=(pfonty, pfonts, pfontw), relief=F1, fg="blue",  bg=bgColor, command=tkinterWindows.monosis)
+        Monosis=Button(Frame1TOP6, text="Monosis", font=(pfonty, pfonts, pfontw), relief=F1, fg="blue", bg=bgColor, command=tkinterWindows.monosis)
         Monosis.pack(anchor=CENTER, side=TOP)#,fill=X
-        Suxene=Button(Frame1TOP6, text="Suxene", font=(pfonty, pfonts, pfontw), relief=F1, fg="blue",  bg=bgColor, command=tkinterWindows.suxene)
+        Suxene=Button(Frame1TOP6, text="Suxene", font=(pfonty, pfonts, pfontw), relief=F1, fg="blue", bg=bgColor, command=tkinterWindows.suxene)
         Suxene.pack(anchor=CENTER, side=TOP)#,fill=X
-        Totopoo=Button(Frame1TOP6, text="Totopoo", font=(pfonty, pfonts, pfontw), relief=F1, fg="blue",  bg=bgColor, command=tkinterWindows.totopoo)
+        Totopoo=Button(Frame1TOP6, text="Totopoo", font=(pfonty, pfonts, pfontw), relief=F1, fg="blue", bg=bgColor, command=tkinterWindows.totopoo)
         Totopoo.pack(anchor=CENTER, side=TOP)#,fill=X
-        Gabin=Button(Frame1TOP6, text="Gabin", font=(pfonty, pfonts, pfontw), relief=F1, fg="blue",  bg=bgColor, command=tkinterWindows.gabin)
+        Gabin=Button(Frame1TOP6, text="Gabin", font=(pfonty, pfonts, pfontw), relief=F1, fg="blue", bg=bgColor, command=tkinterWindows.gabin)
         Gabin.pack(anchor=CENTER, side=TOP)#,fill=X
-        Defucoa=Button(Frame1TOP6, text="Defucoa", font=(pfonty, pfonts, pfontw), relief=F1, fg="#AE20FF",  bg=bgColor, command=tkinterWindows.defucoa)
+        Defucoa=Button(Frame1TOP6, text="Defucoa", font=(pfonty, pfonts, pfontw), relief=F1, fg="#AE20FF", bg=bgColor, command=tkinterWindows.defucoa)
         Defucoa.pack(anchor=CENTER, side=TOP)#,fill=X
-        Caroline=Button(Frame1TOP6, text="Caroline", font=(pfonty, pfonts, pfontw), relief=F1, fg="blue",  bg=bgColor, command=tkinterWindows.caroline)
+        Caroline=Button(Frame1TOP6, text="Caroline", font=(pfonty, pfonts, pfontw), relief=F1, fg="blue", bg=bgColor, command=tkinterWindows.caroline)
         Caroline.pack(anchor=CENTER, side=TOP)#,fill=X
         Quit=Button(root, text="Exit", command=root.destroy)
         Quit.pack()
@@ -750,10 +760,7 @@ class gameAnimations:
         # return acceuil
 
 class MainLoopGame:
-
-    
-
-    def boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien): #
+    def boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien): #
         #BOUCLE DE JEU
         while continuer_jeu:
             #Limitation de vitesse de la boucle
@@ -814,11 +821,13 @@ class MainLoopGame:
             global fond
             if CREDIT==True:#creditindex
                 fond = pygame.image.load(image_fond_credits).convert()
+                # return fond
             else:
-                choix='levels/{}'.format(choix)
+                choix="levels/{}".format(choix)
                 fond = pygame.image.load(image_fond).convert()
+                # return choix, fond
             #Génération d'un niveau à partir d'un fichier
-            global niveau
+            # global niveau
             niveau = Niveau(choix)
             niveau.generer()
             niveau.afficher(fenetre)
@@ -829,16 +838,17 @@ class MainLoopGame:
             global gardien
             gardien=Perso("img/sprite/gardien/Gardien_Droite.png", "img/sprite/gardien/Gardien_Gauche.png", "img/sprite/gardien/Gardien_haut.png", "img/sprite/gardien/Gardien_bas.png", niveau)
         return dk, gardien, fond, choix, niveau, fenetre
-    def play(continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden):
+    def play(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT):
+        print("we are in the play loop")
         #continuer_accueil = 0
         if hidden==0:   
-            refreshlevels("levels")#levelfiles
+            trackProgress.refreshlevels("levels")#levelfiles
         else:
-            refreshlevels("elementary_levels")
+            trackProgress.refreshlevels("elementary_levels")
         global maxlevels, LEVEL
         maxlevel=len(levelfiles)
         LEVEL=0
-        print(levelfiles)
+        # print(levelfiles)
         while LEVEL<len(levelfiles):
         # for LEVEL in range(len(levelfiles)):
             print(levelfiles)
@@ -848,7 +858,7 @@ class MainLoopGame:
             #global choix
             if Choix!=0:
                 choix=levelfiles[LEVEL]
-                pygame.display.set_caption("{}{}".format(titre_fenetre,choix))
+                pygame.display.set_caption("{} {}".format(titre_fenetre,choix))
             if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE or event.type == KEYDOWN and event.key == K_q:
                 continuer_jeu = 0
                 LEVEL=maxlevel
@@ -864,14 +874,14 @@ class MainLoopGame:
             else:
                 print (choix)
                 #choix = 'l{}'.format(i+1)
-                check(image_fond,image_fond_credits,fenetre,choix,maxlevel,Choix)#niveau,CREDIT
-                boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
+                MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix)#niveau
+                MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
                 #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
                 LEVEL+=1
         CREDIT=True
         choix="elementary_levels/credits"
-        check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix)
-        boucledejeu(continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
+        MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix)
+        MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
         return Choix, continuer_accueil
 
 #try and master a pygame flip for background animation in the main menu
