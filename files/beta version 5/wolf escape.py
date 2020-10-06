@@ -6,6 +6,8 @@ from tkinter import *
 from webbrowser import *
 
 from classes import *
+# from classImporter import *
+#from classCleaned import *
 from constantes import *
 levels=4
 CREDIT=False
@@ -13,10 +15,30 @@ CREDIT=False
 """
 Jeu Wolf escape Labyrinthe
 Jeu dans lequel on doit déplacer DK jusqu'aux bananes à travers un labyrinthe.
-
 Script Python
 Fichiers : dklabyrinthe.py, classes.py, constantes.py, n1, n2 + images
 """
+def choselevels():
+    def LEVEL():
+        global choix
+        choix=levelfiles[int(level.get())]
+        Cevel.destroy()
+        print("choix= ",choix)
+        #return choix
+    trackProgress.refreshlevels("levels")#levelfiles
+    maxlevel=len(levelfiles)
+    Cevel = Tk()
+    Frame1 = Frame(Cevel, borderwidth=2, relief=FLAT)
+    Frame1.pack(side=LEFT, padx=10, pady=10)
+    label = Label(Frame1, text="Choose you're level:")
+    label.pack()
+    level=Spinbox(Frame1, from_=1, to=maxlevel, increment=1)
+    level.pack(side=LEFT, padx=5)
+    bouton=Button(Frame1, text="Jouer!", command=LEVEL)
+    bouton.pack(side=RIGHT, padx=5)
+    Cevel.mainloop()
+
+
 
 pygame.init()
 
@@ -34,10 +56,7 @@ pygame.key.set_repeat(400, 30)
 #BOUCLE PRINCIPALE
 continuer = 1
 while continuer:
-    #Chargement et affichage de l'écran d'accueil
-    gameAnimations.mainMenuStartup(mainMenuPlayed,fenetre, frameMainMenuWait,image_accueil,image_accueil2,image_accueil3,image_accueil4,image_accueil5,image_accueil6,image_accueil7)
-    mainMenuPlayed=True
-
+    
     #Rafraichissement
     pygame.display.flip()
 	
@@ -47,6 +66,9 @@ while continuer:
 
     #BOUCLE D'ACCUEIL
     while continuer_accueil:
+        gameAnimations.mainMenuStartup(mainMenuPlayed,fenetre, frameMainMenuWait,load_images,image_main1,image_main2,titre_fenetre)
+        mainMenuPlayed=True
+
         #Limitation de vitesse de la boucle
         pygame.time.Clock().tick(30)
         for event in pygame.event.get():
@@ -64,11 +86,11 @@ while continuer:
                     continuer_accueil,LEVEL,Choix,hidden=0,0,1,0
                     MainLoopGame.play(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT)
                 elif event.key == K_BACKSPACE or event.key == K_RETURN:
-                    continuer_accueil = 0
-                    tkinterWindows.choselevels()
-                    hidden=0
-                    MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix)#niveau,
-                    MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)#
+                    continuer_accueil, hidden,levelfiles,Choix,CREDIT,fond=0,0,os.listdir("levels"),1,False,pygame.image.load(image_fond).convert()
+                    maxlevel=len(levelfiles)
+                    choselevels()
+                    MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
+                    print("exited the boucledejeu")
                     print(choix)
                 #elif event.key == K_s:
 		#	continuer_accueil = 0
@@ -77,11 +99,22 @@ while continuer:
                     continuer_accueil = 0
                     tkinterWindows.main_credits()
                 elif event.key == K_h:
-                    continuer_accueil,LEVEL,Choix,hidden=0,0,1,0
-                    MainLoopGame.play(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT)
+                    continuer_accueil=0
+                    LEVEL=0
+                    Choix=1
+                    hidden=1
+                    choix="h"
+                    fond=pygame.image.load(image_fond).convert()
+                    MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
                 elif event.key == K_F1:
-                    continuer_accueil,LEVEL,Choix,hidden=0,0,1,1
-                    MainLoopGame.play(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT)
+                    continuer_accueil,LEVEL,Choix,hidden,choix,fond=0,0,1,1,"m1",pygame.image.load(image_fond).convert()
+                    MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
                 elif event.key == K_F2:
-                    continuer_accueil,LEVEL,Choix,hidden=0,0,1,1
-                    MainLoopGame.play(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT)
+                    continuer_accueil,LEVEL,Choix,hidden,choix,fond=0,0,1,1,"m2",pygame.image.load(image_fond).convert()
+                    MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
+                elif event.key == K_I:
+                    continuer_accueil,LEVEL,Choix,hidden,choix,fond=0,0,1,1,"I",pygame.image.load(image_fond).convert()
+                    MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
+                elif event.key == K_F3:
+                    continuer_accueil,LEVEL,Choix,hidden,choix,fond=0,0,1,1,"credits",pygame.image.load(image_fond).convert()
+                    MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)

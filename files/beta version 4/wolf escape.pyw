@@ -22,7 +22,6 @@ from constantes import *
 def refreshlevels():#levelfiles
     global levelfiles
     levelfiles=os.listdir("levels")
-    
     return levelfiles
 
 def accueil(continuer_jeu,continuer_accueil):

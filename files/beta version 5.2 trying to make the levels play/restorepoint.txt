@@ -1,0 +1,32 @@
+En mode jeux (espace):
+    Créer def writesquash(file):
+     F=open("restore.pyc","w")
+     F.write(file)
+     F.close()
+     Créer def getresore(file):
+      F=open("restore.pyc","r")
+      Restorepoint=F.read()
+      F.close()
+     Return Restorepoint
+    Créé def point de restauration(choix):
+Windows=Tk()
+Frame1=(window,+usual code)
+Label=(Frame1, "a restore point has bern found, do you whant to play from that point?"+usual code)
+Button1=(text=restart from the begining"+usual code)
+Button2=(text="continue from saved point"+ usual code)
+Fenetre.loop()
+
+Def restore():
+Getrestore(file)
+  Choix=file
+Restart():
+   Writesquash("")
+    Choix=0
+    Return choix
+Call def in code for ocerwriting existing restore point
+And andd try except to see if restore point file existe
+In the try add check if file=="":
+Choix=1
+Else:
+Call func restore
+Follow func restore
