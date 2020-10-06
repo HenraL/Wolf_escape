@@ -20,7 +20,7 @@ image_main2="img/launch_load/menu_anim/accueil_static_2.png"
 
 #annimation du jeux
 ##Annimation du menu démarer
-mainMenuPlayed=True#False
+mainMenuPlayed=False #True #False #True #False#True
 frameMainMenuWait=0.5
 image_accueil1="img/launch_load/start_load/stages_stage_1.png"
 image_accueil2="img/launch_load/start_load/stages_stage_2.png"
@@ -129,7 +129,7 @@ leti="img/tut_image/alphabet/minuscule/imi.png"
 letj="img/tut_image/alphabet/minuscule/jmi.png"
 letk="img/tut_image/alphabet/minuscule/kmi.png"
 letl="img/tut_image/alphabet/minuscule/lmi.png"
-letm="img/tut_image/alphabet/minuscule/mmi.png"
+letm="img/tut_image/alphabet/minuscule/mmi.PNG"
 letn="img/tut_image/alphabet/minuscule/nmi.png"
 leto="img/tut_image/alphabet/minuscule/omi.png"
 letp="img/tut_image/alphabet/minuscule/pmi.png"
@@ -140,8 +140,8 @@ lett="img/tut_image/alphabet/minuscule/tmi.png"
 letu="img/tut_image/alphabet/minuscule/umi.png"
 letv="img/tut_image/alphabet/minuscule/vmi.png"
 letw="img/tut_image/alphabet/minuscule/wmi.png"
-letx="img/tut_image/alphabet/minuscule/xmi.png"
-lety="img/tut_image/alphabet/minuscule/ymi.png"
+letx="img/tut_image/alphabet/minuscule/xmi.PNG"
+lety="img/tut_image/alphabet/minuscule/ymi.PNG"
 letz="img/tut_image/alphabet/minuscule/zmi.png"
 
 #Alphabet Majuscule
