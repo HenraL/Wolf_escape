@@ -660,10 +660,14 @@ class MainLoopGame:
             # checkcredit()
             #Chargement du fond
             global fond
-            if CREDIT==True and hidden==0:
+            if CREDIT==True:
                 fond = pygame.image.load(image_fond_credits).convert()
                 # return fond
-            elif hidden==1:
+            else:
+                fond=pygame.image.load(image_fond).convert()
+            # if CREDIT==False:fond=pygame.image.load(image_fond).convert()
+            # else:fond=pygame.image.load(image_fond_credits).convert() 
+            if hidden==1:
                 choix="elementary_levels/{}".format(choix)
             else:
                 choix="levels/{}".format(choix)
@@ -732,12 +736,13 @@ class MainLoopGame:
         MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel)
         return Choix, continuer_accueil
     def Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix):
+        # event=pygame.event.get()
         print("Je suis dans la play boucle")
         #continuer_accueil = 0
-        if hidden==0:   
-            trackProgress.refreshlevels("levels")#levelfiles
-        else:
-            trackProgress.refreshlevels("elementary_levels")
+        if hidden==0:trackProgress.refreshlevels("levels")#levelfiles
+        else:trackProgress.refreshlevels("elementary_levels")
+        if CREDIT==False:fond=pygame.image.load(image_fond).convert()
+        else:fond=pygame.image.load(image_fond_credits).convert()
         global maxlevels, LEVEL
         maxlevel=len(levelfiles)
         #LEVEL=0
@@ -750,9 +755,7 @@ class MainLoopGame:
         #global continuer_jeu
         continuer_jeu = 1
         #global choix
-        if Choix!=0:
-            #choix=levelfiles[LEVEL]
-            pygame.display.set_caption("{} {}".format(titre_fenetre,LEVEL))
+        if Choix!=0:pygame.display.set_caption("{} {}".format(titre_fenetre,LEVEL))
         if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE or event.type == KEYDOWN and event.key == K_q:
             continuer_jeu = 0
             LEVEL=maxlevel

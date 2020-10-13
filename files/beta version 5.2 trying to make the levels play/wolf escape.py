@@ -99,22 +99,65 @@ while continuer:
                     continuer_accueil = 0
                     tkinterWindows.main_credits()
                 elif event.key == K_h:
+                    continuer_accueil, hidden,levelfiles,Choix,CREDIT,fond=0,1,os.listdir("levels"),1,False,pygame.image.load(image_fond).convert()
+                    maxlevel=len(levelfiles)
+                    choix="h"
+                    MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
+                    # event=pygame.event.get()
+                    # continuer_accueil=0
+                    # LEVEL=0
+                    # Choix=1
+                    # hidden=1
+                    # choix="h"
+                    # CREDIT=False
+                    # fond=pygame.image.load(image_fond).convert()
+                    # levelfiles=os.listdir("levels")
+                    # maxlevel=len(levelfiles)
+                    MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
+                elif event.key == K_F1:
+                    event=pygame.event.get()
                     continuer_accueil=0
                     LEVEL=0
                     Choix=1
                     hidden=1
-                    choix="h"
+                    choix="m1"
+                    CREDIT=False
                     fond=pygame.image.load(image_fond).convert()
-                    MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
-                elif event.key == K_F1:
-                    continuer_accueil,LEVEL,Choix,hidden,choix,fond=0,0,1,1,"m1",pygame.image.load(image_fond).convert()
+                    levelfiles=os.listdir("levels")
+                    maxlevel=len(levelfiles)
                     MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
                 elif event.key == K_F2:
-                    continuer_accueil,LEVEL,Choix,hidden,choix,fond=0,0,1,1,"m2",pygame.image.load(image_fond).convert()
+                    event=pygame.event.get()
+                    continuer_accueil=0
+                    LEVEL=0
+                    Choix=1
+                    hidden=1
+                    choix="m2"
+                    CREDIT=False
+                    fond=pygame.image.load(image_fond).convert()
+                    levelfiles=os.listdir("levels")
+                    maxlevel=len(levelfiles)
                     MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
-                elif event.key == K_I:
-                    continuer_accueil,LEVEL,Choix,hidden,choix,fond=0,0,1,1,"I",pygame.image.load(image_fond).convert()
+                elif event.key == K_i:
+                    event=pygame.event.get()
+                    continuer_accueil=0
+                    hidden=0
+                    levelfiles="I"
+                    Choix=1
+                    CREDIT=False
+                    fond=pygame.image.load(image_fond).convert()
+                    levelfiles=os.listdir("levels")
+                    maxlevel=len(levelfiles)
                     MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
                 elif event.key == K_F3:
+                    event=pygame.event.get()
+                    continuer_accueil=0
+                    hidden=0
+                    levelfiles="credits"
+                    Choix=1
+                    CREDIT=False
+                    fond=pygame.image.load(image_fond).convert()
+                    levelfiles=os.listdir("levels")
+                    maxlevel=len(levelfiles)
                     continuer_accueil,LEVEL,Choix,hidden,choix,fond=0,0,1,1,"credits",pygame.image.load(image_fond).convert()
                     MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
