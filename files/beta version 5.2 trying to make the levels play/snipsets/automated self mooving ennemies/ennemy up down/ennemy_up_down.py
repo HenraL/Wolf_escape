@@ -5,6 +5,7 @@ from pygame.display import *
 from tkinter import *
 from webbrowser import *
 
+from ennemy import*
 from classes import *
 from constantes import *
 

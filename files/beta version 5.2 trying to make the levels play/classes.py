@@ -24,7 +24,7 @@ class Niveau:
                         ligne_niveau.append(sprite)
                 structure_niveau.append(ligne_niveau)
             self.structure=structure_niveau
-            # print(self.structure)
+            print(self.structure)
 
     def afficher(self, fenetre):
         #print("Je suis dans afficher (self, fenetre)")

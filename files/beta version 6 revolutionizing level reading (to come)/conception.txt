@@ -1,0 +1,59 @@
+main menu (splash screen):
+center: wolf walking
+bottom center: press space to start, enter to choose a level, s to show the list of levels, Q to quit
+top : "Wolf escape"
+middle left: Graphics
+middle left +1: Irina Marchnad
+middle left +2: @Irinamarchand (instagram)
+middle right: Programmer
+middle right +1: Henry Letellier
+middle right +2: @HenryLetellier (instagram)
+
+if enter pressed:
+	Show tkinter number toggle box: (from 0 to len(max level)
+	next to number toggle box: button "Play!"
+	title tkinter box: Select you're level
+elif space pressed:
+	start a level 0 if game not played or cache file not found
+	else:
+		start a level from the cache
+
+Level display when playing:
+	load level file
+	title window: level x(current level)
+	level with wolf as main caracter
+	start left:
+		place wolf on starting point
+	end wright:
+		place scared chess board on ending point
+		place meat on chess board
+Level Display when won level:
+	Center "You have Completed this level!" or "Level Cleared"
+	Center -1: Press space to continue
+
+level menu Display:
+	display only levels that have come with the game
+	level 1		level 2		
+	level 3		level 4
+	level x		level x+1
+	(for i in range(levels):
+		print("level {}		level{}".format(i,i+1)))
+	display a tkinter box when level manu display ==True
+		same as to enable user to choose level
+
+end game screen:
+	top-1: "   You have Won!"
+	top-2: "You have saved the wolf"
+	center:
+	image wolf with and husband(or whife) cubs 
+	bottom:
+		"You have played the game for {}".format(time)
+		"You have entirely played the game {}".format(times)
+	bottom -1:
+		"The graphics of this game were made by Irina Marchand"
+	bottom-2:
+		"You can find her on instagram (inst tag) faceboock (fac tag), (and other site tag)
+	bottom -3:
+		"This game was coded and thought by Henry Letellier"
+	bottom -4:
+		"You can find me on instagram (inst tag), faceboock (fac tag), Github (git tag), 
