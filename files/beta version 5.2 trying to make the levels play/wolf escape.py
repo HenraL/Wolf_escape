@@ -103,61 +103,30 @@ while continuer:
                     maxlevel=len(levelfiles)
                     choix="h"
                     MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
-                    # event=pygame.event.get()
-                    # continuer_accueil=0
-                    # LEVEL=0
-                    # Choix=1
-                    # hidden=1
-                    # choix="h"
-                    # CREDIT=False
-                    # fond=pygame.image.load(image_fond).convert()
-                    # levelfiles=os.listdir("levels")
-                    # maxlevel=len(levelfiles)
-                    MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
                 elif event.key == K_F1:
-                    event=pygame.event.get()
-                    continuer_accueil=0
-                    LEVEL=0
-                    Choix=1
-                    hidden=1
-                    choix="m1"
-                    CREDIT=False
-                    fond=pygame.image.load(image_fond).convert()
-                    levelfiles=os.listdir("levels")
+                    continuer_accueil, hidden,levelfiles,Choix,CREDIT,fond=0,1,os.listdir("levels"),1,False,pygame.image.load(image_fond).convert()
                     maxlevel=len(levelfiles)
+                    choix="m1"
                     MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
                 elif event.key == K_F2:
-                    event=pygame.event.get()
-                    continuer_accueil=0
-                    LEVEL=0
-                    Choix=1
-                    hidden=1
-                    choix="m2"
-                    CREDIT=False
-                    fond=pygame.image.load(image_fond).convert()
-                    levelfiles=os.listdir("levels")
+                    continuer_accueil, hidden,levelfiles,Choix,CREDIT,fond=0,1,os.listdir("levels"),1,False,pygame.image.load(image_fond).convert()
                     maxlevel=len(levelfiles)
+                    choix="m2"
                     MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
                 elif event.key == K_i:
-                    event=pygame.event.get()
-                    continuer_accueil=0
-                    hidden=0
-                    levelfiles="I"
-                    Choix=1
-                    CREDIT=False
-                    fond=pygame.image.load(image_fond).convert()
-                    levelfiles=os.listdir("levels")
+                    print("K_i")
+                    continuer_accueil, hidden,levelfiles,Choix,CREDIT,fond=0,1,os.listdir("levels"),1,False,pygame.image.load(image_fond).convert()
                     maxlevel=len(levelfiles)
+                    choix="I"
+                    MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
+                if event.key == K_m:
+                    print("K_m")
+                    continuer_accueil, hidden,levelfiles,Choix,CREDIT,fond=0,1,os.listdir("levels"),1,False,pygame.image.load(image_fond).convert()
+                    maxlevel=len(levelfiles)
+                    choix="M"
                     MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
                 elif event.key == K_F3:
-                    event=pygame.event.get()
-                    continuer_accueil=0
-                    hidden=0
-                    levelfiles="credits"
-                    Choix=1
-                    CREDIT=False
-                    fond=pygame.image.load(image_fond).convert()
-                    levelfiles=os.listdir("levels")
+                    continuer_accueil, hidden,levelfiles,Choix,CREDIT,fond=0,1,os.listdir("levels"),1,True,pygame.image.load(image_fond).convert()
                     maxlevel=len(levelfiles)
-                    continuer_accueil,LEVEL,Choix,hidden,choix,fond=0,0,1,1,"credits",pygame.image.load(image_fond).convert()
+                    choix="credits"
                     MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)

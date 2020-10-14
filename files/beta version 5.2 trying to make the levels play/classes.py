@@ -586,73 +586,81 @@ class gameAnimations:
         # return acceuil
 
 class MainLoopGame:
-    def boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel): #
-        print("Je suis dans la boucle boucledejeu")
-        #BOUCLE DE JEU
-        while continuer_jeu:
-            print("Je suis dans la while continuer jeux")
-            #Limitation de vitesse de la boucle
-            pygame.time.Clock().tick(30)
-            for event in pygame.event.get():
-                print("Je suis dans for event in pygame.event.get()")
-                #Si l'utilisateur quitte, on met la variable qui continue le jeu
-                #ET la variable générale à 0 pour fermer la fenêtre
-                if event.type == QUIT:
-                    print("Je suis dans event.type==QUIT")
-                    continuer_jeu = 0
-                    continuer = 0
-                    LEVEL=maxlevels
-                    return LEVEL
-                elif event.type == KEYDOWN:
-                    print("Je suis dans event.type == KEYDOWN")
-                    #Si l'utilisateur presse Echap ici, on revient seulement au menu
-                    if event.key == K_ESCAPE:
-                        print("Je suis dans event.key==K_ESCAPE")
+    def boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel,hidden,exitSpaceGame): #
+        if exitSpaceGame!=True:
+            print("Je suis dans la boucle boucledejeu")
+            #BOUCLE DE JEU
+            while continuer_jeu:
+                print("Je suis dans la while continuer jeux")
+                #Limitation de vitesse de la boucle
+                pygame.time.Clock().tick(30)
+                for event in pygame.event.get():
+                    print("Je suis dans for event in pygame.event.get()")
+                    #Si l'utilisateur quitte, on met la variable qui continue le jeu
+                    #ET la variable générale à 0 pour fermer la fenêtre
+                    if event.type == QUIT:
+                        # maxlevel=
+                        print("Je suis dans event.type==QUIT")
                         continuer_jeu = 0
-                        LEVEL=maxlevels
-                        return LEVEL
-                    #Touches de déplacement de Wolf
-                    elif event.key == K_RIGHT:
-                        print("Je suis dans event.key==K_RIGHT")
-                        dk.deplacer('droite')
-                    elif event.key == K_LEFT:
-                        print("Je suis dans event.key==K_LEFT")
-                        dk.deplacer('gauche')
-                    elif event.key == K_UP:
-                        print("Je suis dans event.key==K_UP")
-                        dk.deplacer('haut')
-                    elif event.key == K_DOWN:
-                        print("Je suis dans event.key==K_DOWN")
-                        dk.deplacer('bas')
-                #if level (1 or 2 or ...)
-                #if enemy(x,y)==(x,y):
-            #enemy up/down
-            #elif enemy(x,y)==(x,y):
-                    #enemy left/right
+                        continuer = 0
+                        exitSpaceGame=True
+                        # LEVEL=maxlevels
+                        if hidden==1:
+                            trackProgress.refreshlevels("elementary_levels")
+                        else:
+                            trackProgress.refreshlevels("levels")
+                        LEVEL=len(levelfiles)
+                        return LEVEL,exitSpaceGame
+                    elif event.type == KEYDOWN:
+                        print("Je suis dans event.type == KEYDOWN")
+                        #Si l'utilisateur presse Echap ici, on revient seulement au menu
+                        if event.key == K_ESCAPE:
+                            print("Je suis dans event.key==K_ESCAPE")
+                            continuer_jeu = 0
+                            exitSpaceGame=True
+                            return exitSpaceGame
+                        #Touches de déplacement de Wolf
+                        elif event.key == K_RIGHT or event.key==K_d:
+                            print("Je suis dans event.key==K_RIGHT")
+                            dk.deplacer('droite')
+                        elif event.key == K_LEFT or event.key==K_a or event.key == K_q:
+                            print("Je suis dans event.key==K_LEFT")
+                            dk.deplacer('gauche')
+                        elif event.key == K_UP or event.key == K_z or event.key==K_w:
+                            print("Je suis dans event.key==K_UP")
+                            dk.deplacer('haut')
+                        elif event.key == K_DOWN or event.key==K_s:
+                            print("Je suis dans event.key==K_DOWN")
+                            dk.deplacer('bas')
+                    #if level (1 or 2 or ...)
+                    #if enemy(x,y)==(x,y):
+                #enemy up/down
+                #elif enemy(x,y)==(x,y):
+                        #enemy left/right
+                    #move=1
+                #if enemy up +move ==m(x,y):
+                        #move=-1
+                #elif enemy down -move==m(x,y):
                 #move=1
-            #if enemy up +move ==m(x,y):
-                    #move=-1
-            #elif enemy down -move==m(x,y):
-            #move=1
-            #move=1
-            #if enemy left +move ==m(x,y):
-                    #move=-1
-            #elif enemy right -move==m(x,y):
-            #move=1
-                
-            #Affichages aux nouvelles positions
-            fenetre.blit(fond, (0,0))
-            print("J'ai fait un fenetre.blit(fond, (0,0))")
-            print("Je tente un niveau.afficher(fenetre)")
-            niveau.afficher(fenetre)
-            print("J'ai fait niveau.afficher(fenetre)")
-            fenetre.blit(dk.direction, (dk.x, dk.y)) #dk.direction = l'image dans la bonne direction
-            print("J'ai fait fenetre.blit(dk.direction, (dk.x, dk.y))")
-            pygame.display.flip()
-            print("J'ai fait pygame.display.flip()")
-            #Victoire -> Retour à l'accueil
-            if niveau.structure[dk.case_y][dk.case_x] == '²' or niveau.structure[dk.case_y][dk.case_x] == '_':continuer_jeu = 0 #or niveau.structure[dk.case_y][dk.case_x] == '0':
-            #return continuer_jeu, continuer
+                #move=1
+                #if enemy left +move ==m(x,y):
+                        #move=-1
+                #elif enemy right -move==m(x,y):
+                #move=1
+                    
+                #Affichages aux nouvelles positions
+                fenetre.blit(fond, (0,0))
+                print("J'ai fait un fenetre.blit(fond, (0,0))")
+                print("Je tente un niveau.afficher(fenetre)")
+                niveau.afficher(fenetre)
+                print("J'ai fait niveau.afficher(fenetre)")
+                fenetre.blit(dk.direction, (dk.x, dk.y)) #dk.direction = l'image dans la bonne direction
+                print("J'ai fait fenetre.blit(dk.direction, (dk.x, dk.y))")
+                pygame.display.flip()
+                print("J'ai fait pygame.display.flip()")
+                #Victoire -> Retour à l'accueil
+                if niveau.structure[dk.case_y][dk.case_x] == '²' or niveau.structure[dk.case_y][dk.case_x] == '_':continuer_jeu = 0 #or niveau.structure[dk.case_y][dk.case_x] == '0':
+                #return continuer_jeu, continuer
     def check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden): #niveau,
         if choix != 0 and Choix!=0:
             print("Je suis dans la check boucle")
@@ -671,7 +679,6 @@ class MainLoopGame:
                 choix="elementary_levels/{}".format(choix)
             else:
                 choix="levels/{}".format(choix)
-                fond = pygame.image.load(image_fond).convert()
                 # return choix, fond
             #Génération d'un niveau à partir d'un fichier
             global niveau
@@ -691,6 +698,7 @@ class MainLoopGame:
             # MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
         return dk, gardien, fond, choix, niveau, fenetre
     def play(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT):
+        exitSpaceGame=False
         print("Je suis dans la play boucle")
         #continuer_accueil = 0
         if hidden==0:   
@@ -702,39 +710,51 @@ class MainLoopGame:
         LEVEL=0
         # print(levelfiles)
         while LEVEL<len(levelfiles):
-        # for LEVEL in range(len(levelfiles)):
+            # for LEVEL in range(len(levelfiles)):
             print(levelfiles)
             print("level={}".format(LEVEL))
             #global continuer_jeu
             continuer_jeu = 1
             #global choix
-            if Choix!=0:
-                choix=levelfiles[LEVEL]
-                pygame.display.set_caption("{} {}".format(titre_fenetre,LEVEL))
-            if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE or event.type == KEYDOWN and event.key == K_q:
-                continuer_jeu = 0
-                LEVEL=maxlevel
-                continuer = 0
-                continuer_accueil=1
-                #Variable de choix du niveau
-                # choix = levelfiles[len(levelfiles-1)]
-                choix=0
-                Choix=0
-                LEVEL=len(levelfiles)
-                sys.exit(0)
-                break
+            if exitSpaceGame==False:
+                if Choix!=0:
+                    choix=levelfiles[LEVEL]
+                    pygame.display.set_caption("{} {}".format(titre_fenetre,LEVEL))
+                if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE:# or event.type == KEYDOWN and event.key == K_q:
+                    continuer_jeu = 0
+                    # LEVEL=maxlevel
+                    if hidden==1:
+                        trackProgress.refreshlevels("elementary_levels")
+                    else:
+                        trackProgress.refreshlevels("levels")
+                    LEVEL=len(levelfiles)
+                    continuer = 0
+                    continuer_accueil=1
+                    #Variable de choix du niveau
+                    # choix = levelfiles[len(levelfiles-1)]
+                    choix=0
+                    Choix=0
+                    # LEVEL=len(levelfiles)
+                    sys.exit(0)
+                    break
+                else:
+                    print (choix)
+                    #choix = 'l{}'.format(i+1)
+                    MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden)#niveau
+                    MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel,hidden,exitSpaceGame)
+                    #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
+                    LEVEL+=1
             else:
-                print (choix)
-                #choix = 'l{}'.format(i+1)
-                MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden)#niveau
-                MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel)
-                #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
+                exitSpaceGame=True
                 LEVEL+=1
-        CREDIT=True
-        choix="elementary_levels/credits"
-        MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden)
-        MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel)
-        return Choix, continuer_accueil
+        if exitSpaceGame==False:
+            CREDIT=True
+            hidden=1
+            choix="credits"
+            MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden)
+            MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel,hidden,exitSpaceGame)
+        else:exitSpaceGame=True
+        return Choix, continuer_accueil, exitSpaceGame
     def Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix):
         # event=pygame.event.get()
         print("Je suis dans la play boucle")
@@ -765,6 +785,7 @@ class MainLoopGame:
             # choix = levelfiles[len(levelfiles-1)]
             choix=0
             Choix=0
+            exitSpaceGame=True
             #LEVEL=len(levelfiles)
             #sys.exit(0)
             #break
@@ -772,7 +793,7 @@ class MainLoopGame:
             print ("Specificlevels.choix = ",choix)
             #choix = 'l{}'.format(i+1)
             MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden)#niveau
-            MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel)
+            MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel,hidden,exitSpaceGame)
             #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
             #LEVEL+=1
         return Choix, continuer_accueil
