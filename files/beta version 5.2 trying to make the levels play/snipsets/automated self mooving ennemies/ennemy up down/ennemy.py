@@ -76,7 +76,19 @@ class Perso:
 class Niveau:
     def __init__(self,NiVeAu):
         self.structure=0
-        self.structure=NiVeAu
+        self.fichier=NiVeAu
+    def generer(self):
+        with self.fichier as file:#self.fichier
+            #print("J'ai réussis à lire le fichier")
+            structure_niveau=[]
+            for line in file:
+                ligne_niveau=[]
+                for sprite in line:
+                    if sprite !='\n':
+                        ligne_niveau.append(sprite)
+                structure_niveau.append(ligne_niveau)
+            self.structure=structure_niveau
+            # print(self.structure)
     def afficher(self, fenetre):
         #print("Je suis dans afficher (self, fenetre)")
         mur = pygame.image.load(image_mur).convert()
@@ -129,5 +141,9 @@ while continuer:
 
     #BOUCLE D'ACCUEIL
     while continuer_accueil:
-        
-        Niveau.afficher()
+        choix=NiVeAu
+        niveau = Niveau(choix)
+        #niveau.generer()
+        niveau.afficher(fenetre)
+        #Niveau.generer(self)
+        Niveau.afficher(self,fenetre)

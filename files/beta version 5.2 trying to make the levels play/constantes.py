@@ -21,7 +21,7 @@ image_main2="img/launch_load/menu_anim/accueil_static_2.png"
 
 #annimation du jeux
 ##Annimation du menu démarer
-mainMenuPlayed=True #False #True #False #True #False#True
+mainMenuPlayed=False#True #False #True #False #True #False#True
 frameMainMenuWait=0.5
 image_accueil1="img/launch_load/start_load/stages_stage_1.png"
 image_accueil2="img/launch_load/start_load/stages_stage_2.png"

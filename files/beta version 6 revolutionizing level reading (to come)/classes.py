@@ -13,18 +13,28 @@ class Niveau:
         self.fichier=fichier
         self.structure=0
     def generer(self):
-        #print("je suis dans la boucle niveau.generer")
-        with open(self.fichier, "r") as file:#self.fichier
-            #print("J'ai réussis à lire le fichier")
-            structure_niveau=[]
-            for line in file:
-                ligne_niveau=[]
-                for sprite in line:
-                    if sprite !='\n':
-                        ligne_niveau.append(sprite)
-                structure_niveau.append(ligne_niveau)
-            self.structure=structure_niveau
-            # print(self.structure)
+        f=open(self.fichier, "r")
+        file=f.read()
+        f.close()
+        GameLine=[]
+        CreatingGameSprite=""
+        GameSprite=[]
+        for line in file:
+            if line!="|" and line!="\n":
+                CreatingGameSprite+=line
+                #print("line=",line)
+                # print("CreatingGameSprite=",CreatingGameSprite)
+            elif line=="|" and line!="\n":
+                #print("CreatingGameSprite=",CreatingGameSprite)
+                #print("GameSprite=",GameSprite)
+                GameSprite.append(CreatingGameSprite)
+                CreatingGameSprite=""
+            elif line=="\n":
+                GameLine.append(GameSprite)
+                GameSprite=[]
+        self.structure=GameLine
+        print("self.structure=",self.structure)
+        print("GameSprite=",GameSprite)
 
     def afficher(self, fenetre):
         #print("Je suis dans afficher (self, fenetre)")
@@ -133,7 +143,7 @@ class Niveau:
                     fenetre.blit(mur, (x,y))
                 elif sprite == '#':		   #d = Départ
                     fenetre.blit(depart, (x,y))
-                elif sprite == '²':		   #a = Arrivée 3ϵα♦
+                elif sprite == '10':		   #a = Arrivée 3ϵα♦²
                     fenetre.blit(arrivee, (x,y))
                 elif sprite == '_':		   #a = Arrivée_enfant 4дβ
                     fenetre.blit(arrivee_fam, (x,y))
@@ -656,7 +666,7 @@ class MainLoopGame:
                 pygame.display.flip()
                 print("J'ai fait pygame.display.flip()")
                 #Victoire -> Retour à l'accueil
-                if niveau.structure[dk.case_y][dk.case_x] == '²' or niveau.structure[dk.case_y][dk.case_x] == '_':continuer_jeu = 0 #or niveau.structure[dk.case_y][dk.case_x] == '0':
+                if niveau.structure[dk.case_y][dk.case_x] == '10' or niveau.structure[dk.case_y][dk.case_x] == '_':continuer_jeu = 0 #or niveau.structure[dk.case_y][dk.case_x] == '0':
                 #return continuer_jeu, continuer
     def check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden): #niveau,
         if choix != 0 and Choix!=0:
