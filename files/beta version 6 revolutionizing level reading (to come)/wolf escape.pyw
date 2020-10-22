@@ -3,7 +3,7 @@ from pygame.locals import *
 from pygame.mixer import *
 from pygame.display import *
 from tkinter import *
-from webbrowser import *
+from webbrowser import open_new
 
 from classes import *
 from constantes import *
