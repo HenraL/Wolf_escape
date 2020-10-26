@@ -31,7 +31,7 @@ def choselevels():
     Frame1.pack(side=LEFT, padx=10, pady=10)
     label = Label(Frame1, text="Choose you're level:")
     label.pack()
-    level=Spinbox(Frame1, from_=1, to=maxlevel, increment=1)
+    level=Spinbox(Frame1, from_=1, to=maxlevel-1, increment=1)
     level.pack(side=LEFT, padx=5)
     bouton=Button(Frame1, text="Jouer!", command=LEVEL)
     bouton.pack(side=RIGHT, padx=5)
