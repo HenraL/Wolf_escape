@@ -1,0 +1,91 @@
+path="img/ingame/funkyWalls/"
+image_name_list=[
+    "wall_beige_black.png",
+    "wall_beige_white.png",
+    "wall_birght_red_black.png",
+    "wall_birght_red_white.png",
+    "wall_black_white.png",
+    "wall_brigth_orange_black.png",
+    "wall_brigth_orange_white.png",
+    "wall_brigth_pink_black.png",
+    "wall_brigth_pink_white.png",
+    "wall_chocolat_black.png",
+    "wall_chocolat_white.png",
+    "wall_darks_red_black.png",
+    "wall_darks_red_white.png",
+    "wall_dark_blue_black.png",
+    "wall_dark_blue_white.png",
+    "wall_dark_green_black.png",
+    "wall_dark_green_white.png",
+    "wall_dark_purple_black.png",
+    "wall_dark_purple_white.png",
+    "wall_grey_black.png",
+    "wall_grey_white.png",
+    "wall_light_blue_black.png",
+    "wall_light_blue_white.png",
+    "wall_light_green_black.png",
+    "wall_light_green_white.png",
+    "wall_light_grey_black.png",
+    "wall_light_grey_white.png",
+    "wall_light_purple_black.png",
+    "wall_light_purple_white.png",
+    "wall_medium_blue_black.png",
+    "wall_medium_blue_white.png",
+    "wall_orange_black.png",
+    "wall_orange_white.png",
+    "wall_very_light_blue_black.png",
+    "wall_very_light_blue_white.png",
+    "wall_white.png",
+    "wall_yellow_black.png",
+    "wall_yellow_white.png"]
+
+img_name=[
+    "wbb",
+    "wbw",
+    "wbrb",
+    "wbrw",
+    "wbw",
+    "wbob",
+    "wbow",
+    "wbpb",
+    "wbpw",
+    "wcb",
+    "wcw",
+    "wdrb",
+    "wdrw",
+    "wdbb",
+    "wdbw",
+    "wdgb",
+    "wdgw",
+    "wdpb",
+    "wdpw",
+    "wgb",
+    "wgw",
+    "wlbb",
+    "wlbw",
+    "wlgb",
+    "wlgw",
+    "wlgb",
+    "wlgw",
+    "wlpb",
+    "wlpw",
+    "wmbb",
+    "wmbw",
+    "wob",
+    "wow",
+    "wvlbb",
+    "wvlbw",
+    "ww",
+    "wyb",
+    "wyw"]
+
+for i in range(len(img_name)):
+    img_name[i]=img_name[i].upper()
+
+for i in range(len(image_name_list)):
+    print("{}=\"{}{}\"".format(img_name[i],path,image_name_list[i]))
+
+print("funkywalls=[",end="")
+for i in range(len(img_name)):
+    print("{},".format(img_name[i]),end="")
+print("]",end="")

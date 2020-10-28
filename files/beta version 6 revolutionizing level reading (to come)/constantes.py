@@ -3,6 +3,7 @@ from string import ascii_letters
 # from string import punctuation
 
 from pygame.constants import *
+
 """Constantes du jeu de Labyrinthe Donkey Kong"""
 
 #ingame booleen variables
@@ -71,8 +72,51 @@ image_depart="img/ingame/start.png"
 image_arrivee = "img/end/endd.png"
 image_arrivee = "img/end/endb.png"
 image_arrivee="img/end/endv.png"
-image_mur = "img/ingame/mur.png"
 image_arrivee_fam="img/sprite/famille/w_fam.png"
+# mur
+image_mur = "img/ingame/mur.png"
+# path="img/ingame/funkyWalls"
+WBB="img/ingame/funkyWalls/wall_beige_black.png"
+WBW="img/ingame/funkyWalls/wall_beige_white.png"
+WBRB="img/ingame/funkyWalls/wall_birght_red_black.png"
+WBRW="img/ingame/funkyWalls/wall_birght_red_white.png"
+WBW="img/ingame/funkyWalls/wall_black_white.png"
+WBOB="img/ingame/funkyWalls/wall_brigth_orange_black.png"
+WBOW="img/ingame/funkyWalls/wall_brigth_orange_white.png"
+WBPB="img/ingame/funkyWalls/wall_brigth_pink_black.png"
+WBPW="img/ingame/funkyWalls/wall_brigth_pink_white.png"
+WCB="img/ingame/funkyWalls/wall_chocolat_black.png"
+WCW="img/ingame/funkyWalls/wall_chocolat_white.png"
+WDRB="img/ingame/funkyWalls/wall_darks_red_black.png"
+WDRW="img/ingame/funkyWalls/wall_darks_red_white.png"
+WDBB="img/ingame/funkyWalls/wall_dark_blue_black.png"
+WDBW="img/ingame/funkyWalls/wall_dark_blue_white.png"
+WDGB="img/ingame/funkyWalls/wall_dark_green_black.png"
+WDGW="img/ingame/funkyWalls/wall_dark_green_white.png"
+WDPB="img/ingame/funkyWalls/wall_dark_purple_black.png"
+WDPW="img/ingame/funkyWalls/wall_dark_purple_white.png"
+WGB="img/ingame/funkyWalls/wall_grey_black.png"
+WGW="img/ingame/funkyWalls/wall_grey_white.png"
+WLBB="img/ingame/funkyWalls/wall_light_blue_black.png"
+WLBW="img/ingame/funkyWalls/wall_light_blue_white.png"
+WLGB="img/ingame/funkyWalls/wall_light_green_black.png"
+WLGW="img/ingame/funkyWalls/wall_light_green_white.png"
+WLGB="img/ingame/funkyWalls/wall_light_grey_black.png"
+WLGW="img/ingame/funkyWalls/wall_light_grey_white.png"
+WLPB="img/ingame/funkyWalls/wall_light_purple_black.png"
+WLPW="img/ingame/funkyWalls/wall_light_purple_white.png"
+WMBB="img/ingame/funkyWalls/wall_medium_blue_black.png"
+WMBW="img/ingame/funkyWalls/wall_medium_blue_white.png"
+WOB="img/ingame/funkyWalls/wall_orange_black.png"
+WOW="img/ingame/funkyWalls/wall_orange_white.png"
+WVLBB="img/ingame/funkyWalls/wall_very_light_blue_black.png"
+WVLBW="img/ingame/funkyWalls/wall_very_light_blue_white.png"
+WW="img/ingame/funkyWalls/wall_white.png"
+WYB="img/ingame/funkyWalls/wall_yellow_black.png"
+WYW="img/ingame/funkyWalls/wall_yellow_white.png"
+FunkyWalls=[image_mur,WBB,WBW,WBRB,WBRW,WBW,WBOB,WBOW,WBPB,WBPW,WCB,WCW,WDRB,WDRW,WDBB,WDBW,WDGB,WDGW,WDPB,WDPW,WGB,WGW,WLBB,WLBW,WLGB,WLGW,WLGB,WLGW,WLPB,WLPW,WMBB,WMBW,WOB,WOW,WVLBB,WVLBW,WW,WYB,WYW]
+FunkyWalsDone=[""]*len(FunkyWalls)
+walls=['^','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73']
 
 
 #Création du perso
@@ -85,13 +129,7 @@ lh="img/sprite/w/w_up.png"
 lb="img/sprite/dk/dk_bas.png"
 lb="img/sprite/w/w_down.png"
 
-#création des flèches de direction pour le tuto
-img_aright="img/tut_image/arrow/aright.PNG"
-img_aleft="img/tut_image/arrow/aleft.PNG"
-img_aup="img/tut_image/arrow/aup.PNG"
-img_adown="img/tut_image/arrow/adown.PNG"
-arrows=[img_aright,img_aleft,img_aup,img_adown]
-arrowsprocessed=[""]*len(arrows)
+
 
 #Crédits
 image_credits_fond="img/Credits/end.png"
@@ -107,13 +145,6 @@ image_credits_l_Irina="img/sprite/famille/Irina30x30.png"
 image_credits_l_Henry="img/sprite/famille/Henry30x30.png"
 
 #numéros
-# digits
-# image_zero,image_one,image_two,image_three=image_four=image_five=image_six=image_seven=image_eight=image_nine=""
-# firstdigits = dict()
-# namedigit=["image_zero","image_one","image_two","image_three","image_four","image_five","image_six","image_seven","image_eight","image_nine"]
-# for didgits in digits:
-#     firstdigits[str(didgits)] = f"img/tut_image/numbers/{didgits}.png"#.format()
-
 image_zero="img/tut_image/numbers/0.png"
 image_one="img/tut_image/numbers/1.png"
 image_two="img/tut_image/numbers/2.png"
@@ -135,15 +166,8 @@ image_yen="img/tut_image/currency/yen.png"
 image_whan="img/tut_image/currency/wan.png"
 currency=[image_dollar,image_pound,image_euro,image_yen,image_whan]
 currencydone=[""]*len(currency)
-# for i in range(len(currency)):currencydone[i]=pygame.image.load(currency[i])
-
 
 # ponctuation
-# punctuation=[]
-# ponctuation=[""]*len(punctuation)
-# for i in range(len(punctuation)):ponctuation[i]=pygame.image.load(punctuation[i])
-# punctuation
-# !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
 img_square_bracket_open="img/tut_image/alphabet/punctuation/[.PNG"
 img_square_bracket_closed="img/tut_image/alphabet/punctuation/].PNG"
 img_micro="img/tut_image/alphabet/punctuation/µ.PNG"
@@ -163,23 +187,19 @@ img_question_mark="img/tut_image/alphabet/punctuation/questionmark.PNG"
 ponctuation=[img_square_bracket_open,img_square_bracket_closed,img_micro,img_and,img_at,img_border,img_cureved_bracket_closed,img_cureved_bracket_open,colum,img_full_stop,img_end_cell,img_exclamation_mark,img_percentage,img_open_quote,img_close_quote,img_question_mark]
 ponctuationDone=[""]*len(ponctuation)
 
-# températures
+#création des flèches de direction pour le tuto
+img_aright="img/tut_image/arrow/aright.PNG"
+img_aleft="img/tut_image/arrow/aleft.PNG"
+img_aup="img/tut_image/arrow/aup.PNG"
+img_adown="img/tut_image/arrow/adown.PNG"
+arrows=[img_aright,img_aleft,img_aup,img_adown]
+arrowsprocessed=[""]*len(arrows)
+
+#Températures
 img_Celsius="img/tut_image/alphabet/temperature/celsius.PNG"
 img_fahraneit="img/tut_image/alphabet/temperature/fahraneit.PNG"
-
-#Autre
-degre_celsius=""
-faraneith=""
-bigger_than=""
-smaler_than=""
-paragraph=""
-open_parageraph=""
-closed_paragraph=""
-times=""
-minus=""
-plus=""
-equal=""
-slash=""
+Temperature=[img_Celsius,img_fahraneit]
+TemperatureDone=[""]*len(Temperature)
 
 #Accents
 a_accent="img/tut_image/alphabet/accents/à.PNG"
@@ -219,6 +239,20 @@ semicolon="img/tut_image/alphabet/accents/;.PNG"
 Accents=[a_accent,a_flex_low,a_flex_cap,a_wave_low,a_wave_cap,a_diaeresis_low,a_diaeresis_cap,c_five,e_accent_é,e_accent_ê,e_accent_Ê,e_accent_è,e_diaeresis_low,e_diaeresis_cap,i_flex_low,i_flex_cap,i_diaeresis_low,i_diaeresis_cap,n_wave_low,n_wave_cap,o_flex_low,o_flex_cap,o_wave_low,o_wave_cap,o_diaeresis_low,o_diaeresis_cap,u_accent_ù,u_flex_low,u_flex_cap,u_diaeresis_low,u_diaeresis_cap,y_diaeresis,semicolon]
 Accentsdone=[""]*len(Accents)
 
+#mathématiques
+path="img/tut_image/math"
+img_percent="img/tut_image/math/%.png"
+img_minus="img/tut_image/math/-.png"
+img_plus="img/tut_image/math/+.png"
+img_equal="img/tut_image/math/=.png"
+img_divide="img/tut_image/math/diviser.png"
+img_less_than="img/tut_image/math/lessthan.png"
+img_more_than="img/tut_image/math/morethan.png"
+img_times="img/tut_image/math/times.png"
+Maths=[img_percent,img_minus,img_plus,img_equal,img_divide,img_less_than,img_more_than,img_times]
+Mathsdone=[""]*len(Maths)
+
+
 #lettres
 lowerletterletter=[]
 upperletterletter=[]
@@ -233,3 +267,15 @@ for letter in ascii_letters:
         upperletterletter.append(letter)
 lowerletter=[""]*len(lowerletterletter)
 upperletter=[""]*len(upperletterletter)
+
+#Autre
+bigger_than=""
+smaler_than=""
+paragraph=""
+open_parageraph=""
+closed_paragraph=""
+times=""
+minus=""
+plus=""
+equal=""
+slash=""

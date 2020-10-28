@@ -39,14 +39,18 @@ class Niveau:
 
     def afficher(self, fenetre):
         #print("Je suis dans afficher (self, fenetre)")
-        mur = pygame.image.load(image_mur).convert()
+        #murs
+        for i in range(len(FunkyWalls)):FunkyWalsDone[i]=pygame.image.load(FunkyWalls[i]).convert_alpha()
+        #depart
         depart = pygame.image.load(image_depart).convert()
+        # arrivee
         arrivee = pygame.image.load(image_arrivee).convert_alpha()
         arrivee_fam=pygame.image.load(image_arrivee_fam).convert_alpha()
-        for i in range(len(lowerletter)):lowerletter[i]=pygame.image.load(letters[lowerletterletter[i]])#i
-        for i in range(len(upperletter)):upperletter[i]=pygame.image.load(letters[upperletterletter[i]])
+        # alphabet
+        for i in range(len(lowerletter)):lowerletter[i]=pygame.image.load(letters[lowerletterletter[i]]).convert_alpha()#i
+        for i in range(len(upperletter)):upperletter[i]=pygame.image.load(letters[upperletterletter[i]]).convert_alpha()
         #arrows
-        for i in range(len(arrows)):arrowsprocessed[i]=pygame.image.load(arrows[i])
+        for i in range(len(arrows)):arrowsprocessed[i]=pygame.image.load(arrows[i]).convert_alpha()
         #credits
         #credits_fond=pygame.image.load(image_credits_fond).convert()
         credits_gagne=pygame.image.load(image_credits_gagne).convert()
@@ -55,17 +59,19 @@ class Niveau:
         credits_l_Irina=pygame.image.load(image_credits_l_Irina).convert()
         credits_l_Henry=pygame.image.load(image_credits_l_Henry).convert()
         #mean
-        for i in range(len(mean)):meandone[i]=pygame.image.load(mean[i])
+        for i in range(len(mean)):meandone[i]=pygame.image.load(mean[i]).convert_alpha()
         #number
-        for i in range(len(namedigit)):didgits[i]=pygame.image.load(namedigit[i])
+        for i in range(len(namedigit)):didgits[i]=pygame.image.load(namedigit[i]).convert_alpha()
         #currency
-        for i in range(len(currency)):currencydone[i]=pygame.image.load(currency[i])
+        for i in range(len(currency)):currencydone[i]=pygame.image.load(currency[i]).convert_alpha()
         # Accents
-        for i in range(len(Accents)):Accentsdone[i]=pygame.image.load(Accents[i])
+        for i in range(len(Accents)):Accentsdone[i]=pygame.image.load(Accents[i]).convert_alpha()
         # punctuation
-        for i in range(len(punctuation)):ponctuationDone[i]=pygame.image.load(punctuation[i])
+        for i in range(len(ponctuation)):ponctuationDone[i]=pygame.image.load(ponctuation[i]).convert_alpha()
         #Températures
-        for i in range(len(Temperature)):TemperatureDone[i]=pygame.image.load(Temperature[i])
+        for i in range(len(Temperature)):TemperatureDone[i]=pygame.image.load(Temperature[i]).convert_alpha()
+        #Maths
+        for i in range(len(Maths)):Mathsdone[i]=pygame.image.load(Maths[i]).convert_alpha()
 
         #On parcourt la liste du niveau
         num_ligne = 0
@@ -80,8 +86,47 @@ class Niveau:
                 x = num_case * taille_sprite
                 y = num_ligne * taille_sprite
                 #print("J'ai innitialisé les x et y des images")
+                # funky walls
                 if sprite == '^':		   #m = Mur
-                    fenetre.blit(mur, (x,y))
+                    fenetre.blit(FunkyWalsDone[0], (x,y))
+                elif sprite == '37':fenetre.blit(FunkyWalsDone[1],(x,y))
+                elif sprite == '38':fenetre.blit(FunkyWalsDone[2],(x,y))
+                elif sprite == '39':fenetre.blit(FunkyWalsDone[3],(x,y))
+                elif sprite == '40':fenetre.blit(FunkyWalsDone[4],(x,y))
+                elif sprite == '41':fenetre.blit(FunkyWalsDone[5],(x,y))
+                elif sprite == '42':fenetre.blit(FunkyWalsDone[6],(x,y))
+                elif sprite == '43':fenetre.blit(FunkyWalsDone[7],(x,y))
+                elif sprite == '44':fenetre.blit(FunkyWalsDone[8],(x,y))
+                elif sprite == '45':fenetre.blit(FunkyWalsDone[9],(x,y))
+                elif sprite == '46':fenetre.blit(FunkyWalsDone[10],(x,y))
+                elif sprite == '47':fenetre.blit(FunkyWalsDone[11],(x,y))
+                elif sprite == '48':fenetre.blit(FunkyWalsDone[12],(x,y))
+                elif sprite == '49':fenetre.blit(FunkyWalsDone[13],(x,y))
+                elif sprite == '50':fenetre.blit(FunkyWalsDone[14],(x,y))
+                elif sprite == '51':fenetre.blit(FunkyWalsDone[15],(x,y))
+                elif sprite == '52':fenetre.blit(FunkyWalsDone[16],(x,y))
+                elif sprite == '53':fenetre.blit(FunkyWalsDone[17],(x,y))
+                elif sprite == '54':fenetre.blit(FunkyWalsDone[18],(x,y))
+                elif sprite == '55':fenetre.blit(FunkyWalsDone[19],(x,y))
+                elif sprite == '56':fenetre.blit(FunkyWalsDone[20],(x,y))
+                elif sprite == '57':fenetre.blit(FunkyWalsDone[21],(x,y))
+                elif sprite == '58':fenetre.blit(FunkyWalsDone[22],(x,y))
+                elif sprite == '59':fenetre.blit(FunkyWalsDone[23],(x,y))
+                elif sprite == '60':fenetre.blit(FunkyWalsDone[24],(x,y))
+                elif sprite == '61':fenetre.blit(FunkyWalsDone[25],(x,y))
+                elif sprite == '62':fenetre.blit(FunkyWalsDone[26],(x,y))
+                elif sprite == '63':fenetre.blit(FunkyWalsDone[27],(x,y))
+                elif sprite == '64':fenetre.blit(FunkyWalsDone[28],(x,y))
+                elif sprite == '65':fenetre.blit(FunkyWalsDone[29],(x,y))
+                elif sprite == '66':fenetre.blit(FunkyWalsDone[30],(x,y))
+                elif sprite == '67':fenetre.blit(FunkyWalsDone[31],(x,y))
+                elif sprite == '68':fenetre.blit(FunkyWalsDone[32],(x,y))
+                elif sprite == '69':fenetre.blit(FunkyWalsDone[33],(x,y))
+                elif sprite == '70':fenetre.blit(FunkyWalsDone[34],(x,y))
+                elif sprite == '71':fenetre.blit(FunkyWalsDone[35],(x,y))
+                elif sprite == '72':fenetre.blit(FunkyWalsDone[36],(x,y))
+                elif sprite == '73':fenetre.blit(FunkyWalsDone[37],(x,y))
+                elif sprite == '74':fenetre.blit(FunkyWalsDone[38],(x,y))
                 elif sprite == '#':		   #d = Départ
                     fenetre.blit(depart, (x,y))
                 elif sprite == '10':		   #a = Arrivée 3ϵα♦²
@@ -105,63 +150,74 @@ class Niveau:
                 elif sprite == '13':fenetre.blit(currencydone[2], (x,y))#€
                 elif sprite == '14':fenetre.blit(currencydone[3], (x,y))#¥
                 elif sprite == '15':fenetre.blit(currencydone[4], (x,y))#₩
+                #ponctuation
+                elif sprite == '[':fenetre.blit(ponctuationDone[0], (x,y))
+                elif sprite == ']':fenetre.blit(ponctuationDone[1], (x,y))
+                elif sprite == 'µ':fenetre.blit(ponctuationDone[2], (x,y))
+                elif sprite == '&':fenetre.blit(ponctuationDone[3], (x,y))
+                elif sprite == '@':fenetre.blit(ponctuationDone[4], (x,y))
+                elif sprite == '20':fenetre.blit(ponctuationDone[5], (x,y))
+                elif sprite == ')':fenetre.blit(ponctuationDone[6], (x,y))
+                elif sprite == '(':fenetre.blit(ponctuationDone[7], (x,y))
+                elif sprite == ':':fenetre.blit(ponctuationDone[8], (x,y))
+                elif sprite == '.':fenetre.blit(ponctuationDone[9], (x,y))
+                elif sprite == '¤':fenetre.blit(ponctuationDone[10], (x,y))
+                elif sprite == '!':fenetre.blit(ponctuationDone[11], (x,y))
+                elif sprite == '§':fenetre.blit(ponctuationDone[12], (x,y))
+                elif sprite == '21':fenetre.blit(ponctuationDone[13], (x,y))
+                elif sprite == '22':fenetre.blit(ponctuationDone[14], (x,y))
+                elif sprite == '?':fenetre.blit(ponctuationDone[16], (x,y))
+                
+                elif sprite == ';':fenetre.blit(Accentsdone[30], (x,y))
                 # flèches
                 elif sprite == '16':fenetre.blit(arrowsprocessed[0], (x,y))#-->
                 elif sprite == '17':fenetre.blit(arrowsprocessed[1], (x,y))#<--
                 elif sprite == '18':fenetre.blit(arrowsprocessed[2], (x,y))#(up)
                 elif sprite == '19':fenetre.blit(arrowsprocessed[3], (x,y))#(down)
+
+                #Températures
+                elif sprite == '°C':fenetre.blit(TemperatureDone[0], (x,y))
+                elif sprite == '°F':fenetre.blit(TemperatureDone[1], (x,y))
                 
-                #elif sprite == '':fenetre.blit(mean_up, (x,y))
-                #elif sprite == '':fenetre.blit(mean_down, (x,y))
-                #elif sprite == '':fenetre.blit(mean_left, (x,y))
-                #elif sprite == '':fenetre.blit(mean_right, (x,y))
+                #Accents
+                elif sprite == 'à':fenetre.blit(Accentsdone[0], (x,y))
+                elif sprite == 'â':fenetre.blit(Accentsdone[1], (x,y))
+                elif sprite == 'Â':fenetre.blit(Accentsdone[2], (x,y))
+                elif sprite == 'ã':fenetre.blit(Accentsdone[3], (x,y))
+                elif sprite == 'Ã':fenetre.blit(Accentsdone[4], (x,y))
+                elif sprite == 'ä':fenetre.blit(Accentsdone[5], (x,y))
+                elif sprite == 'Ä':fenetre.blit(Accentsdone[6], (x,y))
+                elif sprite == 'ç':fenetre.blit(Accentsdone[7], (x,y))
+                elif sprite == 'è':fenetre.blit(Accentsdone[8], (x,y))
+                elif sprite == 'ê':fenetre.blit(Accentsdone[9], (x,y))
+                elif sprite == 'Ê':fenetre.blit(Accentsdone[10], (x,y))
+                elif sprite == 'é':fenetre.blit(Accentsdone[11], (x,y))
+                elif sprite == 'ë':fenetre.blit(Accentsdone[12], (x,y))
+                elif sprite == 'Ë':fenetre.blit(Accentsdone[13], (x,y))
+                elif sprite == 'î':fenetre.blit(Accentsdone[14], (x,y))
+                elif sprite == 'Î':fenetre.blit(Accentsdone[15], (x,y))
+                elif sprite == 'ï':fenetre.blit(Accentsdone[16], (x,y))
+                elif sprite == 'Ï':fenetre.blit(Accentsdone[17], (x,y))
+                elif sprite == 'ñ':fenetre.blit(Accentsdone[18], (x,y))
+                elif sprite == 'Ñ':fenetre.blit(Accentsdone[19], (x,y))
+                elif sprite == 'ô':fenetre.blit(Accentsdone[20], (x,y))
+                elif sprite == 'Ô':fenetre.blit(Accentsdone[21], (x,y))
+                elif sprite == 'ö':fenetre.blit(Accentsdone[22], (x,y))
+                elif sprite == 'Ö':fenetre.blit(Accentsdone[23], (x,y))
+                elif sprite == 'ù':fenetre.blit(Accentsdone[24], (x,y))
+                elif sprite == 'û':fenetre.blit(Accentsdone[25], (x,y))
+                elif sprite == 'Û':fenetre.blit(Accentsdone[26], (x,y))
+                elif sprite == 'ü':fenetre.blit(Accentsdone[27], (x,y))
+                elif sprite == 'Ü':fenetre.blit(Accentsdone[28], (x,y))
+                elif sprite == 'ÿ':fenetre.blit(Accentsdone[29], (x,y))
                 
-                #elif sprite == '':fenetre.blit(credits_w_Irina, (x,y))
-                #elif sprite == '':fenetre.blit(credits_w_Henry, (x,y))
-                #elif sprite == '':fenetre.blit(credits_l_Irina, (x,y))
-                #elif sprite == '':fenetre.blit(credits_l_Henry, (x,y))
-                #elif sprite == '':fenetre.blit(credits_gagne, (x,y))
-                #elif sprite == 'Ψ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Ω':fenetre.blit(adown, (x,y))
-                #elif sprite == 'η,ζ,':fenetre.blit(adown, (x,y))
-                #elif sprite == 'θ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ϑ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ι':fenetre.blit(adown, (x,y))
-                #elif sprite == 'κ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'λ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'μ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ν':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ξ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ο':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ο':fenetre.blit(adown, (x,y))
-                #elif sprite == 'π':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ϖ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ρ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ϱ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'σ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ς':fenetre.blit(adown, (x,y))
-                #elif sprite == 'τ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'υ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'φ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ϕ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'χ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ψ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'ω':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Γ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Δ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Θ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Λ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Ξ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Ο':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Π':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Ρ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Σ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Τ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Υ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Φ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Χ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Ψ':fenetre.blit(adown, (x,y))
-                #elif sprite == 'Ω':fenetre.blit(adown, (x,y))
+                #mathématiques
+                elif sprite == '*':fenetre.blit(Mathsdone[0], (x,y))
+                elif sprite == '-':fenetre.blit(Mathsdone[1], (x,y))
+                elif sprite == '+':fenetre.blit(Mathsdone[2], (x,y))
+                elif sprite == '=':fenetre.blit(Mathsdone[3], (x,y))
+                elif sprite == '/':fenetre.blit(Mathsdone[4], (x,y))
+                
                 #Alphabet Minuscule
                 elif sprite == 'a':fenetre.blit(lowerletter[0], (x,y))
                 elif sprite == 'b':fenetre.blit(lowerletter[1], (x,y))
@@ -216,72 +272,15 @@ class Niveau:
                 elif sprite == 'X':fenetre.blit(upperletter[23], (x,y))
                 elif sprite == 'Y':fenetre.blit(upperletter[24], (x,y))
                 elif sprite == 'Z':fenetre.blit(upperletter[25], (x,y))
-                #ponctuation
-                elif sprite == '[':fenetre.blit(ponctuationDone[0], (x,y))
-                elif sprite == ']':fenetre.blit(ponctuationDone[1], (x,y))
-                elif sprite == 'µ':fenetre.blit(ponctuationDone[2], (x,y))
-                elif sprite == '&':fenetre.blit(ponctuationDone[3], (x,y))
-                elif sprite == '@':fenetre.blit(ponctuationDone[4], (x,y))
-                elif sprite == '20':fenetre.blit(ponctuationDone[5], (x,y))
-                elif sprite == ')':fenetre.blit(ponctuationDone[6], (x,y))
-                elif sprite == '(':fenetre.blit(ponctuationDone[7], (x,y))
-                elif sprite == ':':fenetre.blit(ponctuationDone[8], (x,y))
-                elif sprite == '.':fenetre.blit(ponctuationDone[9], (x,y))
-                elif sprite == '¤':fenetre.blit(ponctuationDone[10], (x,y))
-                elif sprite == '!':fenetre.blit(ponctuationDone[11], (x,y))
-                elif sprite == '§':fenetre.blit(ponctuationDone[12], (x,y))
-                elif sprite == '21':fenetre.blit(ponctuationDone[13], (x,y))
-                elif sprite == '22':fenetre.blit(ponctuationDone[14], (x,y))
-                elif sprite == '?':fenetre.blit(ponctuationDone[16], (x,y))
                 
-                elif sprite == ';':fenetre.blit(Accentsdone[30], (x,y))
-                #Températures
-                elif sprite == '°C':fenetre.blit(TemperatureDone[0], (x,y))
-                elif sprite == '°F':fenetre.blit(TemperatureDone[1], (x,y))
+                
+                
                 # Autre
-                elif sprite == '>':fenetre.blit(Z, (x,y))
-                elif sprite == '<':fenetre.blit(Z, (x,y))
-                elif sprite == '§':fenetre.blit(Z, (x,y))
-                elif sprite == 'closedparagraph':fenetre.blit(Z, (x,y))
-                elif sprite == 'openparagraph':fenetre.blit(Z, (x,y))
-                #mathématiques
-                elif sprite == '*':fenetre.blit(Z, (x,y))
-                elif sprite == '-':fenetre.blit(Z, (x,y))
-                elif sprite == '+':fenetre.blit(Z, (x,y))
-                elif sprite == '=':fenetre.blit(Z, (x,y))
-                elif sprite == '/':fenetre.blit(Z, (x,y))
-                #Accents
-                elif sprite == 'à':fenetre.blit(Accentsdone[0], (x,y))
-                elif sprite == 'â':fenetre.blit(Accentsdone[1], (x,y))
-                elif sprite == 'Â':fenetre.blit(Accentsdone[2], (x,y))
-                elif sprite == 'ã':fenetre.blit(Accentsdone[3], (x,y))
-                elif sprite == 'Ã':fenetre.blit(Accentsdone[4], (x,y))
-                elif sprite == 'ä':fenetre.blit(Accentsdone[5], (x,y))
-                elif sprite == 'Ä':fenetre.blit(Accentsdone[6], (x,y))
-                elif sprite == 'ç':fenetre.blit(Accentsdone[7], (x,y))
-                elif sprite == 'è':fenetre.blit(Accentsdone[8], (x,y))
-                elif sprite == 'ê':fenetre.blit(Accentsdone[9], (x,y))
-                elif sprite == 'Ê':fenetre.blit(Accentsdone[10], (x,y))
-                elif sprite == 'é':fenetre.blit(Accentsdone[11], (x,y))
-                elif sprite == 'ë':fenetre.blit(Accentsdone[12], (x,y))
-                elif sprite == 'Ë':fenetre.blit(Accentsdone[13], (x,y))
-                elif sprite == 'î':fenetre.blit(Accentsdone[14], (x,y))
-                elif sprite == 'Î':fenetre.blit(Accentsdone[15], (x,y))
-                elif sprite == 'ï':fenetre.blit(Accentsdone[16], (x,y))
-                elif sprite == 'Ï':fenetre.blit(Accentsdone[17], (x,y))
-                elif sprite == 'ñ':fenetre.blit(Accentsdone[18], (x,y))
-                elif sprite == 'Ñ':fenetre.blit(Accentsdone[19], (x,y))
-                elif sprite == 'ô':fenetre.blit(Accentsdone[20], (x,y))
-                elif sprite == 'Ô':fenetre.blit(Accentsdone[21], (x,y))
-                elif sprite == 'ö':fenetre.blit(Accentsdone[22], (x,y))
-                elif sprite == 'Ö':fenetre.blit(Accentsdone[23], (x,y))
-                elif sprite == 'ù':fenetre.blit(Accentsdone[24], (x,y))
-                elif sprite == 'û':fenetre.blit(Accentsdone[25], (x,y))
-                elif sprite == 'Û':fenetre.blit(Accentsdone[26], (x,y))
-                elif sprite == 'ü':fenetre.blit(Accentsdone[27], (x,y))
-                elif sprite == 'Ü':fenetre.blit(Accentsdone[28], (x,y))
-                elif sprite == 'ÿ':fenetre.blit(Accentsdone[29], (x,y))
-                
+                # elif sprite == '>':fenetre.blit(Z, (x,y))
+                # elif sprite == '<':fenetre.blit(Z, (x,y))
+                # elif sprite == '§':fenetre.blit(Z, (x,y))
+                # elif sprite == 'closedparagraph':fenetre.blit(Z, (x,y))
+                # elif sprite == 'openparagraph':fenetre.blit(Z, (x,y))
                 #print("Je viens de terminer la vérification du type d'image")
                 num_case += 1
             num_ligne += 1
@@ -313,31 +312,47 @@ class Perso:
         if direction=='droite':
             if self.case_x<(nombre_sprite_cote -1):
                 print("droite")
-                if self.niveau.structure[self.case_y][self.case_x+1]!='^':
-                    self.case_x+=1
-                    self.x=self.case_x*taille_sprite
+                print("walls={}".format(walls))
+                print("len(walls)={}".format(len(walls)))
+                for wals in range(len(walls)-1):
+                    print("wals={},walls[wals]={}".format(wals,walls[wals]))
+                    if self.niveau.structure[self.case_y][self.case_x+1]!=walls[wals]:
+                        self.case_x+=1
+                        self.x=self.case_x*taille_sprite
             self.direction=self.droite
         if direction=='gauche':
             if self.case_x>0:
                 print("gauche")
-                if self.niveau.structure[self.case_y][self.case_x-1]!='^':
-                    self.case_x-=1
-                    self.x=self.case_x*taille_sprite
+                print("walls={}".format(walls))
+                print("len(walls)={}".format(len(walls)))
+                for wals in range(len(walls)-1):
+                    print("wals={},walls[wals]={}".format(wals,walls[wals]))
+                    if self.niveau.structure[self.case_y][self.case_x-1]!=walls[wals]:
+                        self.case_x-=1
+                        self.x=self.case_x*taille_sprite
             self.direction=self.gauche
         if direction=='haut':
             if self.case_y>0:
                 print("haut")
-                if self.niveau.structure[self.case_y-1][self.case_x]!='^':
-                    self.case_y-=1
-                    self.y=self.case_y*taille_sprite
+                print("walls={}".format(walls))
+                print("len(walls)={}".format(len(walls)))
+                for wals in range(len(walls)-1):
+                    print("wals={},walls[wals]={}".format(wals,walls[wals]))
+                    if self.niveau.structure[self.case_y-1][self.case_x]!=walls[wals]:
+                        self.case_y-=1
+                        self.y=self.case_y*taille_sprite
             self.direction=self.haut
 
         if direction=='bas':
             if self.case_y<(nombre_sprite_cote-1):
                 print("bas")
-                if self.niveau.structure[self.case_y+1][self.case_x]!='^':
-                    self.case_y+=1
-                    self.y=self.case_y*taille_sprite
+                print("walls={}".format(walls))
+                print("len(walls)={}".format(len(walls)))
+                for wals in range(len(walls)-1):
+                    print("wals={},walls[wals]={}".format(wals,walls[wals]))
+                    if self.niveau.structure[self.case_y+1][self.case_x]!=walls[wals]:
+                        self.case_y+=1
+                        self.y=self.case_y*taille_sprite
             self.direction=self.bas
 
 class trackProgress:
