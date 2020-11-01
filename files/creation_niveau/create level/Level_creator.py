@@ -32,8 +32,32 @@ class tk_windows:
         bouton.pack(side=RIGHT, padx=5)
         fenetre.mainloop()
     def watermarkf(s):
-        print("\ncreated by Henry Letellier\n ._____. \n |.   .| \n |  |  | \n |\___/| \n |_____| ")
+        print("\nCreated by Henry Letellier\n ._____. \n |.   .| \n |  |  | \n |\___/| \n |_____| ")
         sleep(s)
+    def main_menu():
+        def Yes():
+            fenetre.destroy()
+            answer="yes"
+            return answer
+        def No():
+            answer="no"
+            fenetre.destroy()
+            return answer
+        fenetre = Tk()
+        Frame1 = Frame(fenetre, borderwidth=2, relief=FLAT)
+        Frame1.pack(side=TOP, padx=10, pady=10)
+        FrameButt=Frame(fenetre, borderwidth=2, relief=FLAT)
+        FrameButt.pack(side=TOP, padx=0, pady=10)
+
+        label = Label(Frame1, text="{sentence1}")
+        label.pack()
+        label = Label(Frame1, text="{sentence2}")
+        label.pack()
+        bouton=Button(FrameButt, text="{answer1}", command=Yes)
+        bouton.pack(side=RIGHT, padx=5)
+        bouton=Button(FrameButt, text="{answer2}", command=No)
+        bouton.pack(side=RIGHT, padx=5)
+        fenetre.mainloop()
 import pygame, os, sys, platform
 from pygame.locals import *
 from pygame.mixer import *
@@ -43,7 +67,7 @@ from webbrowser import open_new
 
 given=False
 while given==False:
-    author=input("(This is for the side info in the level file (knowing who did wich))\nHow do you wish to be called? ")
+    author=input("(This is for the side info in the level file (knowing who did which))\nHow do you wish to be called? ")
     if author=="" or author==" " or author=="  " or author=="   ":
         given=False
         print("Please enter your name, this is just to put a name on the author of the level")
@@ -107,23 +131,46 @@ class dealsys:
         else:
             filenamebool=False
         return filenamebool
+    def filefetch(url,dest,name):
+        myfile = requests.get(url)
+        open("{}/{}".format(dest,name), 'wb').write(myfile.content)
+
+# dest="sprite_list"
+# url="https://raw.githubusercontent.com/HenraL/Wolf_escape_Sprite/main/file/Common_file/Spritelist.py"
+# name="Spritelist.{}".format("py")
 
 dealsys.getCurrent()
-dealsys.getName(currentd,"Spritelist.py")
+dealsys.getName(currentd,"sprite_list")
 print(filenamebool)
-if filenamebool==False:
-    # try:
-    #     get file.
-    # except:
-    #   We have not succeded in downloading the file ... ples visit ... to download it
+url="https://raw.githubusercontent.com/HenraL/Wolf_escape_Sprite/main/file/Common_file/Spritelist.py"
+name="Spritelist.py"
+if filenamebool==True:
+    try:
+        dealsys.filefetch(url,"sprite_list",name)
+        print("The Sprite_list.py file has been successefully updated.")
+    except:
+      print("We have not succeded in downloading the file {} please visit {} to download it".format(name,url))
+      print("Save the page in the folder sprite_list of the program")
     print()
 else:
-    print("File ... succesfully downloaded.")
-contiinue=True
-while contiinue==True:
-# tk_window.main_menu()
-# tw=tk_window
-# if tw=="s": #(show)
+    print("Creating the folder sprite_list")
+    try:
+        os.makedirs("sprite_list")
+        print("The folder sprite_list has successefully been created")
+        try:
+            dealsys.filefetch(url,"sprite_list",name)
+            print("The Sprite_list.py file has been successefully updated.")
+        except:
+            print("We have not succeded in downloading the file {} please visit {} to download it".format(name,url))
+            print("Save the page in the folder sprite_list of the program")
+        print()
+    except:
+        print("Failed to create the sprite_list folder, please create it manualy in the root of the program.")
+contiinue=1
+while contiinue==1:
+    tk_windows.main_menu()
+    tw=tk_windows
+    if tw=="s": #(show)
 #   tw.get_level()
 # elif tw=="c": #(create)
 #   tw.get_level_file_name()
@@ -202,3 +249,11 @@ while contiinue==True:
 #   print("Thank you for using this program.\nSee you next time.\nThis program was created by Henry Letellier.")
 #   tw.watermarkf(2)
 #   dealsys.pause()
+    # for i in range(5):
+    #     if i<=5:
+    #         print(".")
+    #     else:
+    #         contiinue=False
+    #         break
+    contiinue=2
+    print(contiinue)

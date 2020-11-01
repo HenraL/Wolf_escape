@@ -58,6 +58,9 @@ img_mean_left="img/sprite/gardien/Gardien_Gauche.png"
 img_mean_right="img/sprite/gardien/Gardien_Droite.png"
 mean=[img_mean_up,img_mean_down,img_mean_left,img_mean_right]
 meandone=[""]*len(mean)
+mean_count=[""]*len(mean)
+for i in range(len(mean)):mean_count[i]="{}".format(i+128)
+
 
 #fond
 image_fond = "img/background/fond.jpg"
@@ -114,9 +117,14 @@ WVLBW="img/ingame/funkyWalls/wall_very_light_blue_white.png"
 WW="img/ingame/funkyWalls/wall_white.png"
 WYB="img/ingame/funkyWalls/wall_yellow_black.png"
 WYW="img/ingame/funkyWalls/wall_yellow_white.png"
+
 FunkyWalls=[image_mur,WBB,WBW,WBRB,WBRW,WBW,WBOB,WBOW,WBPB,WBPW,WCB,WCW,WDRB,WDRW,WDBB,WDBW,WDGB,WDGW,WDPB,WDPW,WGB,WGW,WLBB,WLBW,WLGB,WLGW,WLGB,WLGW,WLPB,WLPW,WMBB,WMBW,WOB,WOW,WVLBB,WVLBW,WW,WYB,WYW]
 FunkyWalsDone=[""]*len(FunkyWalls)
-walls=['^','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73']
+walls=["^"]*len(FunkyWalls)
+for i in range(len(FunkyWalls)):
+      if i!=0:
+        walls[i]=str(i+23)
+# walls=['^','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74']
 
 
 #Création du perso
@@ -157,6 +165,9 @@ image_eight="img/tut_image/numbers/8.png"
 image_nine="img/tut_image/numbers/9.png"
 namedigit=[image_zero,image_one,image_two,image_three,image_four,image_five,image_six,image_seven,image_eight,image_nine]
 didgits=[""]*len(namedigit)
+didgit_count=[""]*len(namedigit)
+for i in range(len(didgits)):didgit_count[i]="{}".format(i)
+# didgits=list(range(len(namedigit)))
 
 #monaie
 image_dollar="img/tut_image/currency/dollard.png"
@@ -166,6 +177,8 @@ image_yen="img/tut_image/currency/yen.png"
 image_whan="img/tut_image/currency/wan.png"
 currency=[image_dollar,image_pound,image_euro,image_yen,image_whan]
 currencydone=[""]*len(currency)
+currency_count=[""]*len(currency)
+for i in range(len(currency)):currency_count[i]="1{}".format(i+1)
 
 # ponctuation
 img_square_bracket_open="img/tut_image/alphabet/punctuation/[.PNG"
@@ -184,8 +197,11 @@ img_percentage="img/tut_image/alphabet/punctuation/paragraph.PNG"
 img_open_quote="img/tut_image/alphabet/punctuation/paragraph_ouvert.PNG"
 img_close_quote="img/tut_image/alphabet/punctuation/paragraph_fermé.PNG"
 img_question_mark="img/tut_image/alphabet/punctuation/questionmark.PNG"
-ponctuation=[img_square_bracket_open,img_square_bracket_closed,img_micro,img_and,img_at,img_border,img_cureved_bracket_closed,img_cureved_bracket_open,colum,img_full_stop,img_end_cell,img_exclamation_mark,img_percentage,img_open_quote,img_close_quote,img_question_mark]
+semicolon="img/tut_image/alphabet/accents/;.PNG"
+ponctuation=[img_square_bracket_open,img_square_bracket_closed,img_micro,img_and,img_at,img_border,img_cureved_bracket_closed,img_cureved_bracket_open,colum,img_full_stop,img_end_cell,img_exclamation_mark,img_percentage,img_open_quote,img_close_quote,img_question_mark,semicolon]
 ponctuationDone=[""]*len(ponctuation)
+ponctuation_count=["[","]","Âµ","&","@","20",")","(",":",".","Â¤","!","Â§","21","22","?",";"]
+
 
 #création des flèches de direction pour le tuto
 img_aright="img/tut_image/arrow/aright.PNG"
@@ -194,12 +210,18 @@ img_aup="img/tut_image/arrow/aup.PNG"
 img_adown="img/tut_image/arrow/adown.PNG"
 arrows=[img_aright,img_aleft,img_aup,img_adown]
 arrowsprocessed=[""]*len(arrows)
+arrows_count=[""]*len(arrows)
+for i in range(len(arrows)):arrows_count[i]="1{}".format(i+6)
+
 
 #Températures
 img_Celsius="img/tut_image/alphabet/temperature/celsius.PNG"
 img_fahraneit="img/tut_image/alphabet/temperature/fahraneit.PNG"
 Temperature=[img_Celsius,img_fahraneit]
 TemperatureDone=[""]*len(Temperature)
+Temperature_count=[""]*len(Temperature)
+for i in range(len(Temperature)):Temperature_count[i]="{}".format(i+126)
+
 
 #Accents
 a_accent="img/tut_image/alphabet/accents/à.PNG"
@@ -234,10 +256,12 @@ u_flex_cap="img/tut_image/alphabet/accents/Û_cap.PNG"
 u_diaeresis_low="img/tut_image/alphabet/accents/ü.PNG"
 u_diaeresis_cap="img/tut_image/alphabet/accents/Ü_cap.PNG"
 y_diaeresis="img/tut_image/alphabet/accents/ÿ.PNG"
-semicolon="img/tut_image/alphabet/accents/;.PNG"
 
-Accents=[a_accent,a_flex_low,a_flex_cap,a_wave_low,a_wave_cap,a_diaeresis_low,a_diaeresis_cap,c_five,e_accent_é,e_accent_ê,e_accent_Ê,e_accent_è,e_diaeresis_low,e_diaeresis_cap,i_flex_low,i_flex_cap,i_diaeresis_low,i_diaeresis_cap,n_wave_low,n_wave_cap,o_flex_low,o_flex_cap,o_wave_low,o_wave_cap,o_diaeresis_low,o_diaeresis_cap,u_accent_ù,u_flex_low,u_flex_cap,u_diaeresis_low,u_diaeresis_cap,y_diaeresis,semicolon]
+
+Accents=[a_accent,a_flex_low,a_flex_cap,a_wave_low,a_wave_cap,a_diaeresis_low,a_diaeresis_cap,c_five,e_accent_é,e_accent_ê,e_accent_Ê,e_accent_è,e_diaeresis_low,e_diaeresis_cap,i_flex_low,i_flex_cap,i_diaeresis_low,i_diaeresis_cap,n_wave_low,n_wave_cap,o_flex_low,o_flex_cap,o_wave_low,o_wave_cap,o_diaeresis_low,o_diaeresis_cap,u_accent_ù,u_flex_low,u_flex_cap,u_diaeresis_low,u_diaeresis_cap,y_diaeresis]
 Accentsdone=[""]*len(Accents)
+Accents_count=[""]*len(Accents)
+for i in range(len(Accents)):Accents_count[i]=str(i+62)
 
 #mathématiques
 path="img/tut_image/math"
@@ -251,6 +275,7 @@ img_more_than="img/tut_image/math/morethan.png"
 img_times="img/tut_image/math/times.png"
 Maths=[img_percent,img_minus,img_plus,img_equal,img_divide,img_less_than,img_more_than,img_times]
 Mathsdone=[""]*len(Maths)
+Maths_count=["%","-","+","=","/","<",">","*"]
 
 
 #lettres
@@ -267,15 +292,61 @@ for letter in ascii_letters:
         upperletterletter.append(letter)
 lowerletter=[""]*len(lowerletterletter)
 upperletter=[""]*len(upperletterletter)
+Lowerletter_count=lowerletterletter
+Upperletter_count=upperletterletter
+
+#follow_me
+img_behance_black="img/Follow-me/Behance/behance_b.PNG"
+img_codepen_black="img/Follow-me/codepen/codepen_b.PNG"
+img_dev_to_black="img/Follow-me/dev-to/dev-to_B.PNG"
+img_discord_black="img/Follow-me/discord/discord_B.PNG"
+img_facebook_black="img/Follow-me/facebook/facebook_B.PNG"
+img_github_black="img/Follow-me/github/github_B.PNG"
+img_instagram_black="img/Follow-me/Instagram/instagram_B.PNG"
+img_linkedin_black="img/Follow-me/linkedin/linkedin_B.PNG"
+img_patreon_black="img/Follow-me/patreon/patreon_B.PNG"
+img_pinterest_black="img/Follow-me/pinterest/pinterest_B.PNG"
+img_repl_it_black="img/Follow-me/repl.it/repl_it_B.PNG"
+img_snapchat_black="img/Follow-me/snapchat/snapchat_B.PNG"
+img_sound_cloud_black="img/Follow-me/sound-cloud/soundcloud_B.PNG"
+img_steam_black="img/Follow-me/steam/steam_B.PNG"
+img_tumblr_black="img/Follow-me/tumblr/tumblr_B.PNG"
+img_yt_black="img/Follow-me/yt/youtube_B.PNG"
+img_behance_white="img/Follow-me/Behance/behance_w.PNG"
+img_codepen_white="img/Follow-me/codepen/codepen_w.PNG"
+img_dev_to_white="img/Follow-me/dev-to/dev-to_W.PNG"
+img_discord_white="img/Follow-me/discord/discord_W.PNG"
+img_facebook_white="img/Follow-me/facebook/facebook_W.PNG"
+img_github_white="img/Follow-me/github/github_W.PNG"
+img_instagram_white="img/Follow-me/Instagram/instagram_W.PNG"
+img_linkedin_white="img/Follow-me/linkedin/linkedin_W.PNG"
+img_patreon_white="img/Follow-me/patreon/patreon_W.PNG"
+img_pinterest_white="img/Follow-me/pinterest/pinterest_W.PNG"
+img_repl_it_white="img/Follow-me/repl.it/repl_it_W.PNG"
+img_snapchat_white="img/Follow-me/snapchat/snapchat_W.PNG"
+img_sound_cloud_white="img/Follow-me/sound-cloud/soundcloud_W.PNG"
+img_steam_white="img/Follow-me/steam/steam_W.PNG"
+img_tumblr_white="img/Follow-me/tumblr/tumblr_W.PNG"
+img_yt_white="img/Follow-me/yt/youtube_W.PNG"
+
+Follow_me=[img_behance_black,img_codepen_black,img_dev_to_black,img_discord_black,img_facebook_black,img_github_black,img_instagram_black,img_linkedin_black,img_patreon_black,img_pinterest_black,img_repl_it_black,img_snapchat_black,img_sound_cloud_black,img_steam_black,img_tumblr_black,img_yt_black,img_behance_white,img_codepen_white,img_dev_to_white,img_discord_white,img_facebook_white,img_github_white,img_instagram_white,img_linkedin_white,img_patreon_white,img_pinterest_white,img_repl_it_white,img_snapchat_white,img_sound_cloud_white,img_steam_white,img_tumblr_white,img_yt_white]
+Follow_medone=[""]*len(Follow_me)
+Follow_me_count=[""]*len(Follow_me)
+for i in range(len(Follow_me)):Follow_me_count[i]=str(i+94)
+
+
 
 #Autre
-bigger_than=""
-smaler_than=""
-paragraph=""
-open_parageraph=""
-closed_paragraph=""
-times=""
-minus=""
-plus=""
-equal=""
-slash=""
+#coeur
+heart_small="img/tut_image/heart/heartsmall.png"
+heart_big="img/tut_image/heart/heartbig.png"
+
+paragraph="img/tut_image/alphabet/punctuation/paragraph.PNG"
+open_parageraph="img/tut_image/alphabet/punctuation/paragraph_ouvert.PNG"
+closed_paragraph="img/tut_image/alphabet/punctuation/paragraph_fermé.PNG"
+
+
+Autre=[paragraph,open_parageraph,closed_paragraph,heart_small,heart_big]
+Autredone=[""]*len(Autre)
+Autre_count=[""]*len(Autre)
+for i in range(len(Autre)):Autre_count[i]=str(i+132)
