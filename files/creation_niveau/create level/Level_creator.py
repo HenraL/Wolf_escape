@@ -114,15 +114,20 @@ class dealsys:
         DS.cd=currentd
         DS.spf=namespf
         DS.fbool=filenamebool
+        # DS.slash=slash
     def pause():
         pause=input("Please press enter to continue...")
-    def getCurrent():
+    def checkos():
+        global slash
+        if platform.system()=="Windows":
+           slash="\\"
+        else:
+            slash="/"
+        return slash
+    def getCurrent(slash):
         global currentd
         currentd=os.getcwd()
-        if platform.system()=="Windows":
-           currentd+="\\"
-        else:
-            currentd+="/"
+        currentd+=slash
         return currentd
     def getName(currentd,filename):
         global filenamebool
@@ -131,41 +136,93 @@ class dealsys:
         else:
             filenamebool=False
         return filenamebool
-    def filefetch(url,dest,name):
+    def filefetch(url,spec,dest,name):
         myfile = requests.get(url)
-        open("{}/{}".format(dest,name), 'wb').write(myfile.content)
+        if spec==True:
+            open("{}/{}".format(dest,name), 'wb').write(myfile.content)
+        else:
+            open("{}".format(name), 'wb').write(myfile.content)
+    def create(folder,location):
+        print("Creating folder {}".format(folder))
+        try:
+            os.makedirs("{}".format(folder))
+            print("The folder {} has successefully been created".format(folder))
+        except:
+            print("Failed to create the folder {}, please create it manualy in {} of the program.".format(folder,location))
+            dealsys.pause()
 
+class getimg (dealsys):
+    def checkndownloadsubfold(current,innerBackground):
+        for i in range(len(innerBackground)):
+            getimg.getName(current,"{}".format(innerBackground[i]))
+            if filenamebool==False:
+                getimg.create("{}".format(current),"img")
+    def check_inner_img(current,innerimglist):
+        for i in range(len(innerimglist)):
+            if i==0:
+                getimg.getName(current,"{}".format(innerimglist[i]))
+            else:
+                getimg.getName(current,"img{}{}".format(slash,innerimglist[i]))
+            
+            if filenamebool==False:
+                if i==0:
+                    getimg.create("img","{}".format(current))
+                elif i==1:
+                    getimg.create("{}{}img{}background".format(current,slash,slash),"{}{}img".format(current,slash))
+                    getimg.checkndownloadsubfold("{}{}img{}background{}".format(current,slash,slash,slash))
+                elif i==2:
+                    getimg.create("{}{}img{}Credits".format(current,slash,slash),"{}{}img".format(current,slash))
+                    getimg.checkndownloadsubfold("{}{}img{}Credits{}".format(current,slash,slash,slash))
+                elif i==3:
+                    getimg.create("{}{}img{}end".format(current,slash,slash),"{}{}img".format(current,slash))
+                    getimg.checkndownloadsubfold("{}{}img{}end{}".format(current,slash,slash,slash))
+                elif i==4:
+                    getimg.create("{}{}img{}Follow-me".format(current,slash,slash),"{}{}img".format(current,slash))
+                    getimg.checkndownloadsubfold("{}{}img{}Follow-me{}".format(current,slash,slash,slash))
+                elif i==5:
+                    getimg.create("{}{}img{}ingame".format(current,slash,slash),"{}{}img".format(current,slash))
+                    getimg.checkndownloadsubfold("{}{}img{}ingame{}".format(current,slash,slash,slash))
+                elif i==6:
+                    getimg.create("{}{}img{}launch_load".format(current,slash,slash),"{}{}img".format(current,slash))
+                    getimg.checkndownloadsubfold("{}{}img{}launch_load{}".format(current,slash,slash,slash))
+                elif i==7:
+                    getimg.create("{}{}img{}sprite".format(current,slash,slash),"{}{}img".format(current,slash))
+                    getimg.checkndownloadsubfold("{}{}img{}sprite{}".format(current,slash,slash,slash))
+                elif i==8:
+                    getimg.create("{}{}img{}tut_image".format(current,slash,slash),"{}{}img".format(current,slash))
+                    getimg.checkndownloadsubfold("{}{}img{}tut_image{}".format(current,slash,slash,slash))
+   
+                
 # dest="sprite_list"
 # url="https://raw.githubusercontent.com/HenraL/Wolf_escape_Sprite/main/file/Common_file/Spritelist.py"
 # name="Spritelist.{}".format("py")
-
-dealsys.getCurrent()
-dealsys.getName(currentd,"sprite_list")
+dealsys.checkos()
+dealsys.getCurrent(slash)
+dealsys.getName(currentd,"created_levels")
 print(filenamebool)
 url="https://raw.githubusercontent.com/HenraL/Wolf_escape_Sprite/main/file/Common_file/Spritelist.py"
 name="Spritelist.py"
 if filenamebool==True:
     try:
-        dealsys.filefetch(url,"sprite_list",name)
+        dealsys.filefetch(url,False,"",name)
         print("The Sprite_list.py file has been successefully updated.")
     except:
       print("We have not succeded in downloading the file {} please visit {} to download it".format(name,url))
-      print("Save the page in the folder sprite_list of the program")
+      print("Save the page at the source of the program")
     print()
 else:
-    print("Creating the folder sprite_list")
+    dealsys.create("created_levels","the root")
+    print("Creating the folder created_levels")
     try:
-        os.makedirs("sprite_list")
-        print("The folder sprite_list has successefully been created")
-        try:
-            dealsys.filefetch(url,"sprite_list",name)
-            print("The Sprite_list.py file has been successefully updated.")
-        except:
-            print("We have not succeded in downloading the file {} please visit {} to download it".format(name,url))
-            print("Save the page in the folder sprite_list of the program")
-        print()
+        dealsys.filefetch(url,False,"",name)
+        print("The Sprite_list.py file has been successefully updated.")
     except:
-        print("Failed to create the sprite_list folder, please create it manualy in the root of the program.")
+      print("We have not succeded in downloading the file {} please visit {} to download it".format(name,url))
+      print("Save the page at the source of the program")
+    print()
+dealsys.getName(currentd,"img")
+if filenamebool==False:
+    
 contiinue=1
 while contiinue==1:
     tk_windows.main_menu()
