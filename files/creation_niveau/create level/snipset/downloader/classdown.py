@@ -1,3 +1,13 @@
+import os, platform, requests
+
+img_fold=["background","Credits","end","Follow-me","ingame","launch_load","sprite","tut_image"]
+background_fold=["fonds.png"]
+credits_fold=["end - Copie.PNG"]
+end_fold=["endv.png","F_S.png","w_H_L.png","w_I_M.png"]
+Follow_me_fold=["Behance","codepen","dev-to","discord","facebook","github","Instagram","linkedin","patreon","pinterest","repl.it","snapchat","sound-cloud","steam","tumblr","yt"]
+
+
+
 class dealsys:
     def __init__(DS,currentd,namespf,filenamebool):
         # global DS
@@ -47,6 +57,13 @@ class getimg (dealsys):
             getimg.getName(current,"{}".format(innerBackground[i]))
             if filenamebool==False:
                 getimg.create("{}".format(current),"img")
+            else:
+                print("Folder {}.............................[OK]".format(innerBackground[i]))
+    def checkndownloadsubfoldcont(current,innerBackground):
+        for i in range(len(innerBackground)):
+            getimg.getName(current,"{}".format(innerBackground[i]))
+            if filenamebool==False:
+                getimg.create("{}{}{}".format(current,slash,),"img")
     def check_inner_img(current,innerimglist):
         for i in range(len(innerimglist)):
             if i==0:
