@@ -556,20 +556,20 @@ class MainLoopGame:
                     
                 #Affichages aux nouvelles positions
                 fenetre.blit(fond, (0,0))
-                print("J'ai fait un fenetre.blit(fond, (0,0))")
-                print("Je tente un niveau.afficher(fenetre)")
+                # print("J'ai fait un fenetre.blit(fond, (0,0))")
+                # print("Je tente un niveau.afficher(fenetre)")
                 niveau.afficher(fenetre)
-                print("J'ai fait niveau.afficher(fenetre)")
+                # print("J'ai fait niveau.afficher(fenetre)")
                 fenetre.blit(dk.direction, (dk.x, dk.y)) #dk.direction = l'image dans la bonne direction
-                print("J'ai fait fenetre.blit(dk.direction, (dk.x, dk.y))")
+                # print("J'ai fait fenetre.blit(dk.direction, (dk.x, dk.y))")
                 pygame.display.flip()
-                print("J'ai fait pygame.display.flip()")
+                # print("J'ai fait pygame.display.flip()")
                 #Victoire -> Retour à l'accueil
                 if niveau.structure[dk.case_y][dk.case_x] == '10' or niveau.structure[dk.case_y][dk.case_x] == '_':continuer_jeu = 0 #or niveau.structure[dk.case_y][dk.case_x] == '0':
                 #return continuer_jeu, continuer
     def check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden): #niveau,
         if choix != 0 and Choix!=0:
-            print("Je suis dans la check boucle")
+            # print("Je suis dans la check boucle")
             # pygame.display.set_caption("{}{}".format(titre_fenetre,choix))
             # checkcredit()
             #Chargement du fond
@@ -642,7 +642,7 @@ class MainLoopGame:
                     Choix=0
                     exitSpaceGame=True
                     # LEVEL=len(levelfiles)
-                    print(bababa)
+                    # print(bababa)
                     sys.exit(0)
                     break
                 else:
