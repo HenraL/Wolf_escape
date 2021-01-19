@@ -22,12 +22,13 @@ cote_fenetrey=600
 #Personnalisation de la fenêtre
 titre_fenetre = "Wolf Escape"
 image_icone = "img/ingame/wolf_icon.png"
+image_icone_bmp = "img/ingame/wolf_icon.ico"
 image_main1="img/launch_load/menu_anim/accueil.png"
 image_main2="img/launch_load/menu_anim/accueil_static_2.png"
 
 #annimation du jeux
 ##Annimation du menu démarer
-mainMenuPlayed=True#False#True #False #True #False #True #False#True
+mainMenuPlayed=False#True#False#True #False #True #False #True #False#True
 frameMainMenuWait=0.5
 image_accueil1="img/launch_load/start_load/stages_stage_1.png"
 image_accueil2="img/launch_load/start_load/stages_stage_2.png"

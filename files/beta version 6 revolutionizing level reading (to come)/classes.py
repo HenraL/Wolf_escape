@@ -343,6 +343,8 @@ class tkinterWindows:
             fenetre.destroy()
             return choix, FileProgress
         fenetre = Tk()
+        fenetre.iconbitmap(image_icone_bmp)
+        fenetre.title("restorer?")
         Frame1 = Frame(fenetre, borderwidth=2, relief=FLAT)
         Frame1.pack(side=TOP, padx=10, pady=10)
         FrameButt=Frame(fenetre, borderwidth=2, relief=FLAT)
@@ -350,7 +352,7 @@ class tkinterWindows:
 
         label = Label(Frame1, text="Une sauvegarde a été trouvée.")
         label.pack()
-        label = Label(Frame1, text="Voulez-vous contiunuer la partie déjà entamée?")
+        label = Label(Frame1, text="Voulez-vous continuer la partie déjà entamée?")
         label.pack()
         bouton=Button(FrameButt, text="Oui", command=Yes)
         bouton.pack(side=RIGHT, padx=5)
@@ -384,8 +386,9 @@ class tkinterWindows:
         bgColor="White"
         root = Tk()
         root['bg']=bgColor
-        root.title("tkinter.Text sample")
-        root.geometry("900x600")
+        root.iconbitmap(image_icone_bmp)
+        root.title("Credits")
+        root.geometry("900x630")
         Frame1 = Frame(root, borderwidth=2, relief=F1, bg=bgColor)
         Frame1Scroolbar = Frame(Frame1, borderwidth=2, relief=F1, bg=bgColor)
         Frame1TOP2=Frame(Frame1Scroolbar,borderwidth=2, relief=F1, bg=bgColor)
