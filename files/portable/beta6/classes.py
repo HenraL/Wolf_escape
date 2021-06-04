@@ -1,5 +1,5 @@
 from string import punctuation
-import pygame
+import pygame, requests
 from constantes import *
 from pygame.locals import *
 from pygame.mixer import *
@@ -8,6 +8,86 @@ from tkinter import*
 from time import sleep
 import os
 from webbrowser import open_new
+
+class root:
+    def __init__(self,main,main_dict):
+        self.main=main
+        self.main_dict=main_dict
+        self.links=[]
+        self.home="https://hanralatalliardwork.github.io/wolf_escape_home/"
+        self.file_location="files/requirements/"
+        self.ggg=0
+
+
+class boot (root):
+    def checkIfExist(element,fileType):
+            if fileType.lower()=="file" or fileType.lower()=="<file>":
+                if os.path.exists(element)==False:
+                    return False
+                else:
+                    return True
+            else:
+                if os.path.exists(element)==False:
+                    os.mkdir(element)
+    class get:
+        class online:
+            def tempFile(url):
+                road=requests.get(url).content
+                try:
+                    e=open(road,"rb").read()
+                    print("rb")
+                    return e
+                except:
+                    try:
+                        e=open(road,"r").read()
+                        print("r")
+                        return e
+                    except:
+                        try:
+                            e=road.decode()
+                            print("decode")
+                            return e
+                        except:
+                            return road
+        def make_links(self,lst_from):
+            path="."
+            lst_to=[]
+            # print(self.ggg)
+            # print(f"\n\nlst_from={lst_from}")
+            for i in lst_from:
+                try:
+                    if lst_from[i]["type"].lower()=="file" or lst_from[i]["type"].lower()=="<file>":
+                        lst_to.append(f"{path}/{i}")
+                except:
+                    try:
+                        if lst_from[i].lower()=='dir' or lst_from[i].lower()=='<dir>':
+                            path+=f"/{i}"
+                            lst_to.append("")
+                    except:
+                        return f"Error, type {lst_from[i]} unknown. must be <dir> or dir for a folder or <file> or file for a file."
+            print(lst_to)
+            # self.ggg+=1
+            return lst_to
+        def content(list1,list2,links,home):
+            for i in range(len(list1)):
+                path="."
+                for b in range(len(list1[i])):
+                    try:
+                        if list2[i][list1[i][b]]["type"].lower()=='file' or list2[i][list1[i][b]]["type"].lower()=='<file>':
+                            boot.checkIfExist(element=f"{path}/{list2[i][list1[i][b]]['fileName']}",fileType="file")
+                            list2[i][list1[i][b]]["fileContent"]=boot.get.online.tempFile(f"{home}{links[i][b]}")
+                        # print(list2[i][list1[i][b]])
+                    except:
+                        path+=f"/{list1[i][b]}"
+                        boot.checkIfExist(element=path,fileType="dir")
+    def initialise_links(self):
+        print(f"self.main_dict={self.main_dict}")
+        for i in range(len(self.main_dict)):
+            a=boot.get.make_links(self,lst_from=self.main_dict[i])
+            self.links.append(a)
+        # links1=boot.get.make_links(folder1_dict)
+        # =[links1,links2_2,links2_3,links2_4,links2_5_1,links2_5_2,links2_5_3,links2_5_4,links2_5_5,links2_5_6,links2_5_7,links2_5_8,links2_5_9,links2_5_10,links2_5_11,links2_5_12,links2_5_13,links2_5_14,links2_5_15,links2_5_16,links2_6,links2_7_1,links2_7_2,links2_8_1,links2_8_2,links2_8_3,links2_9_1_1,links2_9_1_2,links2_9_1_3,links2_9_1_4,links2_9_1_5,links2_9_2,links2_9_3,links2_9_4,links2_9_5,links2_9_6,links3]
+        print(f"self.links={self.links}")
 
 class Niveau:
     def __init__(self, fichier):

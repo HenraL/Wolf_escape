@@ -1,4 +1,4 @@
-import pygame, os, sys
+import pygame, os, sys,requests
 from pygame.locals import *
 from pygame.mixer import *
 from pygame.display import *
@@ -17,6 +17,11 @@ Jeu dans lequel on doit déplacer un loup jusqu'à la viande à travers un labyr
 Script Python
 Fichiers : trop pour les lister ici
 """
+RI=root(main=main_for_rec,main_dict=main_for_rec_dict) #initialising root
+boot.initialise_links(RI) #initialising links
+boot.get.content(list1=RI.main,list2=RI.main_dict,links=RI.links,home=f"{RI.home}{RI.file_location}") #checking if required elements are present
+
+
 def choselevels():
     def LEVEL():
         global choix

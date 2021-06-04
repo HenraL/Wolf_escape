@@ -1,2 +1,0 @@
-link to the image: https://materialdesignicons.com/icon/youtube
-some info for the icon: https://dev.materialdesignicons.com/getting-started/react
