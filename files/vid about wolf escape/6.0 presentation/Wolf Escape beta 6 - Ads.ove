@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <version>190219</version>
+    <url>E:/Henry PC/Documents/001 Github prog Sharing/Wolf_escape/files/vid about wolf escape/6.0 presentation/Wolf Escape beta 6 - Ads.ove</url>
+    <folders/>
+    <media>
+        <footage id="1" folder="0" name="2021-06-10 09-52-12.flv" url="vid original/2021-06-10 09-52-12.flv" duration="66500000" using_inout="0" in="0" out="0" speed="1" alphapremul="0" startnumber="0" proxy="0" proxypath="">
+            <video id="0" width="1280" height="720" framerate="30.0000000000" infinite="0"/>
+            <audio id="1" channels="2" layout="3" frequency="48000"/>
+        </footage>
+        <footage id="2" folder="0" name="2021-06-10 09-53-34.flv" url="vid original/2021-06-10 09-53-34.flv" duration="377100000" using_inout="0" in="0" out="0" speed="1" alphapremul="0" startnumber="0" proxy="0" proxypath="">
+            <video id="0" width="1280" height="720" framerate="30.0000000000" infinite="0"/>
+            <audio id="1" channels="2" layout="3" frequency="48000"/>
+        </footage>
+        <footage id="3" folder="0" name="2021-06-10 10-11-25.flv" url="vid original/2021-06-10 10-11-25.flv" duration="96233000" using_inout="0" in="0" out="0" speed="1" alphapremul="0" startnumber="0" proxy="0" proxypath="">
+            <video id="0" width="1280" height="720" framerate="30.0000000000" infinite="0"/>
+            <audio id="1" channels="2" layout="3" frequency="48000"/>
+        </footage>
+        <footage id="4" folder="0" name="2021-06-10 12-06-31.flv" url="vid original/2021-06-10 12-06-31.flv" duration="281100000" using_inout="0" in="0" out="0" speed="1" alphapremul="0" startnumber="0" proxy="0" proxypath="">
+            <video id="0" width="1280" height="720" framerate="30.0000000000" infinite="0"/>
+            <audio id="1" channels="2" layout="3" frequency="48000"/>
+        </footage>
+    </media>
+    <sequences>
+        <sequence id="1" folder="0" name="wolf Escape, Game Startup" width="1920" height="1080" framerate="29.9700000000" afreq="48000" alayout="3" open="1" workarea="0" workareaIn="0" workareaOut="0"/>
+    </sequences>
+</project>

@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "testPythonWolfEscape", "testPythonWolfEscape.pyproj", "{4B98DB41-F778-4ED9-A224-8003391C9400}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B98DB41-F778-4ED9-A224-8003391C9400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B98DB41-F778-4ED9-A224-8003391C9400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03C9F8A4-BE2B-49B3-A0A8-D8BCD4258E01}
+	EndGlobalSection
+EndGlobal
