@@ -150,6 +150,7 @@ image_fond_credits="img/Credits/end - Copie.PNG"
 
 #départ
 image_depart="img/ingame/start.png"
+image_depart_du_loup="img/ingame/teller_start.png"
 image_arrivee="img/end/endv.png"
 image_arrivee_fam="img/sprite/famille/w_fam.png"
 # mur
