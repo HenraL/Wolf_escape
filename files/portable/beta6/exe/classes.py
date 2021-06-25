@@ -595,6 +595,7 @@ class Niveau:
         for i in range(len(FunkyWalls)):FunkyWalsDone[i]=pygame.image.load(FunkyWalls[i]).convert_alpha()
         #depart
         depart = pygame.image.load(image_depart).convert()
+        depart_positionnement=pygame.image.load(image_depart_du_loup).convert()
         # arrivee
         arrivee = pygame.image.load(image_arrivee).convert_alpha()
         arrivee_fam=pygame.image.load(image_arrivee_fam).convert_alpha()
@@ -658,6 +659,11 @@ class Niveau:
                             break
                 elif sprite == '#':		   #d = Départ
                     fenetre.blit(depart, (x,y))
+                elif sprite=="ts":
+                    fenetre.blit(depart_positionnement,(x,y))
+                    dk.x=x
+                    dk.y=y
+                    print(f"dk.x={dk.x},x={x},dk.y={dk.y},y={y}")
                 elif sprite == '10':		   #a = Arrivée 3ϵα♦²
                     fenetre.blit(arrivee, (x,y))
                 elif sprite == '_':		   #a = Arrivée_enfant 4дβ
