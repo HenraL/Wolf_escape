@@ -49,8 +49,16 @@ class root:
         self.extension=".we"
         self.All_the_levels=["_____Visible Levels_____"]
         self.All_the_levels_index={"_____Visible Levels_____":"None","_____Hidden Levels______":"None"}
-        self.visible=os.listdir("levels")
-        self.hidden=os.listdir("elementary_levels")
+        try:
+            self.visible=os.listdir("levels")
+        except:
+            os.mkdir("levels")
+            self.visible=os.listdir("levels")
+        try:
+            self.hidden=os.listdir("elementary_levels")
+        except:
+            os.mkdir("elementary_levels")
+            self.hidden=os.listdir("elementary_levels")
         self.keys_for_hidden={'002_l2':"", '003_l3':"", '004_l4':"", '005_l5':"", 'credits':"F3", 'h':"h", 'I':"i", 'M':"m", 'm1':"F1", 'm2':"F2", 'P':"p"}
         self.path="img/the_levels/"
         self.finalImageForCanvasS=f"{self.path}fonds.png"
@@ -602,43 +610,77 @@ class Niveau:
     def afficher(self, fenetre):
         #print("Je suis dans afficher (self, fenetre)")
         #murs
+        print("wals")
         for i in range(len(FunkyWalls)):FunkyWalsDone[i]=pygame.image.load(FunkyWalls[i]).convert_alpha()
+        print("wals initialised")
         #depart
+        print("start")
         depart = pygame.image.load(image_depart).convert()
         depart_positionnement=pygame.image.load(image_depart_du_loup).convert()
+        print("start initialised")
         # arrivee
+        print("end")
         arrivee = pygame.image.load(image_arrivee).convert_alpha()
         arrivee_fam=pygame.image.load(image_arrivee_fam).convert_alpha()
+        print("end initialised")
         # alphabet
+        print("alphabet")
+        print("caps")
         for i in range(len(lowerletter)):lowerletter[i]=pygame.image.load(letters[lowerletterletter[i]]).convert_alpha()#i
+        print("caps initialised")
+        print("lower")
         for i in range(len(upperletter)):upperletter[i]=pygame.image.load(letters[upperletterletter[i]]).convert_alpha()
+        print("lower initialised")
+        print("alphabet initialised")
         #arrows
+        print("arrows")
         for i in range(len(arrows)):arrowsprocessed[i]=pygame.image.load(arrows[i]).convert_alpha()
+        print("arrows initialised")
         #credits
+        print("credits")
         #credits_fond=pygame.image.load(image_credits_fond).convert()
         credits_gagne=pygame.image.load(image_credits_gagne).convert()
         credits_w_Irina=pygame.image.load(image_credits_w_Irina).convert()
         #credits_w_Henry=pygame.image.load(image_credits_w_Henry).convert()
         #credits_l_Irina=pygame.image.load(image_credits_l_Irina).convert()
         #credits_l_Henry=pygame.image.load(image_credits_l_Henry).convert()
+        print("credits initialised")
         #mean
+        print("mean")
         for i in range(len(mean)):meandone[i]=pygame.image.load(mean[i]).convert_alpha()
+        print("mean initialised")
         #number
+        print("number")
         for i in range(len(namedigit)):didgits[i]=pygame.image.load(namedigit[i]).convert_alpha()
+        print("number initialised")
         #currency
+        print("currency")
         for i in range(len(currency)):currencydone[i]=pygame.image.load(currency[i]).convert_alpha()
+        print("currency initialised")
         # Accents
+        print("Accents")
         for i in range(len(Accents)):Accentsdone[i]=pygame.image.load(Accents[i]).convert_alpha()
+        print("Accents initialised")
         # punctuation
+        print("Punctuation")
         for i in range(len(ponctuation)):ponctuationDone[i]=pygame.image.load(ponctuation[i]).convert_alpha()
+        print("Punctuation initialised")
         #Températures
+        print("Temperature")
         for i in range(len(Temperature)):TemperatureDone[i]=pygame.image.load(Temperature[i]).convert_alpha()
+        print("Temperature initialised")
         #Maths
+        print("Maths")
         for i in range(len(Maths)):Mathsdone[i]=pygame.image.load(Maths[i]).convert_alpha()
+        print("Maths initialised")
         #Follow-me
+        print("Follow-me")
         for i in range(len(Follow_me)):Follow_medone[i]=pygame.image.load(Follow_me[i]).convert_alpha()
+        print("Follow-me initialised")
         # Autre
+        print("Other")
         for i in range(len(Autre)):Autredone[i]=pygame.image.load(Autre[i]).convert_alpha()
+        print("Other initialised")
 
         #On parcourt la liste du niveau
         num_ligne = 0
@@ -1038,6 +1080,8 @@ class tkinterWindows(root):
         
         root.mainloop()
     def initialiseS(self):
+        self.hidden=os.listdir("elementary_levels")
+        self.visible=os.listdir("levels")
         def removeExtention(element,extension):
                 if extension in element:
                         f=element.split(extension)
