@@ -53,7 +53,7 @@ class root:
         self.hidden=os.listdir("elementary_levels")
         self.keys_for_hidden={'002_l2':"", '003_l3':"", '004_l4':"", '005_l5':"", 'credits':"F3", 'h':"h", 'I':"i", 'M':"m", 'm1':"F1", 'm2':"F2", 'P':"p"}
         self.path="img/the_levels/"
-        self.finalImageForCanvasS=f"{self.path}003_l3.png"#fonds.png"
+        self.finalImageForCanvasS=f"{self.path}fonds.png"
         self.photoS=""
 class boot(root):
     class get:
@@ -1078,15 +1078,18 @@ class tkinterWindows(root):
             TT.update()
             DescriptionLabel.update()
             listbox.update()
-
+        size_x=515
+        size_y=350
         TT = Tk()
-        TT.geometry("515x330")
-        TT.minsize(515,330)
+        TT.geometry(f"{size_x}x{size_y}")
+        TT.minsize(size_x,size_y)
         TT["bg"]=self.universalBackground
         TT.title("The Levels")
-        FrameLeft=Frame(TT,bg=self.universalBackground, relief=FLAT)
+        FrameTOP=Frame(TT,bg=self.universalBackground, relief=FLAT)
+        FrameTOP.pack(side=TOP,fill=X)
+        FrameLeft=Frame(FrameTOP,bg=self.universalBackground, relief=FLAT)
         FrameLeft.pack(side=LEFT,fill=Y)
-        FrameRight=Frame(TT,bg=self.universalBackground, relief=FLAT)
+        FrameRight=Frame(FrameTOP,bg=self.universalBackground, relief=FLAT)
         FrameRight.pack(side=RIGHT,padx=6)
         listbox = Listbox(FrameLeft)
         listbox.pack(side = LEFT, fill = BOTH)
@@ -1106,6 +1109,12 @@ class tkinterWindows(root):
         #TT.update()
         #DescriptionLabel.update()
         #listbox.update()
+        FrameBottom=Frame(TT,bg=self.universalBackground,relief=FLAT)
+        FrameBottom.pack(side=TOP,fill=X)
+        CloseButton=Button(FrameBottom,text="Close",bg=self.universalBackground,fg="black",command=TT.destroy)
+        CloseButton.pack(side=LEFT)
+        WatermarkLabel=Label(FrameBottom,bg=self.universalBackground,text=self.watermark,fg="black")
+        WatermarkLabel.pack(side=RIGHT,fill=X)
         TT.bind("<Return>", test)
         TT.mainloop()
 

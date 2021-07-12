@@ -1,5 +1,5 @@
 from string import punctuation
-import pygame
+import pygame, requests
 from constantes import *
 from pygame.locals import *
 from pygame.mixer import *
@@ -9,6 +9,570 @@ from time import sleep
 import os
 from webbrowser import open_new
 
+class root:
+    def __init__(self,main,main_dict,links):
+        #-------------------- Abort program --------------------
+        self.abort_program=False
+        #-------------------- Other vars --------------------
+        self.mainLoop=True
+        self.main=main
+        self.main_dict=main_dict
+        self.links=links
+        self.home="https://hanralatalliardwork.github.io/wolf_escape_home/"
+        self.file_location="files/requirements"
+        self.ggg=0
+        self.list_dict=[]
+        self.error_ticket_title=""
+        self.error_ticket_content=""
+                        
+        #------------------ Tkinter ------------------
+        self.universalBackground="white"
+        self.maxDots=35
+        #---------------------------------ICON------------------------------------
+        self.icon=""
+        self.displayIcon=False
+        #---------------------------------DISPLAY---------------------------------
+        self.window_size_x=424
+        self.window_size_y=200
+        self.window_geometry=f"{self.window_size_x}x{self.window_size_y}"
+        #---------------------------------TEXT------------------------------------
+        self.cursor="none"
+        self.person="gumby"
+        self.text_cells_width=51
+        self.text_cells_height=22
+        self.window_cell_size_x=self.window_size_x
+        self.window_cell_size_y=self.window_size_y+250
+        self.window_geometry_cell=f"{self.window_cell_size_x}x{self.window_cell_size_y}"
+        self.cursor="X_cursor"
+        self.watermark=f"{chr(169)} Created by Henry Letellier"
+        #------------------------------ S ------------------------------
+        self.extension=".we"
+        self.All_the_levels=["_____Visible Levels_____"]
+        self.All_the_levels_index={"_____Visible Levels_____":"None","_____Hidden Levels______":"None"}
+        self.visible=os.listdir("levels")
+        self.hidden=os.listdir("elementary_levels")
+        self.keys_for_hidden={'002_l2':"", '003_l3':"", '004_l4':"", '005_l5':"", 'credits':"F3", 'h':"h", 'I':"i", 'M':"m", 'm1':"F1", 'm2':"F2", 'P':"p"}
+        self.path="img/the_levels/"
+        self.finalImageForCanvasS=f"{self.path}fonds.png"
+        self.photoS=""
+class boot(root):
+    class get:
+        def dots(word="",maxDots=10):
+            word=len(word)
+            maxDots=maxDots-word
+            result=""
+            for i in range(maxDots):result+="."
+            return result
+        class online:
+            def tempFile(url):
+                road=requests.get(url)
+                print(f"road.status_code={road.status_code}")
+                if road.status_code!="404":
+                    road=road.content
+                    try:
+                        e=open(road,"rb").read()
+                        # print("rb")
+                        return e
+                    except:
+                        try:
+                            e=open(road,"r").read()
+                            # print("r")
+                            return e
+                        except:
+                            try:
+                                e=road.decode()
+                                # print("decode")
+                                return e
+                            except:
+                                return road
+                else:
+                    print(f"\n\n\n\nStatus for {url} is {road.status_code}.")
+                    sleep(10)
+                    return road.status_code
+        def make_links(lst_from):
+            path=""
+            lst_to=[]
+            # print(RI.ggg)
+            # print(f"\n\nlst_from={lst_from}")
+            open("list_lengths.txt","a").write(f"lst_to='{lst_to}',before for\n")
+            for i in lst_from:
+                if lst_from[i]["type"].lower()=="file" or lst_from[i]["type"].lower()=="<file>":
+                    lst_to.append(f"{path}/{i}")
+                    open("list_lengths.txt","a").write(f"|__lst_to='{lst_to}',in if type=file,path='{path}',lst_from[i]\"type\"]='{lst_from[i]['type']}',lst_from[i]\"fileName\"]='{lst_from[i]['fileName']}'\n")
+                elif lst_from[i]["type"].lower()=='dir' or lst_from[i]["type"].lower()=='<dir>':
+                    path+=f"/{i}"
+                    lst_to.append("")
+                    open("list_lengths.txt","a").write(f"|__lst_to='{lst_to}',in if type=dir,path={path},lst_from[i]\"type\"]='{lst_from[i]['type']}',lst_from[i]\"fileName\"]='{lst_from[i]['fileName']}'\n")
+                else:
+                    Error=f"Error, type {lst_from[i]} unknown. must be <dir> or dir for a folder or <file> or file for a file."
+                    open("list_lengths.txt","a").write(f"|__Error='{Error}',path={path},lst_from[i]\"type\"]='{lst_from[i]['type']}',lst_from[i]\"fileName\"]='{lst_from[i]['fileName']}'\n")
+                    return Error
+            # print(lst_to)
+            # RI.ggg+=1
+
+            return lst_to
+        def content(self,list1,list2,links,home,LabelInfo,progress,ProgressBar,window,ProgressWindow):
+            list1_length=the_percentage_progression=ProgressIndex=prev=0
+            maxDots=50
+            for i in range(len(list1)):
+                list1_length+=len(list1[i])
+            The_error_color="red"
+            The_success_color="lightGreen"
+            zeta={}
+            zs=f"len(list1)={len(list1)},len(list2)={len(list2)}"
+            print(zs)
+            f=open("list_lengths.txt","a").write(f"{zs}\n")
+            for i in range(len(list1)):
+                peth="."
+                z=f"len(list1[{i}])={len(list1[i])},len(list2[{i}])={len(list2[i])}"
+                print(z)
+                f=open("list_lengths.txt","a").write(f"|__{z}\n")
+                f=open("list_lengths.txt","a").write(f"|\t|__len(links[{i}])='{len(links[i])}'\n")
+                f=open("list_lengths.txt","a").write(f"|\t|__list1[{i}]={list1[i]}\n")
+                tr=[]
+                for alpha in list2[i]:
+                    tr.append(alpha)
+                f=open("list_lengths.txt","a").write(f"|\t|__list2[{i}]={tr}\n")
+                f=open("list_lengths.txt","a").write(f"|\t|__links[{i}]='{links[i]}'\n")
+                
+                # pause=input("press enter to continue...")
+                for b in range(len(list1[i])):
+                    error_suggested_message=""
+                    if list2[i][list1[i][b]]['type'].lower()=="dir" or list2[i][list1[i][b]]['type'].lower()=="<dir>":
+                        list2[i][list1[i][b]]['typeBeautified']="folder"
+                    else:
+                        list2[i][list1[i][b]]['typeBeautified']="file"
+                    the_current_percentage=int(101*(the_percentage_progression/list1_length)*100/100)
+                    from_folder=False
+                    zeta=boot.TKinter.window.updateProgress(
+                        self,
+                        LabelInfo=LabelInfo,
+                        LabelInfoContent=f"Checking if {list2[i][list1[i][b]]['typeBeautified']} {list1[i][b]} exists",
+                        progress=progress,
+                        element=list1[i][b],
+                        percentage=the_current_percentage,
+                        progressText=f"Checked {ProgressIndex}/{list1_length-1} files - {the_current_percentage}%",
+                        success=True,
+                        prev=prev,
+                        To=ProgressBar,
+                        FileIndex=ProgressIndex,
+                        ifSuccess="CHEKING",
+                        ifSuccessColor=The_success_color,
+                        progressInfo=ProgressWindow,
+                        error_files=zeta,
+                        ifNotSuccess="DOES NOT EXIST",
+                        ifNotSuccessColor=The_error_color,
+                        window=window,
+                        maxDots=maxDots,
+                        update_bar=False
+                    )
+                    print(f"i={i},b={b}")
+                    za=f"i={i},b={b},len(list1[{i}][{b}])={len(list1[i][b])}={list1[i][b]},len(list2[{i}][{list1[i][b]}])={len(list2[i][list1[i][b]])}={list2[i][list1[i][b]]}"
+                    # print(za)
+                    f=open("list_lengths.txt","a").write(f"|\t|__{za}\n")
+                    f=open("list_lengths.txt","a").write(f"|\t|\t|__type='{list2[i][list1[i][b]]['type']}'\n")
+                    f=open("list_lengths.txt","a").write(f"|\t|\t|__filename='{list2[i][list1[i][b]]['fileName']}'\n")
+                    # sleep(1)
+                    # print(f"list2[i][list1[i][b]]={list2[i][list1[i][b]]}={list1[i][b]}")
+                    if list2[i][list1[i][b]]["type"].lower()=='file' or list2[i][list1[i][b]]["type"].lower()=='<file>':
+                        # print(f"list2[i][list1[i][b]][\"type\"]={list2[i][list1[i][b]]['type']}")
+                        # print(f"link=\"{home}{links[i][b]}\"")
+                        try:
+                            a=open(f"{peth}/{list1[i][b]}","r").read()
+                            c=len(a)
+                            print(f"c={c}")
+                            wasSuccessFull=True
+                        except:
+                            c=0
+                        if os.path.exists(f"{peth}/{list1[i][b]}")==False and c==0:
+                            # try:
+                            # print(f"trying with link=\"{home}{links[i][b]}\"")
+                            f=open("list_lengths.txt","a").write(f"|\t|\t|__len(list1[{i}][{b}])='{len(list1[i][b])}',list1[{i}][{b}]='{list1[i][b]}'\n")
+                            f=open("list_lengths.txt","a").write(f"|\t|\t|__len(list2[{i}][{list1[i][b]}])='{len(list2[i][list1[i][b]])}',list2[{i}][list1[{i}][{b}]]='{list2[i][list1[i][b]]}'\n")
+                            f=open("list_lengths.txt","a").write(f"|\t|\t|__len(links[{i}])='{len(links[i])}'\n")
+                            f=open("list_lengths.txt","a").write(f"|\t|\t|__links[{i}]={links[i]}\n")
+                            zeta=boot.TKinter.window.updateProgress(
+                                self,
+                                LabelInfo=LabelInfo,
+                                LabelInfoContent=f"Fetching {list2[i][list1[i][b]]['typeBeautified']} {list1[i][b]}.",
+                                progress=progress,
+                                element=list1[i][b],
+                                percentage=the_current_percentage,
+                                progressText=f"Checked {ProgressIndex}/{list1_length-1} files - {the_current_percentage}%",
+                                success=True,
+                                prev=prev,
+                                To=ProgressBar,
+                                FileIndex=ProgressIndex,
+                                ifSuccess="Fetching",
+                                ifSuccessColor=The_success_color,
+                                progressInfo=ProgressWindow,
+                                error_files=zeta,
+                                ifNotSuccess="DOES NOT EXIST",
+                                ifNotSuccessColor=The_error_color,
+                                window=window,
+                                maxDots=maxDots,
+                                update_bar=False
+                            )
+                            list2[i][list1[i][b]]["fileContent"]=boot.get.online.tempFile(f"{home}{links[i][b]}")
+                            print(f"type(fileContent)={type(list2[i][list1[i][b]]['fileContent'])}")
+                            # list2[i][list1[i][b]]['fileContent']=404
+                            if list2[i][list1[i][b]]['fileContent']==404:
+                                print("404")
+                                # sleep(10)
+                                LabelInfoContent=f"Failed to fetch {list2[i][list1[i][b]]['typeBeautified']} {list1[i][b]}. (404)"
+                                wasSuccessFull=False
+                                message_type="Not found"
+                                error_suggested_message=f"\nInternet connaction innactive or file does not exist on the server \n'{home}{links[i][b]}'\nPlease check that you are connected to the internet so that the program can fetch its required files.\nIf problem persists and you are connected to the internet, please open a support ticket (if not already opened by another user).\nThe title of the support ticket must be: file <filename> missing."
+                                ifSuccess=ifNotSuccess="COULD NOT FETCH"
+                                update_bar=True
+                            else:
+                                zeta=boot.TKinter.window.updateProgress(
+                                    self,
+                                    LabelInfo=LabelInfo,
+                                    LabelInfoContent=f"Fetched {list2[i][list1[i][b]]['typeBeautified']} {list1[i][b]}.",
+                                    progress=progress,
+                                    element=list1[i][b],
+                                    percentage=the_current_percentage,
+                                    progressText=f"Checked {ProgressIndex}/{list1_length-1} files - {the_current_percentage}%",
+                                    success=True,
+                                    prev=prev,
+                                    To=ProgressBar,
+                                    FileIndex=ProgressIndex,
+                                    ifSuccess="FETCHED",
+                                    ifSuccessColor=The_success_color,
+                                    progressInfo=ProgressWindow,
+                                    error_files=zeta,
+                                    ifNotSuccess="COULD NOT FETCH",
+                                    ifNotSuccessColor=The_error_color,
+                                    window=window,
+                                    maxDots=maxDots,
+                                    update_bar=False,
+                                    error_suggested_message=f"Failed to create '{list1[i][b]}' wich is a {list2[i][list1[i][b]]['typeBeautified']}.\nTry running this program with admin rights.\nThe reason of this error was probably because the access was 'denied' \nor that you do not have enough space on your disk."
+                                )
+                                if type(b'0')==type(list2[i][list1[i][b]]["fileContent"]):
+                                    print("in try")
+                                    f=open(f"{peth}/{list2[i][list1[i][b]]['fileName']}","wb")
+                                    print(f"file {peth}/{list2[i][list1[i][b]]['fileName']} opened")
+                                    f.write(list2[i][list1[i][b]]["fileContent"])
+                                    # print(f"file {peth}/{list2[i][list1[i][b]]['fileName']} written to")
+                                    print("opened as wb")
+                                    list2[i][list1[i][b]]["opening_method"]="wb"
+                                    list2[i][list1[i][b]]["exists"]="No"
+                                elif type('0')==type(list2[i][list1[i][b]]["fileContent"]):
+                                    f=open(f"{peth}/{list2[i][list1[i][b]]['fileName']}","w")
+                                    print(f"file {peth}/{list2[i][list1[i][b]]['fileName']} opened")
+                                    f.write(list2[i][list1[i][b]]["fileContent"])
+                                    # print(f"file {peth}/{list2[i][list1[i][b]]['fileName']} written to")
+                                    print("opened as w")
+                                    list2[i][list1[i][b]]["opening_method"]="w"
+                                    list2[i][list1[i][b]]["exists"]="No"
+                                else:
+                                    ticketTitle=f"File {list2[i][list1[i][b]]['fileName']} Could not be created"
+                                    ticketBody=f"The file {list2[i][list1[i][b]]['fileName']} with the path {peth} could not be created in the user directory.\nThis problem can occur when:\n- The program is not allowed to write to the disk\n- the disk is full\n- the type is unsupported. (read on [please])\n\n (bellow is some user usefull info, and the ticket body)\n\nInfo for the user to do before opening a ticket:\n- Try running the program with administrator rights\n- Try manually downloading the required file\n- Download the executable (mac, windows or linux) to fix it\n\nIf the problem still persits open a ticket in the discord server with the content above and following body:\n____________Begin body_____________\nfile_type={type(list2[i][list1[i][b]]['fileContent'])},\nfile_length={len(list2[i][list1[i][b]]['fileContent'])},\npath={peth},\nfilename={list2[i][list1[i][b]]['fileName']}\n_____________End body______________\n"
+                                    continue_error_window=True
+                                    while continue_error_window==True:
+                                        continue_error_window=boot.TKinter.window.error_abortion(self,window,ticketTitle,ticketBody)
+                                        if self.abort_program==True:
+                                            return 'Program aborted'
+                                sleep(5)
+                                f.close()
+                                print(f"file {peth}/{list2[i][list1[i][b]]['fileName']} closed")
+                                wasSuccessFull=True
+                                message_type="created"
+                                LabelInfoContent=f"The {list2[i][list1[i][b]]['typeBeautified']} {list1[i][b]} was created."
+                                ifSuccess="CREATED"
+                                ifNotSuccess="FAILED TO CREATE"
+                                update_bar=False
+                                # print(list2[i][list1[i][b]])
+                            zeta=boot.TKinter.window.updateProgress(
+                                self,
+                                LabelInfo=LabelInfo,
+                                LabelInfoContent=LabelInfoContent,
+                                progress=progress,
+                                element=list1[i][b],
+                                percentage=the_current_percentage,
+                                progressText=f"Checked {ProgressIndex}/{list1_length-1} files - {the_current_percentage}%",
+                                success=wasSuccessFull,
+                                prev=prev,
+                                To=ProgressBar,
+                                FileIndex=ProgressIndex,
+                                ifSuccess=ifSuccess,
+                                ifSuccessColor=The_success_color,
+                                progressInfo=ProgressWindow,
+                                error_files=zeta,
+                                ifNotSuccess=ifNotSuccess,
+                                ifNotSuccessColor=The_error_color,
+                                window=window,
+                                maxDots=maxDots,
+                                update_bar=update_bar,
+                                error_suggested_message=error_suggested_message
+                            )
+                            if list2[i][list1[i][b]]['fileContent']==404:
+                                ticketTitle=f"File {list2[i][list1[i][b]]['fileName']} does not exist on server"
+                                ticketBody=f"Internet connaction innactive or file does not exist on the server \n'{home}{links[i][b]}'\n_______________________________\nTo the user:\n_______________________________\nPlease check that you are connected to the internet so that the program can fetch its required files.\nIf the problem persists and you are connected to the internet, please open a support ticket (if not already opened by another user).\nWith the following body (ticket tile is above):\n_______________________________\nSupport ticket body\n_______________________________\n\n_____________Begin body_____________\nThe file {list2[i][list1[i][b]]['fileName']} with the path {peth} does not exist in the server.\n_____________End body______________\n"
+                                continue_error_window=True
+                                while continue_error_window==True:
+                                    continue_error_window=boot.TKinter.window.error_abortion(self,window,ticketTitle,ticketBody)
+                                    if self.abort_program==True:
+                                        return 'Program aborted'
+                                # return list1[i][b],zeta
+                        else:
+                            print(f"file {list1[i][b]} already exists in {peth}.")
+                            list2[i][list1[i][b]]["opening_method"]=None
+                            list2[i][list1[i][b]]["exists"]="Yes"
+                            wasSuccessFull=True
+                            message_type="exists"
+                    elif list2[i][list1[i][b]]["type"].lower()=="dir" or list2[i][list1[i][b]]["type"].lower()=="<dir>":
+                        peth+=f"/{list2[i][list1[i][b]]['fileName']}"
+                        if os.path.exists(peth)==False:
+                            try:
+                                # print(teta)
+                                os.mkdir(peth)
+                                print(f"{peth}........[CREATED]")
+                                message_type="CREATED"
+                                from_folder=True
+                                wasSuccessFull=True
+                            except:
+                                message_type="Failed To Create"
+                                from_folder=True
+                                wasSuccessFull=False
+                                zeta=boot.TKinter.window.updateProgress(
+                                    self,
+                                    LabelInfo=LabelInfo,
+                                    LabelInfoContent=f"Error: {list2[i][list1[i][b]]['typeBeautified']} {list1[i][b]} does not exists",
+                                    progress=progress,
+                                    element=list1[i][b],
+                                    percentage=the_current_percentage+1,
+                                    progressText=f"Checked {ProgressIndex}/{list1_length-1} files - {the_current_percentage}%",
+                                    success=wasSuccessFull,
+                                    prev=prev,
+                                    To=ProgressBar,
+                                    FileIndex=ProgressIndex,
+                                    ifSuccess="CREATED",
+                                    ifSuccessColor=The_success_color,
+                                    progressInfo=ProgressWindow,
+                                    error_files=zeta,
+                                    ifNotSuccess="FAILED TO CREATE",
+                                    ifNotSuccessColor=The_error_color,
+                                    window=window,
+                                    maxDots=maxDots,
+                                    update_bar=True,
+                                    error_suggested_message=f"Failed to create '{list1[i][b]}' wich is a {list2[i][list1[i][b]]['typeBeautified']}.\nTry running this program with admin rights.\nThe reason of this error was probably because the access was 'denied' \nor that you do not have enough space on your disk."
+                                )
+                                ticketTitleText=f"What do you wish to do?"
+                                ticketBodyText=f"(The below options are not buttons\nplease scroll down to see the options)\n- Abort and run the program with admin rights\n-Create the folder yourself in {peth} then restart the program\n- Download the files at (*) and place them manually at the source of the program\n* {self.home}{self.file_location}\nIf the problem has not been solved, please open a support ticket in the server."
+                                continue_error_window=True
+                                while continue_error_window==True:
+                                    continue_error_window=boot.TKinter.window.error_abortion(self,TT=window,ticketTitleText=ticketTitleText,ticketBodyText=ticketBodyText)
+                                    if self.abort_program==True:
+                                        return 'Program aborted'
+                                # return zeta
+                        else:
+                            wasSuccessFull=True
+                            from_folder=False
+                            message_type="exists"
+                        
+                    else:
+                        a=f"{list2[i][list1[i][b]]} = [UNKNOWN TYPE]\npath={peth}"
+                        print(f"a={a}")
+                        wasSuccessFull=False
+                        zeta=boot.TKinter.window.updateProgress(
+                            self,
+                            LabelInfo=LabelInfo,
+                            LabelInfoContent=f"Error: {list2[i][list1[i][b]]['type']} {list1[i][b]} does not exists",
+                            progress=progress,
+                            element=list1[i][b],
+                            percentage=the_current_percentage+1,
+                            progressText=f"Checked {ProgressIndex}/{list1_length-1} files - {the_current_percentage}%",
+                            success=wasSuccessFull,
+                            prev=prev,
+                            To=ProgressBar,
+                            FileIndex=ProgressIndex,
+                            ifSuccess="EXISTS",
+                            ifSuccessColor=The_success_color,
+                            progressInfo=ProgressWindow,
+                            error_files=zeta,
+                            ifNotSuccess="DOES NOT EXIST",
+                            ifNotSuccessColor=The_error_color,
+                            window=window,
+                            maxDots=maxDots,
+                            update_bar=True,
+                            error_suggested_message=f"Unknown type.\nElement: {list1[i][b]} has {list2[i][list1[i][b]]['type']} as type.\nType can only be: dir or <dir> for a folder.\nfile or <file> for a file."
+                        )
+                        ticketTitle="Unknown type."
+                        ticketBody=f"_____________Begin body_____________\nElement: {list1[i][b]} has {list2[i][list1[i][b]]['type']} as type.\n_____________End body______________\n"
+                        continue_error_window=True
+                        while continue_error_window==True:
+                            continue_error_window=boot.TKinter.window.error_abortion(self,window,ticketTitle,ticketBody)
+                            if self.abort_program==True:
+                                return 'Program aborted'
+                        return a,zeta
+                    zeta=boot.TKinter.window.updateProgress(
+                        self,
+                        LabelInfo=LabelInfo,
+                        LabelInfoContent=f"The {list2[i][list1[i][b]]['typeBeautified']} {list1[i][b]} {message_type}",
+                        progress=progress,
+                        element=list1[i][b],
+                        percentage=the_current_percentage,
+                        progressText=f"Checked {ProgressIndex}/{list1_length-1} files - {the_current_percentage}%",
+                        success=wasSuccessFull,
+                        prev=prev,
+                        To=ProgressBar,
+                        FileIndex=ProgressIndex,
+                        ifSuccess="EXISTS",
+                        ifSuccessColor=The_success_color,
+                        progressInfo=ProgressWindow,
+                        error_files=zeta,
+                        ifNotSuccess="DOES NOT EXIST",
+                        ifNotSuccessColor=The_error_color,
+                        window=window,
+                        maxDots=maxDots,
+                        update_bar=True,
+                        error_suggested_message=error_suggested_message
+                    )
+                    if from_folder==True:sleep(0.5)#1)
+                    print(f"the_percentage_progression={the_percentage_progression},prev={prev},ProgressIndex={ProgressIndex}")
+                    the_percentage_progression+=1
+                    prev=the_current_percentage
+                    ProgressIndex+=1
+                    print(f"path={peth}")
+                    f=open("list_lengths.txt","a").write(f"|\t|\t|__[ROUND b END]'\n")
+                f=open("list_lengths.txt","a").write(f"|\t|__[ROUND i END]'\n")
+            f=open("list_lengths.txt","a").write(f"[END OF ROUNDS]'\n")
+            f=open("list_lengths.txt","a").write(f".\n")
+            # print(f"list2='{list2}'=list2")
+            for i in list2[0]:
+                self.list_dict.append(list2[0][i])
+            return zeta
+    class TKinter(root):
+        class window:
+            def error_abortion(self,TT,ticketTitleText,ticketBodyText):
+                def Abort_program():
+                    TT.destroy()
+                    TTT.destroy()
+                    self.abort_program=True
+                    return False
+                def continue_anyway():
+                    TTT.destroy()
+                    return False
+                window_size_y=self.window_size_y+30
+                window_size_x=self.window_size_x+170
+                TTT=Tk()
+                TTT.geometry(f"{window_size_x}x{window_size_y}")
+                TTT.minsize(window_size_x,window_size_y)
+                TTT.title("Open Report Log")
+                TTT['bg']=self.universalBackground
+                TitleLabel=Label(TTT,text="The program has stopped due to an error.\nA report_log has been created\nI recommend opening a support ticket in\n the discord server with the following title...\n",bg=self.universalBackground,anchor="center")
+                TitleLabel.pack(side=TOP,fill=X)
+                ticket=Frame(TTT,bg=self.universalBackground,borderwidth=1,relief=FLAT)
+                ticket.pack(side=TOP,fill=X)
+                ticketTitle=Text(ticket,stat="normal",fg="black",bg="white",wrap="none",cursor="xterm",height=1,width=100,relief=FLAT,insertbackground="black")
+                ticketTitle.pack(side=TOP)
+                ticketTitle.insert(0.0,f"{ticketTitleText}") #
+                bodyLabel=Label(ticket,text="... and the following body.",bg=self.universalBackground,anchor="center")
+                bodyLabel.pack(side=TOP,fill=X)
+                ticketBody=Text(ticket,stat="normal",fg="black",bg="white",wrap="word",cursor="xterm",height=4,width=100,relief=FLAT,insertbackground="black")
+                ticketBody.pack(side=TOP) #
+                ticketBody.insert(0.0,f"{ticketBodyText}")
+                FrameButton=Frame(TTT,bg=self.universalBackground,borderwidth=1,relief=FLAT)#"green"
+                FrameButton.pack(side=TOP,fill=X)
+                Abort=Button(FrameButton,text="Abort (recommended)",command=Abort_program,bg=self.universalBackground)
+                Abort.pack(side=LEFT)
+                ContinueAnyway=Button(FrameButton,text="Continue anyway\n(the program might lag or stop unexpectedly)",command=continue_anyway,bg=self.universalBackground)
+                ContinueAnyway.pack(side=RIGHT)
+                TTT.mainloop()
+            def updateProgress(self,LabelInfo,LabelInfoContent,progress,element,percentage,progressText,success,prev,To,FileIndex,ifSuccess,ifSuccessColor,progressInfo,error_files,ifNotSuccess,ifNotSuccessColor,window,maxDots=35,update_bar=True,error_suggested_message="Try running program with admin rights."):
+                def update_Status_bar(string,inc,windows,colorF):
+                    #print(string)
+                    windows.insert(float(inc),string,"taged")
+                    windows.tag_config(f"taged",foreground=f"{colorF}",background=f"{colorF}")
+                def update_Status_log(string,inc,windows,colorF):
+                    #print(string)
+                    colorB="black"
+                    windows.insert(float(inc),string,"taged")
+                    windows.tag_config(f"taged",foreground=f"{colorF}",background=f"{colorB}")
+                def cleanText(windows):
+                    windows.delete("1.0","end")
+                a=boot.get.dots(word=element,maxDots=maxDots)
+                # print(f"element={element}")
+                # print(f"current_width_progress={percentage}")
+                LabelInfo.config(text=f"{LabelInfoContent}")
+                progress.config(text=f"{progressText}")
+                inc=0.0
+                # print(f"prev={prev},percentage={percentage}")
+                if success==True:
+                    if prev<percentage and update_bar==True:
+                        update_Status_bar(string=f".",inc=inc,windows=To,colorF=ifSuccessColor)
+                    update_Status_log(string=f"\n{FileIndex} {element}{a}[{ifSuccess}]",inc=inc,windows=progressInfo,colorF=ifSuccessColor)
+                else:
+                    # print(f"element={element},error_files={error_files},ifNotSuccess={ifNotSuccess},FileIndex={FileIndex}")
+                    # FileIndex#element
+                    error_files[FileIndex]=f"[{ifNotSuccess}]"
+                    LabelInfo.config(text=f"Failed for {element}")
+                    if prev<percentage and update_bar==True:
+                        update_Status_bar(string=f".",inc=inc,windows=To,colorF=ifNotSuccessColor)
+                    update_Status_log(string=f"\n{i} {element}{a}[{ifNotSuccess}]",inc=inc,windows=progressInfo,colorF=ifNotSuccessColor)
+                    update_Status_log(string=error_suggested_message,inc=inc,windows=progressInfo,colorF=ifNotSuccessColor)
+                window.title(f"Checking and downloading - {percentage}%")
+                window.update()
+                return error_files
+            def update_Status(string,inc,windows):
+                print(string)
+                windows.insert(float(inc),string)
+            def FetchingFiles(self):
+                print("Checking files...")
+                TT=Tk()
+                window_size_x,window_size_y=820,300
+                window_geometry=f"{window_size_x}x{window_size_y}"
+                TT.geometry(window_geometry)
+                TT.minsize(window_size_x,window_size_y)
+                TT.title("Checking and downloading")
+                TT['bg']=self.universalBackground
+                TitleLabel=Label(TT,text="Checking if required files are present. (This may take a few minutes if it is the first time you start the program)",bg=self.universalBackground,anchor="w")
+                TitleLabel.pack(side=TOP,fill=X)
+                CurrentFile=Label(TT,text="Checking if file   exists",bg=self.universalBackground,anchor="w")
+                CurrentFile.pack(side=TOP,fill=X)
+                Progress=Label(TT,text="",bg=self.universalBackground,anchor="w")
+                Progress.pack(side=TOP,fill=X)
+                ProgressBar=Text(TT,state="normal",
+                                    insertbackground="lightGreen",#"white",
+                                    fg="lightGreen",#"black",#"white",
+                                    exportselection=0,
+                                    width=100,height=1,
+                                    padx=5,pady=5,relief=FLAT,
+                                    bg="white",#"blue",
+                                    cursor="watch",wrap="none",tabs="1c"#,
+            
+            #padx=0,pady=0,
+                                    )#,font=(self.FontBoard,self.SizeBoard,self.weightB))
+                ProgressBar.pack()
+                ProgressWindow=Text(TT,state="normal",
+                                    insertbackground="lightGreen",#"white",
+                                    fg="lightGreen",#"black",#"white",
+                                    bg="black",
+                                    exportselection=0,
+                                    width=100,height=10,
+                                    padx=5,pady=5,relief=FLAT,
+                                    cursor="watch",wrap="none",tabs="1c"#,
+            
+            #padx=0,pady=0,
+                                    )#,font=(self.FontBoard,self.SizeBoard,self.weightB))
+                ProgressWindow.pack()
+                boot.get.content(self,list1=self.main,list2=self.main_dict,links=self.links,home=f"{self.home}{self.file_location}",LabelInfo=CurrentFile,progress=Progress,ProgressBar=ProgressBar,window=TT,ProgressWindow=ProgressWindow)
+                FrameButton=Frame(TT,bg=self.universalBackground,borderwidth=1,relief=FLAT)#"green"
+                FrameButton.pack(side=TOP,fill=X)
+                DownloadButton=Button(FrameButton,text="Great!",command=TT.destroy,bg=self.universalBackground)
+                DownloadButton.pack(side=TOP,fill=X)
+                MessageLabel=Label(TT,text=self.watermark,bg=self.universalBackground,anchor="center")
+                MessageLabel.pack(side=RIGHT,fill=X)
+                TT.mainloop()
+
+    def initialise_links(e):
+        links=[]
+        for i in range(len(e)):
+            links.append(boot.get.make_links(e[i]))
+
+        return links
 class Niveau:
     def __init__(self, fichier):
         self.fichier=fichier
@@ -41,6 +605,7 @@ class Niveau:
         for i in range(len(FunkyWalls)):FunkyWalsDone[i]=pygame.image.load(FunkyWalls[i]).convert_alpha()
         #depart
         depart = pygame.image.load(image_depart).convert()
+        depart_positionnement=pygame.image.load(image_depart_du_loup).convert()
         # arrivee
         arrivee = pygame.image.load(image_arrivee).convert_alpha()
         arrivee_fam=pygame.image.load(image_arrivee_fam).convert_alpha()
@@ -53,9 +618,9 @@ class Niveau:
         #credits_fond=pygame.image.load(image_credits_fond).convert()
         credits_gagne=pygame.image.load(image_credits_gagne).convert()
         credits_w_Irina=pygame.image.load(image_credits_w_Irina).convert()
-        credits_w_Henry=pygame.image.load(image_credits_w_Henry).convert()
-        credits_l_Irina=pygame.image.load(image_credits_l_Irina).convert()
-        credits_l_Henry=pygame.image.load(image_credits_l_Henry).convert()
+        #credits_w_Henry=pygame.image.load(image_credits_w_Henry).convert()
+        #credits_l_Irina=pygame.image.load(image_credits_l_Irina).convert()
+        #credits_l_Henry=pygame.image.load(image_credits_l_Henry).convert()
         #mean
         for i in range(len(mean)):meandone[i]=pygame.image.load(mean[i]).convert_alpha()
         #number
@@ -104,6 +669,11 @@ class Niveau:
                             break
                 elif sprite == '#':		   #d = Départ
                     fenetre.blit(depart, (x,y))
+                elif sprite=="ts":
+                    fenetre.blit(depart_positionnement,(x,y))
+                    dk.x=x
+                    dk.y=y
+                    print(f"dk.x={dk.x},x={x},dk.y={dk.y},y={y}")
                 elif sprite == '10':		   #a = Arrivée 3ϵα♦²
                     fenetre.blit(arrivee, (x,y))
                 elif sprite == '_':		   #a = Arrivée_enfant 4дβ
@@ -303,7 +873,7 @@ class movingEnemies:
     def ToCome():
         print("annimated mooving enemies")
 
-class tkinterWindows:
+class tkinterWindows(root):
     def choselevels():
         def LEVEL():
             Levelnumber = int(level.get())
@@ -467,6 +1037,87 @@ class tkinterWindows:
         Quit.pack()
         
         root.mainloop()
+    def initialiseS(self):
+        def removeExtention(element,extension):
+                if extension in element:
+                        f=element.split(extension)
+                        return f[0]
+                else:
+                        return element
+        for i in range(len(self.visible)):
+                self.visible[i]=removeExtention(self.visible[i],self.extension)
+                self.All_the_levels.append(self.visible[i])
+                e=i
+                self.All_the_levels_index[self.visible[i]]=e+1
+        self.All_the_levels.append("_____Hidden Levels______")
+        for i in range(len(self.hidden)):
+                if self.hidden[i] not in ['002_l2', '003_l3', '004_l4', '005_l5']:
+                        self.hidden[i]=removeExtention(self.hidden[i],self.extension)
+                        self.All_the_levels.append(self.hidden[i])
+                        self.All_the_levels_index[self.hidden[i]]=self.keys_for_hidden[self.hidden[i]]
+        print(f"All_the_levels_index={self.All_the_levels_index}")
+    def S(self):
+        print(f"self.All_the_levels={self.All_the_levels}\nself.All_the_levels_index={self.All_the_levels_index}\nself.visible={self.visible}\nself.hidden={self.hidden}\nself.path={self.path}\nself.finalImageForCanvasS={self.finalImageForCanvasS}\nself.keys_for_hidden={self.keys_for_hidden}")
+        def test(*args):
+            index = listbox.curselection()
+            # if len(index)==0:
+            #     index=1
+            # else:
+            #         index=index[0]
+            index=index[0]
+            print(f"name={self.All_the_levels[index]}, access={self.All_the_levels_index[self.All_the_levels[index]]}")
+            DescriptionLabel.config(text=f"name='{self.All_the_levels[index]}', access='{self.All_the_levels_index[self.All_the_levels[index]]}'")
+            if self.All_the_levels[index] in ["_____Visible Levels_____","_____Hidden Levels______"]:
+                self.finalImageForCanvasS="img/background/fonds.png"
+            else:
+                self.finalImageForCanvasS=f"{self.path}{self.All_the_levels[index]}.png"
+            self.photoS=PhotoImage(file=self.finalImageForCanvasS)
+            ViewingBox.config(image=self.photoS)
+            ViewingBox.image=self.photoS
+            print(f"index={index}")#,type(index)={type(index)}")
+            TT.update()
+            DescriptionLabel.update()
+            listbox.update()
+        size_x=515
+        size_y=350
+        TT = Tk()
+        TT.geometry(f"{size_x}x{size_y}")
+        TT.minsize(size_x,size_y)
+        TT["bg"]=self.universalBackground
+        TT.title("The Levels")
+        FrameTOP=Frame(TT,bg=self.universalBackground, relief=FLAT)
+        FrameTOP.pack(side=TOP,fill=X)
+        FrameLeft=Frame(FrameTOP,bg=self.universalBackground, relief=FLAT)
+        FrameLeft.pack(side=LEFT,fill=Y)
+        FrameRight=Frame(FrameTOP,bg=self.universalBackground, relief=FLAT)
+        FrameRight.pack(side=RIGHT,padx=6)
+        listbox = Listbox(FrameLeft)
+        listbox.pack(side = LEFT, fill = BOTH)
+        scrollbar = Scrollbar(FrameLeft)
+        scrollbar.pack(side = RIGHT, fill = BOTH)
+
+        for i in range(len(self.All_the_levels)):
+            listbox.insert(END, self.All_the_levels[i])
+        listbox.bind('<Double-Button>', test)
+        listbox.config(yscrollcommand = scrollbar.set)
+        scrollbar.config(command = listbox.yview)
+        DescriptionLabel=Label(FrameRight,fg="black",bg=self.universalBackground,borderwidth=0,relief=GROOVE,text="...",anchor="center")
+        DescriptionLabel.pack(side=TOP, fill=X)
+        self.photoS = PhotoImage(file=self.finalImageForCanvasS)
+        ViewingBox=Label(FrameRight,image=self.photoS)
+        ViewingBox.pack(side=TOP,fill=X)
+        #TT.update()
+        #DescriptionLabel.update()
+        #listbox.update()
+        FrameBottom=Frame(TT,bg=self.universalBackground,relief=FLAT)
+        FrameBottom.pack(side=TOP,fill=X)
+        CloseButton=Button(FrameBottom,text="Close",bg=self.universalBackground,fg="black",command=TT.destroy)
+        CloseButton.pack(side=LEFT)
+        WatermarkLabel=Label(FrameBottom,bg=self.universalBackground,text=self.watermark,fg="black")
+        WatermarkLabel.pack(side=RIGHT,fill=X)
+        TT.bind("<Return>", test)
+        TT.mainloop()
+
 
 
 class gameAnimations:

@@ -1,10 +1,18 @@
 from string import ascii_letters
 # from string import digits
 # from string import punctuation
-
+import requests
 from pygame.constants import *
 
-"""Constantes du jeu de Labyrinthe Donkey Kong"""
+""" Booting up, initialising vars to ensure the required files exist before we start the game."""
+contentOflist=requests.get("https://hanralatalliardwork.github.io/wolf_escape_home/files/requirements/list.py")
+if contentOflist.status_code==200:
+    open("liste.py","wb").write(contentOflist.content)
+import liste as theLists
+main_for_rec=theLists.main_for_rec
+main_for_rec_dict=theLists.main_for_rec_dict
+
+"""Constantes du jeu de Labyrinthe Wolf escape"""
 
 #ingame booleen variables
 CREDIT=False
@@ -28,7 +36,7 @@ image_main2="img/launch_load/menu_anim/accueil_static_2.png"
 
 #annimation du jeux
 ##Annimation du menu démarer
-mainMenuPlayed=False#True#False#True #False #True #False #True #False#True
+mainMenuPlayed=True#False#True#False#True #False #True #False #True #False#True
 frameMainMenuWait=0.5
 image_accueil1="img/launch_load/start_load/stages_stage_1.png"
 image_accueil2="img/launch_load/start_load/stages_stage_2.png"
@@ -64,17 +72,12 @@ for i in range(len(mean)):mean_count[i]="{}".format(i+128)
 
 
 #fond
-image_fond = "img/background/fond.jpg"
-image_fond="img/background/fond.png"
 image_fond="img/background/fonds.png"
 image_fond_credits="img/Credits/end - Copie.PNG"
 
 #départ
-image_depart = "img/ingame/start.png"
 image_depart="img/ingame/start.png"
-# image_arrivee = "img/end/end.png"
-image_arrivee = "img/end/endd.png"
-image_arrivee = "img/end/endb.png"
+image_depart_du_loup="img/ingame/teller_start.png"
 image_arrivee="img/end/endv.png"
 image_arrivee_fam="img/sprite/famille/w_fam.png"
 # mur
@@ -129,13 +132,9 @@ for i in range(len(FunkyWalls)):
 
 
 #Création du perso
-ld="img/sprite/dk/dk_droite.png"
 ld="img/sprite/w/w_rigth.png"
-lg="img/sprite/dk/dk_gauche.png"
 lg="img/sprite/w/w_left.png"
-lh="img/sprite/dk/dk_haut.png"
 lh="img/sprite/w/w_up.png"
-lb="img/sprite/dk/dk_bas.png"
 lb="img/sprite/w/w_down.png"
 
 
@@ -146,12 +145,6 @@ image_credits_fond="img/Credits/end.png"
 image_credits_gagne="img/sprite/famille/famille_loup_You_have_won.png"
 #Crédits_image_w_Irina
 image_credits_w_Irina="img/sprite/famille/Mere et petits.png"
-#Crédits_image_w_Henry
-image_credits_w_Henry="img/sprite/famille/w_fam.png"
-#Crédits_image_l_Irina
-image_credits_l_Irina="img/sprite/famille/Irina30x30.png"
-#Crédits_image_l_Henry
-image_credits_l_Henry="img/sprite/famille/Henry30x30.png"
 
 #numéros
 image_zero="img/tut_image/numbers/0.png"
@@ -184,7 +177,7 @@ for i in range(len(currency)):currency_count[i]="1{}".format(i+1)
 # ponctuation
 img_square_bracket_open="img/tut_image/alphabet/punctuation/[.PNG"
 img_square_bracket_closed="img/tut_image/alphabet/punctuation/].PNG"
-img_micro="img/tut_image/alphabet/punctuation/µ.PNG"
+# img_micro="img/tut_image/alphabet/punctuation/µ.PNG"
 img_and="img/tut_image/alphabet/punctuation/and.PNG"
 img_at="img/tut_image/alphabet/punctuation/at.PNG"
 img_border="img/tut_image/alphabet/punctuation/border.png"
@@ -199,9 +192,15 @@ img_open_quote="img/tut_image/alphabet/punctuation/paragraph_ouvert.PNG"
 img_close_quote="img/tut_image/alphabet/punctuation/paragraph_fermé.PNG"
 img_question_mark="img/tut_image/alphabet/punctuation/questionmark.PNG"
 semicolon="img/tut_image/alphabet/accents/;.PNG"
-ponctuation=[img_square_bracket_open,img_square_bracket_closed,img_micro,img_and,img_at,img_border,img_cureved_bracket_closed,img_cureved_bracket_open,colum,img_full_stop,img_end_cell,img_exclamation_mark,img_percentage,img_open_quote,img_close_quote,img_question_mark,semicolon]
+ponctuation=[
+    img_square_bracket_open,img_square_bracket_closed,
+    # img_micro,
+    img_and,img_at,img_border,img_cureved_bracket_closed,img_cureved_bracket_open,colum,img_full_stop,img_end_cell,img_exclamation_mark,img_percentage,img_open_quote,img_close_quote,img_question_mark,semicolon]
 ponctuationDone=[""]*len(ponctuation)
-ponctuation_count=["[","]","Âµ","&","@","20",")","(",":",".","Â¤","!","Â§","21","22","?",";"]
+ponctuation_count=[
+    "[","]",
+    # "Âµ",
+    "&","@","20",")","(",":",".","Â¤","!","Â§","21","22","?",";"]
 
 
 #création des flèches de direction pour le tuto
