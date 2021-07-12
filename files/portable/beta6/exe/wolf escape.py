@@ -21,7 +21,7 @@ links=boot.initialise_links(main_for_rec_dict)
 RI=root(main=main_for_rec,main_dict=main_for_rec_dict,links=links) #initialising root
 for i in RI.links:
     print(i)
-boot.TKinter.window.FetchingFiles(RI)
+# boot.TKinter.window.FetchingFiles(RI)
 
 
 def choselevels():
@@ -36,7 +36,7 @@ def choselevels():
     Level = Tk()
     Frame1 = Frame(Level, borderwidth=2, relief=FLAT)
     Frame1.pack(side=LEFT, padx=10, pady=10)
-    label = Label(Frame1, text="Choose you're level:")
+    label = Label(Frame1, text="Choose your level:")
     label.pack()
     level=Spinbox(Frame1, from_=1, to=maxlevel, increment=1)
     level.pack(side=LEFT, padx=5)
@@ -98,9 +98,10 @@ while continuer:
                     MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
                     print("exited the boucledejeu")
                     print(choix)
-                #elif event.key == K_s:
-		#	continuer_accueil = 0
-		#	choix = ''
+                elif event.key == K_s:
+                    continuer_accueil = 0
+                    tkinterWindows.initialiseS(RI)
+                    tkinterWindows.S(RI)
                 elif event.key == K_c:
                     continuer_accueil = 0
                     tkinterWindows.main_credits()
@@ -125,11 +126,17 @@ while continuer:
                     maxlevel=len(levelfiles)
                     choix="I"
                     MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
-                if event.key == K_m:
+                elif event.key == K_m:
                     print("K_m")
                     continuer_accueil, hidden,levelfiles,Choix,CREDIT,fond=0,1,os.listdir("levels"),1,False,pygame.image.load(image_fond).convert()
                     maxlevel=len(levelfiles)
                     choix="M"
+                    MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
+                elif event.key == K_p:
+                    print("K_p")
+                    continuer_accueil, hidden,levelfiles,Choix,CREDIT,fond=0,1,os.listdir("levels"),1,False,pygame.image.load(image_fond).convert()
+                    maxlevel=len(levelfiles)
+                    choix="P"
                     MainLoopGame.Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix)
                 elif event.key == K_F3:
                     continuer_accueil, hidden,levelfiles,Choix,CREDIT,fond=0,1,os.listdir("levels"),1,True,pygame.image.load(image_fond).convert()

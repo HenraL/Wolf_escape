@@ -5,51 +5,12 @@ import requests
 from pygame.constants import *
 
 """ Booting up, initialising vars to ensure the required files exist before we start the game."""
-r=open(requests.get("https://hanralatalliardwork.github.io/wolf_escape_home/files/requirements/List.txt").content,"r").read()
-class unTreat:
-    def __init__(self):
-        self.BigList="\\n\\n"
-        self.childList="\\n"
-        self.subChildren="\n"
-    def Layers(self,element):
-        """decompose the string into the first layer of lists"""
-        temp=element.split(self.BigList)
-        temp2=[]
-        for i in range(len(temp)):
-            print(temp[i])
-            temp2.append(temp[i].split(self.childList))
-        print(temp2)
-        listMain=[]
-        for i in range(len(temp2)):
-            for b in range(len(temp2[i])):
-                temp3=temp2[i][b].split(self.subChildren)
-                listMain.append(temp3)
-        print("\n\n\\n\\n\\n\n\n")
-        print(listMain)
-        toPop=[]
-        for i in range(len(listMain)):
-            #toPop.append(i)
-            temp1=[]
-            for b in range(len(listMain[i])):
-                #temp1.append(b)
-                temp2=[]
-                #print("in b")
-                if listMain[i][b]=="":
-                    temp2.append(b)
-                temp1.append(temp2)
-            toPop.append(temp1)
-        print(toPop)
-        #for i in range(len(toPop)):
-        #    print(f"toPop[{i}]={toPop[i]}")
-        #    for b in range(len(toPop[i])):
-        #        print(f"toPop[{i}][{b}]={toPop[i][b]}")
-        #        for c in range(len(toPop[i][b])):
-        #            print(f"toPop[{i}][{b}][{c}]={toPop[i][b][c]}")
-        #            print(f"[{i}][{b}][{c}]={listMain.pop(toPop[i][b][c])}")
-                #print(f"toPop[{i}][{b}]={toPop[i][b]}")
-        return listMain#,toPop
-UI=unTreat()
-m=UI.Layers(r)
+contentOflist=requests.get("https://hanralatalliardwork.github.io/wolf_escape_home/files/requirements/list.py")
+if contentOflist.status_code==200:
+    open("liste.py","wb").write(contentOflist.content)
+import liste as theLists
+main_for_rec=theLists.main_for_rec
+main_for_rec_dict=theLists.main_for_rec_dict
 
 """Constantes du jeu de Labyrinthe Wolf escape"""
 
@@ -216,7 +177,7 @@ for i in range(len(currency)):currency_count[i]="1{}".format(i+1)
 # ponctuation
 img_square_bracket_open="img/tut_image/alphabet/punctuation/[.PNG"
 img_square_bracket_closed="img/tut_image/alphabet/punctuation/].PNG"
-img_micro="img/tut_image/alphabet/punctuation/µ.PNG"
+# img_micro="img/tut_image/alphabet/punctuation/µ.PNG"
 img_and="img/tut_image/alphabet/punctuation/and.PNG"
 img_at="img/tut_image/alphabet/punctuation/at.PNG"
 img_border="img/tut_image/alphabet/punctuation/border.png"
@@ -231,9 +192,15 @@ img_open_quote="img/tut_image/alphabet/punctuation/paragraph_ouvert.PNG"
 img_close_quote="img/tut_image/alphabet/punctuation/paragraph_fermé.PNG"
 img_question_mark="img/tut_image/alphabet/punctuation/questionmark.PNG"
 semicolon="img/tut_image/alphabet/accents/;.PNG"
-ponctuation=[img_square_bracket_open,img_square_bracket_closed,img_micro,img_and,img_at,img_border,img_cureved_bracket_closed,img_cureved_bracket_open,colum,img_full_stop,img_end_cell,img_exclamation_mark,img_percentage,img_open_quote,img_close_quote,img_question_mark,semicolon]
+ponctuation=[
+    img_square_bracket_open,img_square_bracket_closed,
+    # img_micro,
+    img_and,img_at,img_border,img_cureved_bracket_closed,img_cureved_bracket_open,colum,img_full_stop,img_end_cell,img_exclamation_mark,img_percentage,img_open_quote,img_close_quote,img_question_mark,semicolon]
 ponctuationDone=[""]*len(ponctuation)
-ponctuation_count=["[","]","Âµ","&","@","20",")","(",":",".","Â¤","!","Â§","21","22","?",";"]
+ponctuation_count=[
+    "[","]",
+    # "Âµ",
+    "&","@","20",")","(",":",".","Â¤","!","Â§","21","22","?",";"]
 
 
 #création des flèches de direction pour le tuto

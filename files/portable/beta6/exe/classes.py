@@ -45,6 +45,16 @@ class root:
         self.window_geometry_cell=f"{self.window_cell_size_x}x{self.window_cell_size_y}"
         self.cursor="X_cursor"
         self.watermark=f"{chr(169)} Created by Henry Letellier"
+        #------------------------------ S ------------------------------
+        self.extension=".we"
+        self.All_the_levels=["_____Visible Levels_____"]
+        self.All_the_levels_index={"_____Visible Levels_____":"None","_____Hidden Levels______":"None"}
+        self.visible=os.listdir("levels")
+        self.hidden=os.listdir("elementary_levels")
+        self.keys_for_hidden={'002_l2':"", '003_l3':"", '004_l4':"", '005_l5':"", 'credits':"F3", 'h':"h", 'I':"i", 'M':"m", 'm1':"F1", 'm2':"F2", 'P':"p"}
+        self.path="img/the_levels/"
+        self.finalImageForCanvasS=f"{self.path}003_l3.png"#fonds.png"
+        self.photoS=""
 class boot(root):
     class get:
         def dots(word="",maxDots=10):
@@ -863,7 +873,7 @@ class movingEnemies:
     def ToCome():
         print("annimated mooving enemies")
 
-class tkinterWindows:
+class tkinterWindows(root):
     def choselevels():
         def LEVEL():
             Levelnumber = int(level.get())
@@ -1027,6 +1037,78 @@ class tkinterWindows:
         Quit.pack()
         
         root.mainloop()
+    def initialiseS(self):
+        def removeExtention(element,extension):
+                if extension in element:
+                        f=element.split(extension)
+                        return f[0]
+                else:
+                        return element
+        for i in range(len(self.visible)):
+                self.visible[i]=removeExtention(self.visible[i],self.extension)
+                self.All_the_levels.append(self.visible[i])
+                e=i
+                self.All_the_levels_index[self.visible[i]]=e+1
+        self.All_the_levels.append("_____Hidden Levels______")
+        for i in range(len(self.hidden)):
+                if self.hidden[i] not in ['002_l2', '003_l3', '004_l4', '005_l5']:
+                        self.hidden[i]=removeExtention(self.hidden[i],self.extension)
+                        self.All_the_levels.append(self.hidden[i])
+                        self.All_the_levels_index[self.hidden[i]]=self.keys_for_hidden[self.hidden[i]]
+        print(f"All_the_levels_index={self.All_the_levels_index}")
+    def S(self):
+        print(f"self.All_the_levels={self.All_the_levels}\nself.All_the_levels_index={self.All_the_levels_index}\nself.visible={self.visible}\nself.hidden={self.hidden}\nself.path={self.path}\nself.finalImageForCanvasS={self.finalImageForCanvasS}\nself.keys_for_hidden={self.keys_for_hidden}")
+        def test(*args):
+            index = listbox.curselection()
+            # if len(index)==0:
+            #     index=1
+            # else:
+            #         index=index[0]
+            index=index[0]
+            print(f"name={self.All_the_levels[index]}, access={self.All_the_levels_index[self.All_the_levels[index]]}")
+            DescriptionLabel.config(text=f"name='{self.All_the_levels[index]}', access='{self.All_the_levels_index[self.All_the_levels[index]]}'")
+            if self.All_the_levels[index] in ["_____Visible Levels_____","_____Hidden Levels______"]:
+                self.finalImageForCanvasS="img/background/fonds.png"
+            else:
+                self.finalImageForCanvasS=f"{self.path}{self.All_the_levels[index]}.png"
+            self.photoS=PhotoImage(file=self.finalImageForCanvasS)
+            ViewingBox.config(image=self.photoS)
+            ViewingBox.image=self.photoS
+            print(f"index={index}")#,type(index)={type(index)}")
+            TT.update()
+            DescriptionLabel.update()
+            listbox.update()
+
+        TT = Tk()
+        TT.geometry("515x330")
+        TT.minsize(515,330)
+        TT["bg"]=self.universalBackground
+        TT.title("The Levels")
+        FrameLeft=Frame(TT,bg=self.universalBackground, relief=FLAT)
+        FrameLeft.pack(side=LEFT,fill=Y)
+        FrameRight=Frame(TT,bg=self.universalBackground, relief=FLAT)
+        FrameRight.pack(side=RIGHT,padx=6)
+        listbox = Listbox(FrameLeft)
+        listbox.pack(side = LEFT, fill = BOTH)
+        scrollbar = Scrollbar(FrameLeft)
+        scrollbar.pack(side = RIGHT, fill = BOTH)
+
+        for i in range(len(self.All_the_levels)):
+            listbox.insert(END, self.All_the_levels[i])
+        listbox.bind('<Double-Button>', test)
+        listbox.config(yscrollcommand = scrollbar.set)
+        scrollbar.config(command = listbox.yview)
+        DescriptionLabel=Label(FrameRight,fg="black",bg=self.universalBackground,borderwidth=0,relief=GROOVE,text="...",anchor="center")
+        DescriptionLabel.pack(side=TOP, fill=X)
+        self.photoS = PhotoImage(file=self.finalImageForCanvasS)
+        ViewingBox=Label(FrameRight,image=self.photoS)
+        ViewingBox.pack(side=TOP,fill=X)
+        #TT.update()
+        #DescriptionLabel.update()
+        #listbox.update()
+        TT.bind("<Return>", test)
+        TT.mainloop()
+
 
 
 class gameAnimations:
