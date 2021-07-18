@@ -63,6 +63,8 @@ class root:
         self.path="img/the_levels/"
         self.finalImageForCanvasS=f"{self.path}fonds.png"
         self.photoS=""
+        
+
 class boot(root):
     class get:
         def dots(word="",maxDots=10):
@@ -581,10 +583,15 @@ class boot(root):
             links.append(boot.get.make_links(e[i]))
 
         return links
-class Niveau:
+class Niveau:#(root):
     def __init__(self, fichier):
         self.fichier=fichier
         self.structure=0
+        # selfs below are from me
+        #---------------------------------------------- In game ----------------------------------------------
+        self.ts_x=0
+        self.ts_y=0
+        self.ts_initialized=False
     def generer(self):
         f=open(self.fichier, "r")
         file=f.read()
@@ -713,9 +720,13 @@ class Niveau:
                     fenetre.blit(depart, (x,y))
                 elif sprite=="ts":
                     fenetre.blit(depart_positionnement,(x,y))
-                    dk.x=x
-                    dk.y=y
-                    print(f"dk.x={dk.x},x={x},dk.y={dk.y},y={y}")
+                    if self.ts_initialized==False:
+                        wolf.x=x
+                        wolf.y=y
+                        self.ts_x=x
+                        self.ts_y=y
+                        print(f"wolf.x={wolf.x},x={x},wolf.y={wolf.y},y={y}")
+                        self.ts_initialized=True
                 elif sprite == '10':		   #a = Arrivée 3ϵα♦²
                     fenetre.blit(arrivee, (x,y))
                 elif sprite == '_':		   #a = Arrivée_enfant 4дβ
@@ -1190,7 +1201,7 @@ class gameAnimations:
         # return acceuil
 
 class MainLoopGame:
-    def boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel,hidden,exitSpaceGame): #
+    def boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, wolf,gardien,maxlevel,hidden,exitSpaceGame): #
         if exitSpaceGame!=True:
             print("Je suis dans la boucle boucledejeu")
             #BOUCLE DE JEU
@@ -1226,16 +1237,16 @@ class MainLoopGame:
                         #Touches de déplacement de Wolf
                         elif event.key == K_RIGHT or event.key==K_d:
                             print("Je suis dans event.key==K_RIGHT")
-                            dk.deplacer('droite')
+                            wolf.deplacer('droite')
                         elif event.key == K_LEFT or event.key==K_a or event.key == K_q:
                             print("Je suis dans event.key==K_LEFT")
-                            dk.deplacer('gauche')
+                            wolf.deplacer('gauche')
                         elif event.key == K_UP or event.key == K_z or event.key==K_w:
                             print("Je suis dans event.key==K_UP")
-                            dk.deplacer('haut')
+                            wolf.deplacer('haut')
                         elif event.key == K_DOWN or event.key==K_s:
                             print("Je suis dans event.key==K_DOWN")
-                            dk.deplacer('bas')
+                            wolf.deplacer('bas')
                     #if level (1 or 2 or ...)
                     #if enemy(x,y)==(x,y):
                 #enemy up/down
@@ -1258,12 +1269,12 @@ class MainLoopGame:
                 # print("Je tente un niveau.afficher(fenetre)")
                 niveau.afficher(fenetre)
                 # print("J'ai fait niveau.afficher(fenetre)")
-                fenetre.blit(dk.direction, (dk.x, dk.y)) #dk.direction = l'image dans la bonne direction
-                # print("J'ai fait fenetre.blit(dk.direction, (dk.x, dk.y))")
+                fenetre.blit(wolf.direction, (wolf.x, wolf.y)) #wolf.direction = l'image dans la bonne direction
+                # print("J'ai fait fenetre.blit(wolf.direction, (wolf.x, wolf.y))")
                 pygame.display.flip()
                 # print("J'ai fait pygame.display.flip()")
                 #Victoire -> Retour à l'accueil
-                if niveau.structure[dk.case_y][dk.case_x] == '10' or niveau.structure[dk.case_y][dk.case_x] == '_':continuer_jeu = 0 #or niveau.structure[dk.case_y][dk.case_x] == '0':
+                if niveau.structure[wolf.case_y][wolf.case_x] == '10' or niveau.structure[wolf.case_y][wolf.case_x] == '_':continuer_jeu = 0 #or niveau.structure[wolf.case_y][wolf.case_x] == '0':
                 #return continuer_jeu, continuer
     def check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden): #niveau,
         if choix != 0 and Choix!=0:
@@ -1294,13 +1305,13 @@ class MainLoopGame:
             niveau.afficher(fenetre)
             print("La boucle affiche fenêtre a fonctionnée")
             #Création du loup
-            global dk
-            dk = Perso("img/sprite/w/w_rigth.png", "img/sprite/w/w_left.png", "img/sprite/w/w_up.png", "img/sprite/w/w_down.png", niveau)
+            global wolf
+            wolf = Perso("img/sprite/w/w_rigth.png", "img/sprite/w/w_left.png", "img/sprite/w/w_up.png", "img/sprite/w/w_down.png", niveau)
             #Creating the ennemi (The gardian)
             global gardien
             gardien=Perso("img/sprite/gardien/Gardien_Droite.png", "img/sprite/gardien/Gardien_Gauche.png", "img/sprite/gardien/Gardien_haut.png", "img/sprite/gardien/Gardien_bas.png", niveau)
-            # MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau,dk,gardien)
-        return dk, gardien, fond, choix, niveau, fenetre
+            # MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau,wolf,gardien)
+        return wolf, gardien, fond, choix, niveau, fenetre
     def play(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,exitSpaceGame):
         # global exitSpaceGame
         exitSpaceGame=False#True
@@ -1347,7 +1358,7 @@ class MainLoopGame:
                     print (choix)
                     #choix = 'l{}'.format(i+1)
                     MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden)#niveau
-                    MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel,hidden,exitSpaceGame)
+                    MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, wolf,gardien,maxlevel,hidden,exitSpaceGame)
                     #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
                     LEVEL+=1
             else:
@@ -1358,7 +1369,7 @@ class MainLoopGame:
             hidden=1
             choix="credits"
             MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden)
-            MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel,hidden,exitSpaceGame)
+            MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, wolf,gardien,maxlevel,hidden,exitSpaceGame)
         else:exitSpaceGame=True
         return Choix, continuer_accueil, exitSpaceGame
     def Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix):
@@ -1400,7 +1411,7 @@ class MainLoopGame:
             print ("Specificlevels.choix = ",choix)
             #choix = 'l{}'.format(i+1)
             MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden)#niveau
-            MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, dk,gardien,maxlevel,hidden,exitSpaceGame)
+            MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, wolf,gardien,maxlevel,hidden,exitSpaceGame)
             #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
             #LEVEL+=1
         return Choix, continuer_accueil

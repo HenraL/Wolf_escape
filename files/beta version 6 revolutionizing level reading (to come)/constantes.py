@@ -5,9 +5,12 @@ import requests
 from pygame.constants import *
 
 """ Booting up, initialising vars to ensure the required files exist before we start the game."""
-contentOflist=requests.get("https://hanralatalliardwork.github.io/wolf_escape_home/files/requirements/list.py")
-if contentOflist.status_code==200:
-    open("liste.py","wb").write(contentOflist.content)
+try:
+    contentOflist=requests.get("https://hanralatalliardwork.github.io/wolf_escape_home/files/requirements/list.py")
+    if contentOflist.status_code==200:
+        open("liste.py","wb").write(contentOflist.content)
+except:
+    pass
 import liste as theLists
 main_for_rec=theLists.main_for_rec
 main_for_rec_dict=theLists.main_for_rec_dict
