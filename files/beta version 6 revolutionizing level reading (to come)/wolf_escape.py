@@ -60,8 +60,18 @@ pygame.key.set_repeat(400, 30)
 
 
 #BOUCLE PRINCIPALE
-continuer = 1
-while continuer:
+try:
+    f=open("Start_debug.txt","r")
+    e=f.readline(1)
+    print(f"e={e}")
+    f.close()
+    if str(e)=="1":
+        continuer=0
+    else:
+        continuer=1
+except:
+    continuer = 1
+while continuer==1:
     
     #Rafraichissement
     pygame.display.flip()

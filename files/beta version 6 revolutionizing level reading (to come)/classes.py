@@ -1331,7 +1331,9 @@ class MainLoopGame:
             #global continuer_jeu
             if exitSpaceGame==False:
                 continuer_jeu = 1
-            else:continuer_jeu=0
+            else:
+                continuer_jeu=0
+                # LEVEL=len(levelfiles)
             #global choix
             if exitSpaceGame==False:
                 if Choix!=0:
@@ -1361,6 +1363,7 @@ class MainLoopGame:
                     MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, wolf,gardien,maxlevel,hidden,exitSpaceGame)
                     #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
                     LEVEL+=1
+                    CREDIT=False
             else:
                 exitSpaceGame=True
                 LEVEL+=1
@@ -1370,6 +1373,7 @@ class MainLoopGame:
             choix="credits"
             MainLoopGame.check(image_fond,image_fond_credits,fenetre,choix,CREDIT,Choix,hidden)
             MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, wolf,gardien,maxlevel,hidden,exitSpaceGame)
+            CREDIT=False
         else:exitSpaceGame=True
         return Choix, continuer_accueil, exitSpaceGame
     def Specificlevel(event,continuer_accueil,image_fond,continuer_jeu,continuer,fenetre,levels,Choix,hidden,CREDIT,choix):
@@ -1414,6 +1418,7 @@ class MainLoopGame:
             MainLoopGame.boucledejeu(event,continuer_jeu,continuer,fond,fenetre,niveau, wolf,gardien,maxlevel,hidden,exitSpaceGame)
             #print("tour = {}\ncontinuer_jeu = {}\nchoix={}\ncontinuer={}\nniveau={}".format(i,continuer_jeu,choix,continuer,niveau))
             #LEVEL+=1
+            CREDIT=False
         return Choix, continuer_accueil
 
 # tkinterWindows.main_credits()

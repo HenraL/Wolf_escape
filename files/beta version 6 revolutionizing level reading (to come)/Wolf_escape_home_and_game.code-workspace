@@ -1,11 +1,17 @@
 {
 	"folders": [
-		{
-			"path": "..\\..\\.."
-		},
-		{
-			"path": "..\\..\\..\\..\\..\\wolf_escape_home"
-		}
-	],
+        {
+            "name": "beta version 6 revolutionizing level reading (to come)",
+            "path": "."
+        },
+        {
+            "name": "Wolf_escape",
+            "path": "..\\.."
+        },
+        {
+            "name": "wolf_escape_home",
+            "path": "..\\..\\wolf_escape_home"
+        }
+    ],
     "settings": {}
 }
