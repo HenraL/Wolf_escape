@@ -1,3 +1,10 @@
+try:
+    f=open("Start_debug.txt","r")
+    e=f.readline(1)
+    print(f"e={e}")
+    f.close()
+except:
+    e="0"
 import pygame, os, sys,requests
 from pygame.locals import *
 from pygame.mixer import *
@@ -17,11 +24,12 @@ Jeu dans lequel on doit déplacer un loup jusqu'à la viande à travers un labyr
 Script Python
 Fichiers : trop pour les lister ici
 """
-links=boot.initialise_links(main_for_rec_dict)
-RI=root(main=main_for_rec,main_dict=main_for_rec_dict,links=links) #initialising root
-for i in RI.links:
-    print(i)
-boot.TKinter.window.FetchingFiles(RI)
+if e=="0":
+    links=boot.initialise_links(main_for_rec_dict)
+    RI=root(main=main_for_rec,main_dict=main_for_rec_dict,links=links) #initialising root
+    for i in RI.links:
+        print(i)
+    boot.TKinter.window.FetchingFiles(RI)
 
 
 def choselevels():
@@ -60,17 +68,10 @@ pygame.key.set_repeat(400, 30)
 
 
 #BOUCLE PRINCIPALE
-try:
-    f=open("Start_debug.txt","r")
-    e=f.readline(1)
-    print(f"e={e}")
-    f.close()
-    if str(e)=="1":
-        continuer=0
-    else:
-        continuer=1
-except:
-    continuer = 1
+if str(e)=="1":
+    continuer=0
+else:
+    continuer=1
 while continuer==1:
     
     #Rafraichissement
