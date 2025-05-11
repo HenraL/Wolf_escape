@@ -2,6 +2,11 @@
  
 Wolf_escape, is a game I'm creating in which you have to guide a wolf througth different mazes and avoid ennemies.
 
+## Warning
+This code is no longer maintained, the only updates are from the renovate bot when dependencies change versions.
+There will be no security fixes.
+If you wish to reuse this code, I suggest you update the code yourself.
+
 # Playing the game
 
 It is easy to play the game.
