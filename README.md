@@ -1,6 +1,13 @@
 # Wolf_escape
- 
+
 Wolf_escape, is a game I'm creating in which you have to guide a wolf througth different mazes and avoid ennemies.
+
+## Disclaimer
+As the warning below puts it, it is an old attempt at making a game when I was learning python and classes, my way of programming a evolved a lot and this repository is kept as a way of keeping track of how far I have come. I might recreate the game oneday, who knows, but in any case, consider it as an indie attempt at making a game and take it for what it is, an attempt.
+
+Anyway, this project will now be archived, hope you enjoy what was created, and hope you enjoy future projects I make.
+
+Farewell.
 
 ## Warning
 This code is no longer maintained, the only updates are from the renovate bot when dependencies change versions.
